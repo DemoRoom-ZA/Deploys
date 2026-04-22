@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MFH Chartered Accountants Inc. | Trusted Financial Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #3E5A46;
+    --sage-light: #5C7A64;
+    --sage-pale: #D2DDD4;
+    --stone: #F5F0E8;
+    --stone2: #E8DFD0;
+    --stone3: #C8B89A;
+    --dark: #1E2B22;
+    --text: #2C3E32;
+    --muted: #7A8C7E;
+    --white: #FFFFFF;
+    --warm: #D4A96A;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--stone); color: var(--text); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(245,240,232,0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 6%; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--stone2);
+    transition: box-shadow 0.3s;
+  }
+  nav.s { box-shadow: 0 2px 20px rgba(62,90,70,0.08); }
+  .nl-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nl-emblem {
+    width: 44px; height: 44px; background: var(--sage);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nl-text h1 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--dark); letter-spacing: 1px; }
+  .nl-text p { font-size: 0.55rem; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+  .n-links { display: flex; gap: 32px; list-style: none; }
+  .n-links a { font-size: 0.82rem; letter-spacing: 0.5px; color: var(--text); text-decoration: none; transition: color 0.2s; font-weight: 400; }
+  .n-links a:hover { color: var(--sage); }
+  .n-cta { background: var(--sage); color: var(--white); padding: 11px 26px; font-size: 0.8rem; letter-spacing: 1px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+  .n-cta:hover { background: var(--sage-light); }
+  .ham { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+  .ham span { width: 24px; height: 1.5px; background: var(--dark); display: block; transition: 0.3s; }
+  .mob { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--stone); border-top: 1px solid var(--stone2); }
+  .mob.o { display: flex; }
+  .mob a { color: var(--text); text-decoration: none; padding: 14px 6%; font-size: 0.9rem; border-bottom: 1px solid var(--stone2); transition: color 0.2s; }
+  .mob a:hover { color: var(--sage); }
+  @media(max-width:900px){ .n-links,.n-cta{display:none} .ham{display:flex} }
+
+  /* HERO */
+  .hero { padding: 72px 0 0; min-height: 100vh; display: flex; flex-direction: column; }
+  .hero-top {
+    display: grid; grid-template-columns: 1fr 1fr;
+    flex: 1; min-height: calc(100vh - 72px);
+  }
+  .hero-text-col {
+    background: var(--dark); padding: 80px 6%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-kicker { font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase; color: var(--stone3); margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+  .hero-kicker::before { content:''; width:32px; height:1px; background: var(--stone3); }
+  .hero-text-col h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    line-height: 1.1; font-weight: 600; color: var(--white);
+    margin-bottom: 28px;
+  }
+  .hero-text-col h1 em { color: var(--warm); font-style: italic; }
+  .hero-text-col p { font-size: 1rem; line-height: 1.9; color: var(--sage-pale); max-width: 480px; margin-bottom: 40px; font-weight: 300; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-s { background: var(--sage); color: var(--white); padding: 14px 30px; font-size: 0.82rem; letter-spacing: 1px; text-decoration: none; font-weight: 600; transition: all 0.3s; display: inline-block; }
+  .btn-s:hover { background: var(--sage-light); transform: translateY(-2px); }
+  .btn-s2 { background: transparent; color: var(--white); padding: 13px 30px; font-size: 0.82rem; letter-spacing: 1px; text-decoration: none; font-weight: 400; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; display: inline-block; }
+  .btn-s2:hover { border-color: var(--stone3); color: var(--stone3); }
+  .hero-cred { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 40px; }
+  .cred { font-size: 0.72rem; letter-spacing: 1px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .cred::before { content:''; width:6px; height:6px; border-radius:50%; background: var(--sage-light); }
+  .hero-img-col {
+    background: var(--sage); position: relative; overflow: hidden;
+    display: flex; align-items: flex-end; justify-content: flex-start;
+    padding: 50px;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(var(--dark) 1px, transparent 1px);
+    background-size: 28px 28px; opacity: 0.15;
+  }
+  .hero-card-float {
+    position: relative; z-index: 2; background: var(--stone); padding: 32px;
+    max-width: 320px; box-shadow: 0 20px 60px rgba(30,43,34,0.3);
+  }
+  .hcf-year { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 600; color: var(--sage); line-height: 1; margin-bottom: 8px; }
+  .hcf-sub { font-size: 0.75rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 20px; }
+  .hcf-divider { height: 1px; background: var(--stone2); margin-bottom: 20px; }
+  .hcf-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .hcf-label { font-size: 0.72rem; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; }
+  .hcf-val { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--dark); }
+  .hcf-cta { margin-top: 20px; background: var(--sage); color: var(--white); padding: 12px; text-align: center; font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; display: block; transition: background 0.3s; font-weight: 600; }
+  .hcf-cta:hover { background: var(--sage-light); }
+  @media(max-width:800px){ .hero-top{grid-template-columns:1fr} .hero-img-col{display:none} .hero-text-col{padding:80px 6% 60px} }
+
+  /* SECTIONS */
+  section { padding: 100px 6%; }
+  .sec-eyebrow { font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase; color: var(--sage); font-weight: 600; display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .sec-eyebrow::before { content:''; width:30px; height:1.5px; background: var(--sage); }
+  h2.sec-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 600; color: var(--dark); line-height: 1.2; }
+  h2.sec-h em { color: var(--sage); font-style: italic; }
+
+  /* ABOUT */
+  .about { background: var(--white); }
+  .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1150px; align-items: center; }
+  .ab-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .ab-v1 { grid-column: span 2; background: var(--sage); padding: 50px; display: flex; align-items: center; justify-content: center; aspect-ratio: 3/1.5; }
+  .ab-v1-inner { text-align: center; }
+  .ab-v1-inner h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--white); font-style: italic; }
+  .ab-v1-inner p { font-size: 0.75rem; letter-spacing: 2px; color: var(--sage-pale); text-transform: uppercase; margin-top: 6px; }
+  .ab-v2 { background: var(--stone); padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+  .ab-v2 .n { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; color: var(--sage); line-height: 1; }
+  .ab-v2 .l { font-size: 0.72rem; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+  .ab-v3 { background: var(--warm); padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+  .ab-v3 .n { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; color: var(--white); line-height: 1; }
+  .ab-v3 .l { font-size: 0.72rem; letter-spacing: 1.5px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 4px; }
+  .ab-content p { font-size: 0.97rem; line-height: 1.9; color: #555; margin-bottom: 18px; font-weight: 300; }
+  .ab-content p:first-of-type { margin-top: 24px; }
+  .vals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+  .val { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text); }
+  .val::before { content:''; width:8px; height:8px; background: var(--sage); flex-shrink: 0; }
+  @media(max-width:800px){ .ab-grid{grid-template-columns:1fr;gap:40px} }
+
+  /* SERVICES */
+  .services { background: var(--stone); }
+  .svc-intro { max-width: 650px; margin-bottom: 60px; }
+  .svc-intro p { color: #666; line-height: 1.8; margin-top: 16px; font-weight: 300; }
+  .svc-list { display: flex; flex-direction: column; gap: 0; max-width: 1100px; }
+  .sv { display: grid; grid-template-columns: 80px 1fr auto; align-items: start; gap: 30px; padding: 36px 0; border-bottom: 1px solid var(--stone2); transition: background 0.3s; cursor: default; }
+  .sv:first-child { border-top: 1px solid var(--stone2); }
+  .sv:hover { background: var(--white); padding-left: 20px; padding-right: 20px; margin: 0 -20px; }
+  .sv-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--stone3); font-weight: 400; padding-top: 4px; }
+  .sv h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--dark); margin-bottom: 10px; }
+  .sv p { font-size: 0.88rem; color: #777; line-height: 1.7; font-weight: 300; }
+  .sv-tags { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; padding-top: 6px; }
+  .sv-tag { font-size: 0.68rem; letter-spacing: 1px; padding: 4px 12px; background: var(--sage-pale); color: var(--sage); text-transform: uppercase; white-space: nowrap; }
+  @media(max-width:700px){ .sv{grid-template-columns:60px 1fr;} .sv-tags{display:none;} }
+
+  /* STATS */
+  .stats-row { background: var(--dark); padding: 80px 6%; }
+  .sr-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .sr-text .sec-eyebrow { color: var(--stone3); }
+  .sr-text .sec-eyebrow::before { background: var(--stone3); }
+  .sr-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,3.5vw,2.8rem); color: var(--white); font-weight: 500; line-height: 1.3; }
+  .sr-text h2 em { color: var(--warm); font-style: italic; }
+  .sr-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .sr-n .v { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 600; color: var(--warm); line-height: 1; }
+  .sr-n .l { font-size: 0.75rem; letter-spacing: 2px; color: var(--sage-pale); text-transform: uppercase; margin-top: 6px; }
+  @media(max-width:700px){ .sr-inner{grid-template-columns:1fr;gap:50px;} }
+
+  /* WHY */
+  .why { background: var(--white); }
+  .why-flex { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; max-width: 1100px; }
+  .why-side { position: sticky; top: 100px; }
+  .why-side p { color: #666; line-height: 1.8; margin-top: 18px; font-weight: 300; font-size: 0.97rem; }
+  .why-items { display: flex; flex-direction: column; gap: 0; }
+  .wi { padding: 32px 0; border-bottom: 1px solid var(--stone2); }
+  .wi:first-child { padding-top: 0; }
+  .wi-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+  .wi-icon { width: 40px; height: 40px; background: var(--sage-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .wi h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--dark); }
+  .wi p { font-size: 0.88rem; color: #777; line-height: 1.8; font-weight: 300; }
+  @media(max-width:800px){ .why-flex{grid-template-columns:1fr;gap:40px;} .why-side{position:static;} }
+
+  /* TEAM */
+  .team { background: var(--stone); }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; }
+  .tc { background: var(--white); overflow: hidden; transition: box-shadow 0.3s; }
+  .tc:hover { box-shadow: 0 12px 40px rgba(62,90,70,0.12); }
+  .tc-av { aspect-ratio: 1; background: var(--sage); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--white); font-style: italic; }
+  .tc-info { padding: 28px; }
+  .tc-info h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .tc-role { font-size: 0.72rem; letter-spacing: 2px; color: var(--sage); text-transform: uppercase; font-weight: 600; margin-bottom: 14px; }
+  .tc-info p { font-size: 0.85rem; color: #777; line-height: 1.7; font-weight: 300; }
+  @media(max-width:700px){ .team-grid{grid-template-columns:1fr;} }
+
+  /* TESTI */
+  .testi { background: var(--sage); padding: 100px 6%; }
+  .testi-inner { max-width: 1100px; margin: 0 auto; }
+  .testi-inner .sec-eyebrow { color: var(--sage-pale); }
+  .testi-inner .sec-eyebrow::before { background: var(--sage-pale); }
+  .testi-inner h2 { color: var(--white); margin-bottom: 60px; }
+  .tg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .t-card { background: rgba(255,255,255,0.08); padding: 36px; border: 1px solid rgba(255,255,255,0.1); transition: background 0.3s; }
+  .t-card:hover { background: rgba(255,255,255,0.15); }
+  .t-stars { color: var(--warm); font-size: 0.85rem; margin-bottom: 20px; letter-spacing: 2px; }
+  .t-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: 20px; }
+  .t-name { font-size: 0.72rem; letter-spacing: 2px; color: var(--sage-pale); text-transform: uppercase; }
+  @media(max-width:700px){ .tg{grid-template-columns:1fr;} }
+
+  /* FAQ */
+  .faq { background: var(--stone); }
+  .faq-wrap { max-width: 760px; }
+  .faq-wrap .sec-eyebrow { margin-bottom: 18px; }
+  .faq-wrap h2 { margin-bottom: 50px; }
+  .fi { border-bottom: 1px solid var(--stone2); }
+  .fq { padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; font-size: 1rem; color: var(--dark); font-weight: 400; }
+  .fq-icon { width: 26px; height: 26px; border: 1.5px solid var(--sage); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--sage); font-size: 1.1rem; transition: background 0.2s, color 0.2s; }
+  .fq-icon.active { background: var(--sage); color: var(--white); }
+  .fa { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s; }
+  .fa.o { max-height: 250px; padding-bottom: 20px; }
+  .fa p { font-size: 0.9rem; color: #777; line-height: 1.8; font-weight: 300; }
+
+  /* CONTACT */
+  .contact { background: var(--white); }
+  .ct-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; max-width: 1100px; }
+  .ct-left h2 { margin-bottom: 36px; }
+  .ct-left p { color: #666; line-height: 1.8; font-weight: 300; margin-bottom: 36px; font-size: 0.97rem; }
+  .ct-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+  .ct-ico { width: 40px; height: 40px; background: var(--sage-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ct-item h5 { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-bottom: 4px; font-weight: 700; }
+  .ct-item p, .ct-item a { font-size: 0.88rem; color: #666; line-height: 1.6; text-decoration: none; }
+  .hrs { margin-top: 6px; }
+  .hr-r { display: flex; justify-content: space-between; font-size: 0.82rem; color: #888; padding: 3px 0; }
+  .hr-r strong { color: var(--dark); font-weight: 600; }
+  form.ctf { display: flex; flex-direction: column; gap: 16px; }
+  .ctf input, .ctf textarea {
+    background: var(--stone); border: 1px solid var(--stone2); border-radius: 0;
+    color: var(--dark); padding: 14px 18px; font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.3s; width: 100%;
+  }
+  .ctf input:focus, .ctf textarea:focus { border-color: var(--sage); background: var(--white); }
+  .ctf input::placeholder, .ctf textarea::placeholder { color: #aaa; }
+  .ctf textarea { min-height: 130px; resize: vertical; }
+  .ctf .fr { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:800px){ .ct-grid{grid-template-columns:1fr;gap:50px;} .ctf .fr{grid-template-columns:1fr;} }
+
+  /* MAP */
+  .mapbox { height: 420px; }
+  .mapbox iframe { width: 100%; height: 100%; border: none; display: block; }
+
+  /* FOOTER */
+  footer { background: var(--dark); padding: 70px 6% 30px; }
+  .fg { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .fb p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-top: 16px; max-width: 280px; font-weight: 300; }
+  .fc h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 18px; }
+  .fl { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .fl a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .fl a:hover { color: var(--warm); }
+  .fbot { display: flex; justify-content: space-between; padding-top: 28px; flex-wrap: wrap; gap: 12px; }
+  .fbot p { font-size: 0.78rem; color: var(--muted); }
+  .fbot span { color: var(--warm); }
+  @media(max-width:700px){ .fg{grid-template-columns:1fr;gap:30px;} }
+
+  /* ANIMATIONS */
+  .up { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .up.v { opacity: 1; transform: translateY(0); }
+  .left { opacity: 0; transform: translateX(-36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .left.v { opacity: 1; transform: translateX(0); }
+  .right { opacity: 0; transform: translateX(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .right.v { opacity: 1; transform: translateX(0); }
+  .scale { opacity: 0; transform: scale(0.94); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .scale.v { opacity: 1; transform: scale(1); }
+  .sg > * { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .sg > *.v { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav id="topnav">
+  <a href="#" class="nl-logo">
+    <div class="nl-emblem">
+      <svg width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="13,2 24,8.5 24,17.5 13,24 2,17.5 2,8.5" fill="none" stroke="#F5F0E8" stroke-width="1.5"/>
+        <text x="13" y="17.5" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#F5F0E8" font-weight="700">MFH</text>
+      </svg>
+    </div>
+    <div class="nl-text">
+      <h1>MFH Chartered Accountants</h1>
+      <p>Incorporated · Est. 2013 · Pretoria</p>
+    </div>
+  </a>
+  <ul class="n-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why MFH</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="n-cta">Book Consultation</a>
+  <button class="ham" onclick="toggleMob()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob" id="mobMenu">
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#why" onclick="closeMob()">Why MFH</a>
+  <a href="#team" onclick="closeMob()">Team</a>
+  <a href="#testimonials" onclick="closeMob()">Testimonials</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="hero-text-col">
+      <div class="hero-kicker">IRBA Accredited · B-BBEE Compliant</div>
+      <h1>Trusted Financial<br><em>Advisors &amp;</em><br>Accountants</h1>
+      <p>From bookkeeping to complex audits, MFH Chartered Accountants Inc. provides professional, personalised financial services to businesses and individuals across South Africa.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-s">Book a Free Consultation</a>
+        <a href="#services" class="btn-s2">Our Services</a>
+      </div>
+      <div class="hero-cred">
+        <span class="cred">IRBA Accredited</span>
+        <span class="cred">B-BBEE Verified</span>
+        <span class="cred">SAIBA & SAIT Members</span>
+        <span class="cred">Est. 2013</span>
+      </div>
+    </div>
+    <div class="hero-img-col">
+      <div class="hero-pattern"></div>
+      <div class="hero-card-float">
+        <div class="hcf-year">12</div>
+        <div class="hcf-sub">Years in Professional Practice</div>
+        <div class="hcf-divider"></div>
+        <div class="hcf-row"><span class="hcf-label">Clients Served</span><span class="hcf-val">500+</span></div>
+        <div class="hcf-row"><span class="hcf-label">Rating</span><span class="hcf-val">4.4 ★</span></div>
+        <div class="hcf-row"><span class="hcf-label">Services</span><span class="hcf-val">6+</span></div>
+        <a href="#contact" class="hcf-cta">Schedule Consultation</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="ab-grid">
+    <div class="ab-visual scale">
+      <div class="ab-v1">
+        <div class="ab-v1-inner">
+          <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px"><polygon points="25,3 47,15 47,35 25,47 3,35 3,15" fill="none" stroke="rgba(245,240,232,0.5)" stroke-width="1.5"/><polygon points="25,12 38,19 38,31 25,38 12,31 12,19" fill="none" stroke="rgba(245,240,232,0.3)" stroke-width="1"/><text x="25" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="rgba(245,240,232,0.9)" font-weight="700">MFH</text></svg>
+          <h3>Excellence in Financial Services</h3>
+          <p>Laudium · Pretoria · Potchefstroom</p>
+        </div>
+      </div>
+      <div class="ab-v2">
+        <div class="n">2013</div>
+        <div class="l">Year Established</div>
+      </div>
+      <div class="ab-v3">
+        <div class="n">4.4★</div>
+        <div class="l">Client Rating</div>
+      </div>
+    </div>
+    <div class="ab-content up">
+      <div class="sec-eyebrow">Our Story</div>
+      <h2 class="sec-h">A Firm Built on <em>Integrity</em> and Community</h2>
+      <p>MFH Chartered Accountants Inc. was founded in 2013 by Mohmed Faisal Hassam with a singular vision: to build a professional, reliable, black-empowered accounting firm that serves businesses and individuals with distinction.</p>
+      <p>Today, MFH Group operates across Gauteng and North West, delivering assurance, taxation, advisory, and B-BBEE verification services to small, medium, and large businesses in both the private and public sectors.</p>
+      <p>Our values guide every client engagement: we believe that integrity, commitment, and genuine care for our clients' financial wellbeing are the foundations of lasting professional relationships.</p>
+      <div class="vals">
+        <div class="val">Excellence</div>
+        <div class="val">Professionalism</div>
+        <div class="val">Integrity</div>
+        <div class="val">Accountability</div>
+        <div class="val">Reliability</div>
+        <div class="val">Value-Adding</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="svc-intro up">
+    <div class="sec-eyebrow">What We Offer</div>
+    <h2 class="sec-h">Professional Services for Every <em>Financial Need</em></h2>
+    <p>Whether you're a solo entrepreneur or a listed company, MFH provides the complete spectrum of professional financial services — all under one roof.</p>
+  </div>
+  <div class="svc-list">
+    <div class="sv up">
+      <div class="sv-num">01</div>
+      <div>
+        <h3>Assurance &amp; Auditing</h3>
+        <p>Independent audit and assurance engagements conducted under full IRBA accreditation — providing stakeholders with credible, regulatory-compliant financial reporting for private and public sector entities.</p>
+      </div>
+      <div class="sv-tags"><span class="sv-tag">External Audit</span><span class="sv-tag">Review</span></div>
+    </div>
+    <div class="sv up">
+      <div class="sv-num">02</div>
+      <div>
+        <h3>Taxation Services</h3>
+        <p>Comprehensive tax management including corporate tax, personal income tax, VAT, PAYE, provisional tax, and estate planning — structured to maximise compliance and minimise unnecessary tax exposure.</p>
+      </div>
+      <div class="sv-tags"><span class="sv-tag">SARS</span><span class="sv-tag">VAT</span><span class="sv-tag">PAYE</span></div>
+    </div>
+    <div class="sv up">
+      <div class="sv-num">03</div>
+      <div>
+        <h3>Bookkeeping &amp; Payroll</h3>
+        <p>Accurate monthly bookkeeping, management accounts, and end-to-end payroll administration — keeping your financial records clean, compliant, and ready for strategic decision-making.</p>
+      </div>
+      <div class="sv-tags"><span class="sv-tag">Monthly</span><span class="sv-tag">Payslips</span></div>
+    </div>
+    <div class="sv up">
+      <div class="sv-num">04</div>
+      <div>
+        <h3>B-BBEE Verification</h3>
+        <p>Accredited B-BBEE verification services for EME, QSE, and Generic entities — helping your business achieve the best possible scorecard and meet government and private procurement requirements.</p>
+      </div>
+      <div class="sv-tags"><span class="sv-tag">EME/QSE</span><span class="sv-tag">Generic</span></div>
+    </div>
+    <div class="sv up">
+      <div class="sv-num">05</div>
+      <div>
+        <h3>Company Secretarial</h3>
+        <p>Full CIPC company registrations, VAT, PAYE, UIF, and COIDA registrations, family trust and NPO formations, and all ongoing statutory compliance filings.</p>
+      </div>
+      <div class="sv-tags"><span class="sv-tag">CIPC</span><span class="sv-tag">Trusts</span></div>
+    </div>
+    <div class="sv up">
+      <div class="sv-num">06</div>
+      <div>
+        <h3>Business Advisory</h3>
+        <p>Strategic financial consulting, investment guidance, and business growth advisory — supporting entrepreneurs and executives in making sound, informed financial decisions.</p>
+      </div>
+      <div class="sv-tags"><span class="sv-tag">Strategy</span><span class="sv-tag">Growth</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="sr-inner">
+    <div class="left">
+      <div class="sec-eyebrow">Our Record</div>
+      <h2 class="sec-h" style="color:var(--white)">Twelve years of<br><em>professional excellence</em><br>in South Africa</h2>
+    </div>
+    <div class="sr-nums sg">
+      <div class="sr-n"><div class="v">500+</div><div class="l">Clients Served</div></div>
+      <div class="sr-n"><div class="v">4.4★</div><div class="l">Average Rating</div></div>
+      <div class="sr-n"><div class="v">12+</div><div class="l">Years Practice</div></div>
+      <div class="sr-n"><div class="v">B-BBEE</div><div class="l">Verified Firm</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="why-flex">
+    <div class="why-side left">
+      <div class="sec-eyebrow">Why Choose MFH</div>
+      <h2 class="sec-h">What Sets Us <em>Apart</em></h2>
+      <p>We believe great accounting is about more than numbers — it's about building trust, delivering clarity, and giving every client the confidence to focus on what they do best.</p>
+      <a href="#contact" class="btn-s" style="margin-top:30px;display:inline-block">Work With Us</a>
+    </div>
+    <div class="why-items">
+      <div class="wi up">
+        <div class="wi-head">
+          <div class="wi-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3E5A46" stroke-width="1.5"><path d="M11 2L20 7V15L11 20L2 15V7Z"/><path d="M7 11L10 14L15 9"/></svg>
+          </div>
+          <h4>IRBA & SAIBA Accredited Professionals</h4>
+        </div>
+        <p>Every engagement is conducted by fully accredited professionals. Our IRBA registration ensures audit work is credible, legally sound, and upheld to the highest regulatory standards in South Africa.</p>
+      </div>
+      <div class="wi up">
+        <div class="wi-head">
+          <div class="wi-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3E5A46" stroke-width="1.5"><circle cx="11" cy="7" r="3"/><path d="M5 19C5 15.7 7.7 13 11 13C14.3 13 17 15.7 17 19"/></svg>
+          </div>
+          <h4>Dedicated, Personalised Client Service</h4>
+        </div>
+        <p>You'll always deal with a qualified, senior professional — not a call centre. We take time to understand your business, your goals, and the specific financial challenges you face.</p>
+      </div>
+      <div class="wi up">
+        <div class="wi-head">
+          <div class="wi-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3E5A46" stroke-width="1.5"><rect x="2" y="8" width="18" height="12" rx="1.5"/><path d="M7 8V6C7 3.8 9 2 11 2C13 2 15 3.8 15 6V8"/></svg>
+          </div>
+          <h4>Black Empowered — Truly South African</h4>
+        </div>
+        <p>MFH is a proudly B-BBEE compliant firm. Choosing MFH supports your own transformation objectives and demonstrates commitment to inclusive economic participation.</p>
+      </div>
+      <div class="wi up">
+        <div class="wi-head">
+          <div class="wi-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3E5A46" stroke-width="1.5"><polyline points="4,17 8,11 12,13 17,6"/><circle cx="17" cy="6" r="2"/></svg>
+          </div>
+          <h4>Public & Private Sector Experience</h4>
+        </div>
+        <p>Our team has served both government entities and private companies, giving us broad understanding of the different regulatory environments, reporting requirements, and compliance frameworks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div style="max-width:600px;margin-bottom:60px" class="up">
+    <div class="sec-eyebrow">Meet the Team</div>
+    <h2 class="sec-h">The People Who <em>Care</em> About Your Numbers</h2>
+  </div>
+  <div class="team-grid sg">
+    <div class="tc">
+      <div class="tc-av">MFH</div>
+      <div class="tc-info">
+        <h4>Mohmed Faisal Hassam</h4>
+        <div class="tc-role">Founder & Director · CA(SA) · IRBA</div>
+        <p>An IRBA-accredited chartered accountant and the founding director of MFH Group. Faisal leads with a commitment to quality, professional accountability, and client-centred service.</p>
+      </div>
+    </div>
+    <div class="tc">
+      <div class="tc-av">MS</div>
+      <div class="tc-info">
+        <h4>Muhammad Seedat</h4>
+        <div class="tc-role">Senior Accountant · SAIBA · SAIT</div>
+        <p>B.Compt graduate from UNISA and a registered member of both SAIBA and SAIT. Muhammad brings 5+ years of public practice experience including articles served at PKF.</p>
+      </div>
+    </div>
+    <div class="tc">
+      <div class="tc-av">MG</div>
+      <div class="tc-info">
+        <h4>Advisory & Support Team</h4>
+        <div class="tc-role">Consultants, Tax Advisors & Payroll Specialists</div>
+        <p>Our wider team of qualified professionals provides specialist support across payroll, B-BBEE, company secretarial, and business advisory — ensuring seamless, comprehensive service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials">
+  <div class="testi-inner">
+    <div class="sec-eyebrow">Client Testimonials</div>
+    <h2 class="sec-h">What Our Clients <em>Say</em></h2>
+    <div class="tg sg">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"MFH has completely transformed the way we manage our finances. Their tax advice is genuinely outstanding and we've saved significantly as a direct result."</p>
+        <div class="t-name">— Business Owner, Pretoria</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"The B-BBEE process was surprisingly smooth. MFH guided us step by step and helped us achieve a result we're very proud of. Highly recommend."</p>
+        <div class="t-name">— Director, Gauteng Company</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★☆</div>
+        <p>"Responsive, professional, and genuinely invested in our success. Dealing with MFH feels like working with a trusted partner, not just an accountant."</p>
+        <div class="t-name">— Entrepreneur, North West</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-wrap">
+    <div class="sec-eyebrow up">Frequently Asked</div>
+    <h2 class="sec-h up">Common Questions About <em>Our Services</em></h2>
+    <div class="fi up">
+      <div class="fq" onclick="toggleF(this)">Do you service businesses of all sizes? <span class="fq-icon">+</span></div>
+      <div class="fa"><p>Yes. MFH serves sole proprietors, startups, SMEs, and large corporates — as well as government entities. Every client receives tailored, professional service regardless of size.</p></div>
+    </div>
+    <div class="fi up">
+      <div class="fq" onclick="toggleF(this)">How do you handle B-BBEE verification? <span class="fq-icon">+</span></div>
+      <div class="fa"><p>We are accredited to conduct B-BBEE verification for EME, QSE, and Generic entities. We assess your scorecard across all elements and provide guidance on improvement opportunities before the formal verification.</p></div>
+    </div>
+    <div class="fi up">
+      <div class="fq" onclick="toggleF(this)">Can MFH register my new company? <span class="fq-icon">+</span></div>
+      <div class="fa"><p>Absolutely. We handle the full CIPC registration process — including name reservation, Memorandum of Incorporation filing, VAT registration, PAYE, UIF, and COIDA setup.</p></div>
+    </div>
+    <div class="fi up">
+      <div class="fq" onclick="toggleF(this)">Do you offer remote services? <span class="fq-icon">+</span></div>
+      <div class="fa"><p>Yes. While we are based in Laudium, Pretoria (with a presence in Potchefstroom), we assist clients nationally through secure digital document exchange and remote consultations.</p></div>
+    </div>
+    <div class="fi up">
+      <div class="fq" onclick="toggleF(this)">What are your office hours? <span class="fq-icon">+</span></div>
+      <div class="fa"><p>Our office is open Monday to Friday from 8:00 AM to 5:00 PM, and Saturdays from 9:00 AM to 1:00 PM. Urgent after-hours consultations can be arranged by appointment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="ct-grid">
+    <div class="left">
+      <div class="sec-eyebrow">Reach Out</div>
+      <h2 class="sec-h">Let's Start a <em>Conversation</em></h2>
+      <p>Whether you need a quick tax question answered or are looking for a long-term financial partner, we'd love to hear from you. Complete the form and a member of our team will be in touch.</p>
+      <div class="ct-item">
+        <div class="ct-ico"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3E5A46" stroke-width="1.5"><path d="M10 1.5C7 1.5 4.5 4 4.5 7.3C4.5 11.5 10 18 10 18C10 18 15.5 11.5 15.5 7.3C15.5 4 13 1.5 10 1.5Z"/><circle cx="10" cy="7.5" r="2"/></svg></div>
+        <div><h5>Address</h5><p>282 Jewel Street, Laudium<br>Pretoria, Gauteng 0037</p></div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-ico"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3E5A46" stroke-width="1.5"><path d="M3.5 3.5C3.5 3.5 5.5 3.5 6.5 5.5L7.5 7.5C8 8.5 7.5 9.5 6.5 10C5.5 10.5 5 11 6 12.5C7 14 8.5 15.5 10.5 16.5C12 17.5 12.5 17 13 16C13.5 15 14.5 14.5 15.5 15L17.5 16C19.5 17 19.5 17.5 19.5 17.5C19.5 17.5 19.5 19.5 17.5 19.5C7.5 19.5 1.5 11.5 1.5 3.5C1.5 1.5 3.5 3.5 3.5 3.5Z"/></svg></div>
+        <div><h5>Phone</h5><p><a href="tel:+27123745169">+27 12 374 5169</a><br><a href="tel:0861634462">0861 MFH INC (634 462)</a></p></div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-ico"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3E5A46" stroke-width="1.5"><rect x="1.5" y="4.5" width="17" height="11" rx="1.5"/><polyline points="1.5,4.5 10,11.5 18.5,4.5"/></svg></div>
+        <div><h5>Email</h5><p><a href="mailto:info@mfhca.co.za">info@mfhca.co.za</a></p></div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-ico"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3E5A46" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><polyline points="10,5.5 10,10 13,12.5"/></svg></div>
+        <div>
+          <h5>Hours</h5>
+          <div class="hrs">
+            <div class="hr-r">Mon – Friday <strong>08:00 – 17:00</strong></div>
+            <div class="hr-r">Saturday <strong>09:00 – 13:00</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="ctf right" onsubmit="ctfSubmit(event)">
+      <div class="fr">
+        <input type="text" placeholder="Your Name" id="ct_n" required>
+        <input type="email" placeholder="Email Address" id="ct_e" required>
+      </div>
+      <input type="tel" placeholder="Phone Number" id="ct_p">
+      <textarea placeholder="Tell us how we can help..." id="ct_m" required></textarea>
+      <button type="submit" class="btn-s" style="border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;width:100%">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="mapbox">
+  <iframe src="https://maps.google.com/maps?q=282+Jewel+Street+Laudium+Pretoria+South+Africa&output=embed" allowfullscreen loading="lazy"></iframe>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div class="fb">
+      <a href="#" class="nl-logo" style="align-items:center">
+        <div class="nl-emblem">
+          <svg width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><polygon points="13,2 24,8.5 24,17.5 13,24 2,17.5 2,8.5" fill="none" stroke="#F5F0E8" stroke-width="1.5"/><text x="13" y="17.5" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#F5F0E8" font-weight="700">MFH</text></svg>
+        </div>
+        <div class="nl-text" style="color:white"><h1 style="color:white">MFH Chartered Accountants</h1><p style="color:var(--muted)">Incorporated · Est. 2013</p></div>
+      </a>
+      <p>A proudly black-empowered chartered accounting firm providing innovative, professional financial services from Laudium, Pretoria to clients across South Africa.</p>
+    </div>
+    <div class="fc">
+      <h5>Services</h5>
+      <ul class="fl">
+        <li><a href="#services">Assurance & Auditing</a></li>
+        <li><a href="#services">Taxation Services</a></li>
+        <li><a href="#services">Bookkeeping & Payroll</a></li>
+        <li><a href="#services">B-BBEE Verification</a></li>
+        <li><a href="#services">Company Secretarial</a></li>
+        <li><a href="#services">Business Advisory</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Contact Us</h5>
+      <ul class="fl">
+        <li><a href="tel:+27123745169">+27 12 374 5169</a></li>
+        <li><a href="mailto:info@mfhca.co.za">info@mfhca.co.za</a></li>
+        <li><a href="http://www.mfhca.co.za" target="_blank">www.mfhca.co.za</a></li>
+        <li><a href="https://www.facebook.com/MFHCA" target="_blank">Facebook</a></li>
+        <li><a href="#contact">282 Jewel St, Laudium</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 MFH Chartered Accountants Inc. All rights reserved.</p>
+    <p>Registered: <span>IRBA · SAIBA · SAIT · CIPC</span></p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('topnav').classList.toggle('s', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  function toggleMob(){ document.getElementById('mobMenu').classList.toggle('o'); }
+  function closeMob(){ document.getElementById('mobMenu').classList.remove('o'); }
+
+  // Animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.up,.left,.right,.scale').forEach(el => obs.observe(el));
+
+  const obs2 = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.querySelectorAll(':scope > *').forEach((c, i) => {
+          setTimeout(() => c.classList.add('v'), i * 130);
+        });
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.sg').forEach(el => obs2.observe(el));
+
+  // FAQ
+  function toggleF(el){
+    const a = el.nextElementSibling;
+    const ic = el.querySelector('.fq-icon');
+    const open = a.classList.contains('o');
+    document.querySelectorAll('.fa.o').forEach(x => { x.classList.remove('o'); x.previousElementSibling.querySelector('.fq-icon').textContent = '+'; x.previousElementSibling.querySelector('.fq-icon').classList.remove('active'); });
+    if(!open){ a.classList.add('o'); ic.textContent = '−'; ic.classList.add('active'); }
+  }
+
+  // Form
+  function ctfSubmit(e){
+    e.preventDefault();
+    const n = document.getElementById('ct_n').value;
+    const em = document.getElementById('ct_e').value;
+    const ph = document.getElementById('ct_p').value;
+    const ms = document.getElementById('ct_m').value;
+    window.location.href = `mailto:info@mfhca.co.za?subject=Enquiry from ${n}&body=Name: ${n}%0AEmail: ${em}%0APhone: ${ph}%0A%0AMessage: ${ms}`;
+  }
+</script>
+</body>
+</html>
