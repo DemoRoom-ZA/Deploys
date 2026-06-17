@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Tems Logistics - Premium Passenger & Cargo Transport Across Southern Africa">
+<meta name="theme-color" content="#0D47A1">
+<title>Tems Logistics | Travel. Trust. Tems.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0D47A1;--gold:#FFC107;--white:#fff;--ink:#050810;--surface:#F4F6FF;--muted:#6B7280}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"DM Sans",sans-serif;background:#fff;color:#111}
+.skip{position:absolute;left:-9999px}.skip:focus{left:10px;top:10px;background:#fff;padding:10px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;line-height:1.05}
+h1{font-size:clamp(3.5rem,8vw,7rem)} h2{font-size:clamp(2rem,4vw,4rem)}
+section{padding:clamp(5rem,10vw,10rem) 5vw}
+.nav{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);z-index:50;border-bottom:1px solid #eee}
+.nav-inner{max-width:1400px;margin:auto;padding:18px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;gap:12px;align-items:center;font-weight:700}
+.links{display:flex;gap:24px}.links a{text-decoration:none;color:#111}
+.reserve{color:var(--gold);font-weight:700}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.left{background:var(--blue);color:#fff;padding:8vw;display:flex;flex-direction:column;justify-content:center}
+.right{background:linear-gradient(135deg,#dfe8ff,#f4f6ff);position:relative;overflow:hidden}
+.badge{position:absolute;right:30px;top:30px;background:#fff;padding:12px 18px;border-radius:999px}
+.cta{display:flex;gap:16px;margin-top:24px}.btn{padding:14px 22px;text-decoration:none;border-radius:4px}
+.gold{background:var(--gold);color:#111}.outline{border:1px solid #fff;color:#fff}
+.marquee{background:#050810;color:var(--gold);padding:12px;white-space:nowrap;overflow:hidden}
+.marquee span{display:inline-block;animation:mar 20s linear infinite}
+@keyframes mar{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.num{font-size:8rem;opacity:.08;position:absolute}
+.stats{background:var(--blue);color:#fff}.statsgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.count{font-size:4rem;font-family:"Cormorant Garamond",serif}
+.fleetwrap{display:flex;gap:20px;overflow:auto;scroll-snap-type:x mandatory}
+.card{min-width:420px;border:1px solid #ddd;padding:24px;scroll-snap-align:start}
+.routes{background:#f8faff;text-align:center}
+.testimonials{background:var(--blue);color:#fff;text-align:center}
+.contact{background:#050810;color:#fff}
+.contactgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+input,select,textarea{width:100%;padding:12px;margin:8px 0}
+button{padding:14px 24px;background:var(--gold);border:0}
+footer{background:#050810;color:#fff;text-align:center;padding:50px 20px}
+.reveal{opacity:0;transform:translateY(40px);transition:1s}.reveal.show{opacity:1;transform:none}
+:focus-visible{outline:3px solid var(--gold)}
+svg{max-width:100%}
+@media(max-width:1024px){.hero,.split,.contactgrid,.statsgrid{grid-template-columns:1fr}.links{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+<div class="nav-inner">
+<div class="logo">
+<svg width="48" height="48" role="img" aria-label="Tems Logistics Logo" viewBox="0 0 100 100">
+<polygon points="25,5 75,5 95,50 75,95 25,95 5,50" fill="none" stroke="#FFC107" stroke-width="4"/>
+<path d="M15 50 H50 V10" fill="#0D47A1"/>
+<text x="28" y="63" fill="#FFC107" font-size="34" font-family="DM Sans">TL</text>
+</svg>
+<div>TEMS LOGISTICS</div>
+</div>
+<div class="links">
+<a href="#services">Services</a><a href="#fleet">Fleet</a><a href="#routes">Routes</a><a href="#contact">Contact</a>
+</div>
+<div class="reserve">Reserve Now</div>
+</div>
+</nav>
+
+<main id="main">
+<section class="hero">
+<div class="left">
+<p style="letter-spacing:.08em">PREMIUM SOUTHERN AFRICA TRANSPORT</p>
+<h1>Travel. Trust. Tems.</h1>
+<p>Luxury passenger transport, dependable cargo logistics, and cross-border mobility connecting Southern Africa with professionalism and care.</p>
+<div class="cta">
+<a class="btn gold" href="#contact">Book Journey</a>
+<a class="btn outline" href="#fleet">View Fleet</a>
+</div>
+</div>
+<div class="right">
+<div class="badge">Licensed Cross-Border Operator</div>
+<svg viewBox="0 0 600 500">
+<path d="M50 420 C200 300,300 350,550 120" stroke="#0D47A1" stroke-width="8" fill="none" stroke-dasharray="12"/>
+</svg>
+</div>
+</section>
+
+<div class="marquee"><span>Johannesburg → Harare • Cape Town → Durban • Pretoria → Gaborone • Johannesburg → Lusaka • Durban → Maputo • Windhoek → Johannesburg</span></div>
+
+<section id="services" class="reveal">
+<h2>Services</h2>
+<div class="split">
+<div><h3>01 Luxury Passenger Bus</h3><p>Comfort-focused intercity and cross-border travel with professional drivers and reliable schedules.</p></div>
+<div><img alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='220'%3E%3Crect x='40' y='70' width='380' height='90' fill='%230D47A1'/%3E%3C/svg%3E"></div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="split">
+<div><h3>02 Cargo & Freight Trailer</h3><p>Regional freight movement for commercial clients requiring dependable delivery and route coverage.</p></div>
+<div><svg viewBox="0 0 500 200"><rect x="40" y="60" width="320" height="80" fill="#0D47A1"/></svg></div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="split">
+<div><h3>03 Charter & Corporate</h3><p>Executive group transport, events, tourism circuits, and corporate mobility solutions.</p></div>
+<div><svg viewBox="0 0 500 200"><circle cx="250" cy="100" r="80" fill="#FFC107"/></svg></div>
+</div>
+</section>
+
+<section class="stats reveal">
+<h2>By The Numbers</h2>
+<div class="statsgrid">
+<div><div class="count" data-target="35">0</div><div>Routes</div></div>
+<div><div class="count" data-target="12">0</div><div>Years</div></div>
+<div><div class="count" data-target="250000">0</div><div>Passengers</div></div>
+<div><div class="count" data-target="80000">0</div><div>Tons Cargo</div></div>
+</div>
+</section>
+
+<section id="fleet" class="reveal">
+<h2>Fleet Detail</h2>
+<div class="fleetwrap">
+<div class="card"><h3>Luxury Coach</h3><svg viewBox="0 0 500 200"><rect x="40" y="60" width="350" height="90" fill="#0D47A1"/></svg><ul><li>Air conditioned</li><li>Reclining seats</li><li>USB charging</li></ul></div>
+<div class="card"><h3>Freight Trailer</h3><svg viewBox="0 0 500 200"><rect x="40" y="60" width="380" height="80" fill="#FFC107"/></svg><ul><li>Regional haulage</li><li>Commercial freight</li><li>Cross-border capable</li></ul></div>
+</div>
+</section>
+
+<section id="routes" class="routes reveal">
+<h2>Southern Africa Routes</h2>
+<svg viewBox="0 0 700 400">
+<path d="M150 60 L450 70 L550 250 L350 350 L180 280 Z" fill="none" stroke="#0D47A1"/>
+<circle cx="220" cy="200" r="6"/><circle cx="320" cy="120" r="6"/><circle cx="420" cy="210" r="6"/>
+<path d="M220 200 L320 120 L420 210" stroke="#FFC107" fill="none" stroke-dasharray="8"/>
+</svg>
+</section>
+
+<section class="testimonials reveal">
+<h2>What Clients Say</h2>
+<blockquote id="quote">“Professional drivers, punctual departures, and excellent comfort across borders.”</blockquote>
+</section>
+
+<section class="reveal">
+<h2>Find Us On The Road</h2>
+<iframe title="Map" width="100%" height="400" src="https://www.openstreetmap.org/export/embed.html"></iframe>
+<p>Head Office: Johannesburg, Gauteng, South Africa</p>
+</section>
+
+<section id="contact" class="contact">
+<div class="contactgrid">
+<div>
+<h2>Reserve Your Journey</h2>
+<form>
+<input required placeholder="Full Name">
+<input required type="tel" placeholder="Phone">
+<input required type="email" placeholder="Email">
+<select required><option>Passenger</option><option>Cargo</option><option>Corporate Charter</option></select>
+<input type="date" required>
+<textarea rows="5" placeholder="Trip details"></textarea>
+<button type="submit">Submit Booking Request</button>
+</form>
+</div>
+<div>
+<h2>Tems Logistics</h2>
+<p>Premium transport solutions across Southern Africa.</p>
+<p>+27 (0)11 000 0000</p>
+<p>bookings@temslogistics.co.za</p>
+<a class="btn gold" href="#">WhatsApp Us</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div>TEMS LOGISTICS</div>
+<hr style="border-color:#FFC107">
+<p>© 2026 Tems Logistics. All rights reserved.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.reveal').forEach(el=>{
+new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('show')})).observe(el);
+});
+document.querySelectorAll('.count').forEach(c=>{
+new IntersectionObserver(es=>es.forEach(e=>{
+if(!e.isIntersecting)return;
+let t=+c.dataset.target,n=0,s=Math.max(1,Math.floor(t/100));
+let i=setInterval(()=>{n+=s;if(n>=t){n=t;clearInterval(i)}c.textContent=n.toLocaleString()},20);
+}),{threshold:.3}).observe(c);
+});
+const quotes=[
+"Professional drivers, punctual departures, and excellent comfort across borders.",
+"Our cargo arrived on schedule with clear communication throughout.",
+"Reliable transport partner for our corporate travel requirements."
+];
+let q=0;setInterval(()=>{q=(q+1)%quotes.length;document.getElementById('quote').textContent='“'+quotes[q]+'”'},4000);
+</script>
+</body>
+</html>

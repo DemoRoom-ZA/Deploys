@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tems Logistics — Southern Africa's Premium Road Transport</title>
+  <meta name="description" content="Tems Logistics offers premium passenger bus transport and cargo freight solutions across South Africa and Southern Africa. Licensed, insured, and trusted." />
+  <meta property="og:title" content="Tems Logistics — Southern Africa's Premium Road Transport" />
+  <meta property="og:description" content="Premium passenger and cargo transport across South Africa and Southern Africa. Book your trip or get a freight quote today." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_ZA" />
+  <meta name="theme-color" content="#0D47A1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* === RESET & BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #0D47A1;
+      --blue-dark: #082d6b;
+      --blue-mid: #1565C0;
+      --white: #FFFFFF;
+      --yellow: #FFC107;
+      --yellow-dark: #F9A825;
+      --bg: #F8F9FF;
+      --text-dark: #0A0E1A;
+      --text-muted: #4A5068;
+      --overlay: rgba(13,71,161,0.82);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --container: 1320px;
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: var(--bg);
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+    }
+
+    h1,h2,h3,h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 { font-size: clamp(2.8rem, 7vw, 6rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+    h3 { font-size: clamp(1.25rem, 2.5vw, 2rem); }
+
+    a { color: inherit; text-decoration: none; }
+
+    img, svg { display: block; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .section-pad {
+      padding: clamp(4rem, 8vw, 8rem) 0;
+    }
+
+    /* Focus styles */
+    :focus-visible {
+      outline: 3px solid var(--yellow);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* === NAV === */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.4rem 0;
+      transition: padding var(--transition), background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
+    }
+
+    #nav.scrolled {
+      padding: 0.75rem 0;
+      background: rgba(8,45,107,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 32px rgba(13,71,161,0.18);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.2rem, 2.5vw, 2.25rem);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--yellow);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .btn-book-nav {
+      background: var(--yellow);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-book-nav:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255,193,7,0.4);
+    }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      aria-label: "Toggle navigation";
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: var(--blue-dark);
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 999;
+      }
+      .nav-links.open a { font-size: 1.4rem; }
+    }
+
+    /* === HERO === */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #082d6b 0%, #0D47A1 40%, #1a237e 70%, #0a1a3d 100%);
+    }
+
+    /* Parallax background layer */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(ellipse 80% 50% at 60% 80%, rgba(255,193,7,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 20% 30%, rgba(21,101,192,0.5) 0%, transparent 60%),
+        repeating-linear-gradient(
+          105deg,
+          transparent 0px,
+          transparent 120px,
+          rgba(255,255,255,0.012) 120px,
+          rgba(255,255,255,0.012) 121px
+        );
+      will-change: transform;
+      transition: transform 0.05s linear;
+    }
+
+    /* Road horizon illustration */
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 45%;
+      background:
+        linear-gradient(to top, rgba(8,45,107,0.9) 0%, transparent 100%),
+        repeating-linear-gradient(
+          to top,
+          transparent 0px, transparent 28px,
+          rgba(255,193,7,0.08) 28px, rgba(255,193,7,0.08) 32px
+        );
+      clip-path: polygon(0 40%, 50% 0, 100% 40%, 100% 100%, 0 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: clamp(6rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 6rem);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255,193,7,0.15);
+      border: 1px solid rgba(255,193,7,0.35);
+      color: var(--yellow);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--yellow);
+      border-radius: 50%;
+    }
+
+    #hero h1 {
+      color: var(--white);
+      font-weight: 900;
+      max-width: 820px;
+      margin-bottom: 1.5rem;
+    }
+
+    #hero h1 em {
+      font-style: italic;
+      color: var(--yellow);
+    }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--yellow);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255,193,7,0.4);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 2;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    .scroll-indicator svg { width: 20px; height: 20px; }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* === TRUST STRIP === */
+    #trust-strip {
+      background: var(--yellow);
+      padding: 0.9rem 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0 2.5rem;
+      color: var(--text-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .marquee-item::before {
+      content: '●';
+      color: var(--blue);
+      font-size: 0.5rem;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* === SERVICES === */
+    #services {
+      background: var(--white);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--yellow-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .service-card {
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      padding: 2.25rem 2rem;
+      border-top: 3px solid transparent;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(13,71,161,0.12); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 56px; height: 56px;
+      background: rgba(13,71,161,0.08);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: background var(--transition);
+    }
+
+    .service-card:hover .service-icon { background: rgba(255,193,7,0.15); }
+
+    .service-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--yellow-dark);
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: gap var(--transition), color var(--transition);
+    }
+
+    .link-arrow:hover { gap: 0.75rem; color: var(--blue); }
+
+    /* === WHY TEMS === */
+    #why {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 6rem);
+      align-items: center;
+    }
+
+    @media (max-width: 768px) { .why-grid { grid-template-columns: 1fr; } }
+
+    .stats-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .stat-item {
+      border-left: 3px solid var(--yellow);
+      padding-left: 1.25rem;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .trust-statements { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background var(--transition);
+    }
+
+    .trust-item:hover { background: rgba(255,255,255,0.1); }
+
+    .trust-check {
+      width: 36px; height: 36px;
+      background: rgba(255,193,7,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .trust-item h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .trust-item p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* === ROUTES === */
+    #routes { background: var(--bg); }
+
+    .routes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .route-card-wrapper {
+      perspective: 800px;
+      height: 200px;
+    }
+
+    .route-card {
+      width: 100%; height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+      cursor: pointer;
+    }
+
+    .route-card-wrapper:hover .route-card { transform: rotateY(180deg); }
+
+    .route-front, .route-back {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-md);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .route-front {
+      background: linear-gradient(160deg, var(--blue-mid) 0%, var(--blue-dark) 100%);
+      color: var(--white);
+    }
+
+    .route-front .route-flag {
+      font-size: 1.75rem;
+      margin-bottom: auto;
+    }
+
+    .route-front h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .route-front .route-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.25rem;
+    }
+
+    .route-back {
+      background: var(--yellow);
+      transform: rotateY(180deg);
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .route-back h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .route-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .route-detail strong { font-weight: 700; }
+
+    /* === FLEET === */
+    #fleet { background: var(--text-dark); overflow: hidden; }
+
+    #fleet .section-title { color: var(--white); }
+    #fleet .section-intro { color: rgba(255,255,255,0.55); }
+    #fleet .section-label { color: var(--yellow); }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .fleet-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .fleet-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    }
+
+    .fleet-visual {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fleet-visual.bus-bg {
+      background: linear-gradient(135deg, #082d6b 0%, #0D47A1 60%, #1565C0 100%);
+    }
+
+    .fleet-visual.cargo-bg {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    }
+
+    .fleet-svg-wrap {
+      width: 200px; height: 130px;
+      opacity: 0.92;
+    }
+
+    .fleet-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--yellow);
+      color: var(--text-dark);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .fleet-body { padding: 1.75rem; }
+
+    .fleet-body h3 {
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .fleet-body .fleet-tagline {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .fleet-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .spec-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .spec-value {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* === TESTIMONIALS === */
+    #testimonials { background: var(--blue); overflow: hidden; }
+    #testimonials .section-title { color: var(--white); }
+    #testimonials .section-label { color: rgba(255,193,7,0.8); }
+
+    .carousel-track-wrap {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      cursor: grab;
+      user-select: none;
+    }
+
+    .carousel-track-wrap:active { cursor: grabbing; }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.75rem;
+      flex: 0 0 clamp(280px, 36vw, 420px);
+    }
+
+    .stars { color: var(--yellow); font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+
+    .testimonial-card blockquote {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .meta-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .meta-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+    }
+
+    .meta-route {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .carousel-controls {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .carousel-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.25);
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .carousel-btn:hover { background: var(--yellow); border-color: var(--yellow); color: var(--text-dark); }
+
+    /* === MAP === */
+    #map-section { background: var(--bg); }
+
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(13,71,161,0.12);
+      border: 3px solid var(--white);
+      height: clamp(300px, 45vw, 520px);
+    }
+
+    .map-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .map-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* === CONTACT === */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-form label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      margin-top: 1.1rem;
+    }
+
+    .contact-form label:first-child { margin-top: 0; }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid #D8DCF0;
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      background: var(--bg);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(13,71,161,0.1);
+    }
+
+    .contact-form textarea { height: 130px; resize: vertical; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--yellow);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1rem 2.25rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-submit:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,193,7,0.35);
+    }
+
+    .contact-info { padding-top: 0.5rem; }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-info > p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail-list { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2rem; }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contact-detail-icon {
+      width: 40px; height: 40px;
+      background: rgba(13,71,161,0.07);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-text strong {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-detail-text span {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .whatsapp-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #25D366;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      padding: 0.9rem 1.75rem;
+      border-radius: 999px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .whatsapp-cta:hover {
+      background: #20b858;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: var(--blue-dark);
+      color: rgba(255,255,255,0.6);
+      padding: 3.5rem 0 2rem;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.82rem;
+      max-width: 300px;
+      margin-top: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .footer-links h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.85rem; transition: color var(--transition); }
+    .footer-links a:hover { color: var(--yellow); }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,193,7,0.1);
+      border: 1px solid rgba(255,193,7,0.2);
+      color: var(--yellow);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+    }
+
+    .footer-copy { font-size: 0.78rem; }
+
+    .social-icons { display: flex; gap: 0.75rem; }
+
+    .social-icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+
+    .social-icon:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+      background: rgba(255,193,7,0.08);
+    }
+
+    /* === SCROLL REVEAL === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* === REDUCED MOTION === */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .scroll-indicator { animation: none; }
+    }
+
+    /* === MISC RESPONSIVE === */
+    @media (max-width: 640px) {
+      .stats-block { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .fleet-grid { grid-template-columns: 1fr; }
+      .routes-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 400px) {
+      .routes-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-outline { justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- === STICKY NAV === -->
+<header id="nav" role="banner">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- LOGO -->
+      <a href="#" class="nav-logo" aria-label="Tems Logistics — Home">
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tems Logistics Logo Mark">
+          <rect width="42" height="42" rx="8" fill="#FFC107"/>
+          <!-- T letterform -->
+          <rect x="8" y="10" width="26" height="5" rx="1.5" fill="#0D47A1"/>
+          <rect x="18" y="15" width="6" height="16" rx="1.5" fill="#0D47A1"/>
+          <!-- diagonal road slash suggesting momentum -->
+          <line x1="26" y1="14" x2="36" y2="32" stroke="#0D47A1" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="36" cy="32" r="2.5" fill="#0A0E1A"/>
+        </svg>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:#FFFFFF;line-height:1;letter-spacing:-0.01em;">TEMS</div>
+          <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);line-height:1;margin-top:2px;">LOGISTICS</div>
+        </div>
+      </a>
+
+      <!-- NAV LINKS -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#routes">Routes</a></li>
+          <li><a href="#fleet">Fleet</a></li>
+          <li><a href="#why">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <a href="#contact" class="btn-book-nav" aria-label="Book a trip with Tems Logistics">Book Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- === HERO === -->
+<main id="main-content">
+<section id="hero" aria-label="Hero — Southern Africa's Premium Road Transport">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">South Africa &amp; Southern Africa</span>
+      <h1>Southern Africa's Premium Road to <em>Anywhere.</em></h1>
+      <p class="hero-sub">Comfortable passenger journeys and reliable cargo freight — across provinces, across borders, on time, every time.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary" aria-label="Book a passenger trip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Book a Trip
+        </a>
+        <a href="#contact" class="btn-outline" aria-label="Request a cargo freight quote">
+          Get Cargo Quote
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- === TRUST STRIP === -->
+<section id="trust-strip" aria-label="Trust credentials">
+  <div class="marquee-track" role="list" aria-label="Trust credentials">
+    <!-- Duplicated for seamless loop -->
+    <span class="marquee-item" role="listitem">Licensed Operator</span>
+    <span class="marquee-item" role="listitem">Fully Insured Passengers</span>
+    <span class="marquee-item" role="listitem">Cross-Border Certified</span>
+    <span class="marquee-item" role="listitem">24/7 Customer Support</span>
+    <span class="marquee-item" role="listitem">On-Time Guarantee</span>
+    <span class="marquee-item" role="listitem">GPS-Tracked Fleet</span>
+    <span class="marquee-item" role="listitem">Professional Drivers</span>
+    <span class="marquee-item" role="listitem">Licensed Operator</span>
+    <span class="marquee-item" role="listitem">Fully Insured Passengers</span>
+    <span class="marquee-item" role="listitem">Cross-Border Certified</span>
+    <span class="marquee-item" role="listitem">24/7 Customer Support</span>
+    <span class="marquee-item" role="listitem">On-Time Guarantee</span>
+    <span class="marquee-item" role="listitem">GPS-Tracked Fleet</span>
+    <span class="marquee-item" role="listitem">Professional Drivers</span>
+  </div>
+</section>
+
+<!-- === SERVICES === -->
+<section id="services" class="section-pad" aria-label="Our Services">
+  <div class="container">
+    <span class="section-label reveal">What We Offer</span>
+    <h2 class="section-title reveal">Transport solutions built<br>for Southern Africa.</h2>
+    <p class="section-intro reveal">Whether you're travelling between cities or moving freight across borders, Tems Logistics delivers dependable, premium transport that keeps Southern Africa connected.</p>
+
+    <div class="services-grid">
+
+      <article class="service-card reveal">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="6" width="22" height="12" rx="2"/>
+            <circle cx="5.5" cy="18" r="2.5"/><circle cx="18.5" cy="18" r="2.5"/>
+            <path d="M1 10h22M8 6V4M16 6V4"/>
+          </svg>
+        </div>
+        <h3>Passenger Transport</h3>
+        <p>Scheduled and charter bus services connecting Johannesburg, Pretoria, Durban, Cape Town, and key Southern African destinations. Climate-controlled coaches with reclining seats, USB charging, and on-board amenities for a journey that arrives as good as it departs.</p>
+        <a href="#contact" class="link-arrow" aria-label="Learn more about passenger transport">
+          Book a Seat
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="8" width="14" height="10" rx="1.5"/>
+            <path d="M15 12h4l3 3v3h-7V12z"/>
+            <circle cx="5.5" cy="18" r="2.5"/><circle cx="18.5" cy="18" r="2.5"/>
+          </svg>
+        </div>
+        <h3>Cargo &amp; Freight</h3>
+        <p>Heavy haulage, general freight, and long-distance cargo transport using our fleet of purpose-built trailers. We handle everything from palletised goods to bulk loads — door-to-door or terminal-to-terminal, with full cargo documentation support for cross-border shipments.</p>
+        <a href="#contact" class="link-arrow" aria-label="Learn more about cargo freight services">
+          Get a Quote
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="service-card reveal reveal-delay-2">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10H3M3 10V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4M3 10l1 8h16l1-8"/>
+            <circle cx="8" cy="18" r="2"/><circle cx="16" cy="18" r="2"/>
+          </svg>
+        </div>
+        <h3>Charter Hire</h3>
+        <p>Dedicated vehicle hire for corporate events, school groups, government delegations, and private functions. Choose your route, set your schedule. Our professional drivers provide a premium, punctual experience whether you're moving 20 people or 60 across South Africa.</p>
+        <a href="#contact" class="link-arrow" aria-label="Learn more about charter hire">
+          Enquire Now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- === WHY TEMS === -->
+<section id="why" class="section-pad" aria-label="Why Choose Tems Logistics">
+  <div class="container">
+    <div class="why-grid">
+
+      <div>
+        <span class="section-label reveal" style="color:rgba(255,193,7,0.7);">By The Numbers</span>
+        <h2 class="reveal" style="color:#fff;margin-bottom:2.5rem;">Trusted by thousands across the region.</h2>
+        <div class="stats-block">
+          <div class="stat-item reveal">
+            <div class="stat-number" data-target="12" data-suffix="+">0</div>
+            <div class="stat-label">Years Operating</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-number" data-target="38" data-suffix="+">0</div>
+            <div class="stat-label">Routes Covered</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-number" data-target="94" data-suffix="k+">0</div>
+            <div class="stat-label">Satisfied Passengers</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-number" data-target="15" data-suffix="k t+">0</div>
+            <div class="stat-label">Tons Delivered</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-statements">
+
+        <div class="trust-item reveal">
+          <div class="trust-check" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h4>Licensed &amp; Regulated</h4>
+            <p>Fully licensed under the National Land Transport Act (NLTA) and registered with the Cross-Border Road Transport Agency (C-BRTA) for all Southern African cross-border operations.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal reveal-delay-1">
+          <div class="trust-check" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h4>Passenger &amp; Cargo Insurance</h4>
+            <p>Every journey is covered by comprehensive passenger liability and cargo insurance. You travel and ship with confidence, backed by full coverage from departure to destination.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal reveal-delay-2">
+          <div class="trust-check" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h4>GPS-Tracked, Always Accountable</h4>
+            <p>Real-time GPS tracking on every vehicle means you can follow your loved ones or cargo at any point. Our operations team monitors all routes 24 hours a day, 7 days a week.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal reveal-delay-3">
+          <div class="trust-check" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h4>Professionally Trained Drivers</h4>
+            <p>Our drivers hold PRDP certification, undergo regular wellness checks, and complete defensive driving training. They represent Tems Logistics' commitment to safety-first road culture.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === ROUTES === -->
+<section id="routes" class="section-pad" aria-label="Our Routes">
+  <div class="container">
+    <span class="section-label reveal">Where We Go</span>
+    <h2 class="section-title reveal">Domestic routes &amp; cross-border corridors.</h2>
+    <p class="section-intro reveal">Hover any destination card to see estimated travel time and fare range. Can't find your route? <a href="#contact" style="color:var(--blue);font-weight:600;">Contact us</a> — we arrange custom routes on request.</p>
+
+    <div class="routes-grid">
+
+      <div class="route-card-wrapper" role="article" aria-label="Johannesburg to Durban route">
+        <div class="route-card">
+          <div class="route-front" aria-hidden="false">
+            <div class="route-flag">🏙️</div>
+            <div>
+              <h4>Johannesburg → Durban</h4>
+              <div class="route-tag">Domestic · Daily Departures</div>
+            </div>
+          </div>
+          <div class="route-back" aria-hidden="true">
+            <h4>JHB → DBN</h4>
+            <div class="route-detail">⏱ <strong>~8 hrs</strong> estimated</div>
+            <div class="route-detail">💰 From <strong>R350</strong> per seat</div>
+            <div class="route-detail">🚌 Luxury coach</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-card-wrapper" role="article" aria-label="Johannesburg to Cape Town route">
+        <div class="route-card">
+          <div class="route-front">
+            <div class="route-flag">🌊</div>
+            <div>
+              <h4>Johannesburg → Cape Town</h4>
+              <div class="route-tag">Domestic · Fri, Sat, Sun</div>
+            </div>
+          </div>
+          <div class="route-back" aria-hidden="true">
+            <h4>JHB → CPT</h4>
+            <div class="route-detail">⏱ <strong>~18 hrs</strong> overnight</div>
+            <div class="route-detail">💰 From <strong>R620</strong> per seat</div>
+            <div class="route-detail">🚌 Luxury sleeper</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-card-wrapper" role="article" aria-label="Pretoria to Polokwane route">
+        <div class="route-card">
+          <div class="route-front">
+            <div class="route-flag">🌿</div>
+            <div>
+              <h4>Pretoria → Polokwane</h4>
+              <div class="route-tag">Domestic · Daily</div>
+            </div>
+          </div>
+          <div class="route-back" aria-hidden="true">
+            <h4>PTA → PTG</h4>
+            <div class="route-detail">⏱ <strong>~3 hrs</strong> estimated</div>
+            <div class="route-detail">💰 From <strong>R180</strong> per seat</div>
+            <div class="route-detail">🚌 Semi-luxury coach</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-card-wrapper" role="article" aria-label="Johannesburg to Harare cross-border route">
+        <div class="route-card">
+          <div class="route-front" style="background:linear-gradient(160deg,#1B5E20 0%,#2E7D32 100%);">
+            <div class="route-flag">🇿🇼</div>
+            <div>
+              <h4>Johannesburg → Harare</h4>
+              <div class="route-tag">Cross-Border · Zimbabwe</div>
+            </div>
+          </div>
+          <div class="route-back" aria-hidden="true">
+            <h4>JHB → HRE</h4>
+            <div class="route-detail">⏱ <strong>~14 hrs</strong> via Beitbridge</div>
+            <div class="route-detail">💰 From <strong>R950</strong> per seat</div>
+            <div class="route-detail">📋 Docs assistance</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-card-wrapper" role="article" aria-label="Johannesburg to Maputo cross-border route">
+        <div class="route-card">
+          <div class="route-front" style="background:linear-gradient(160deg,#4E342E 0%,#6D4C41 100%);">
+            <div class="route-flag">🇲🇿</div>
+            <div>
+              <h4>Johannesburg → Maputo</h4>
+              <div class="route-tag">Cross-Border · Mozambique</div>
+            </div>
+          </div>
+          <div class="route-back" aria-hidden="true">
+            <h4>JHB → MPM</h4>
+            <div class="route-detail">⏱ <strong>~8 hrs</strong> via Lebombo</div>
+            <div class="route-detail">💰 From <strong>R700</strong> per seat</div>
+            <div class="route-detail">📋 Border support</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-card-wrapper" role="article" aria-label="Johannesburg to Gaborone cross-border route">
+        <div class="route-card">
+          <div class="route-front" style="background:linear-gradient(160deg,#1A237E 0%,#303F9F 100%);">
+            <div class="route-flag">🇧🇼</div>
+            <div>
+              <h4>Johannesburg → Gaborone</h4>
+              <div class="route-tag">Cross-Border · Botswana</div>
+            </div>
+          </div>
+          <div class="route-back" aria-hidden="true">
+            <h4>JHB → GBE</h4>
+            <div class="route-detail">⏱ <strong>~4.5 hrs</strong> via Ramatlabama</div>
+            <div class="route-detail">💰 From <strong>R500</strong> per seat</div>
+            <div class="route-detail">📋 C-BRTA permitted</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-card-wrapper" role="article" aria-label="Durban to East London route">
+        <div class="route-card">
+          <div class="route-front">
+            <div class="route-flag">⛵</div>
+            <div>
+              <h4>Durban → East London</h4>
+              <div class="route-tag">Domestic · Coastal</div>
+            </div>
+          </div>
+          <div class="route-back" aria-hidden="true">
+            <h4>DBN → ELS</h4>
+            <div class="route-detail">⏱ <strong>~7 hrs</strong> estimated</div>
+            <div class="route-detail">💰 From <strong>R310</strong> per seat</div>
+            <div class="route-detail">🚌 Standard coach</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-card-wrapper" role="article" aria-label="Johannesburg to Lusaka cross-border route">
+        <div class="route-card">
+          <div class="route-front" style="background:linear-gradient(160deg,#E65100 0%,#BF360C 100%);">
+            <div class="route-flag">🇿🇲</div>
+            <div>
+              <h4>Johannesburg → Lusaka</h4>
+              <div class="route-tag">Cross-Border · Zambia</div>
+            </div>
+          </div>
+          <div class="route-back" aria-hidden="true">
+            <h4>JHB → LUN</h4>
+            <div class="route-detail">⏱ <strong>~22 hrs</strong> overnight</div>
+            <div class="route-detail">💰 From <strong>R1,200</strong> per seat</div>
+            <div class="route-detail">📋 Full docs support</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- === FLEET SHOWCASE === -->
+<section id="fleet" class="section-pad" aria-label="Our Fleet">
+  <div class="container">
+    <span class="section-label reveal">The Fleet</span>
+    <h2 class="section-title reveal">Vehicles built for the long road.</h2>
+    <p class="section-intro reveal">Every vehicle in the Tems Logistics fleet is maintained to strict roadworthy standards, inspected regularly, and fitted with the technology our passengers and cargo need.</p>
+
+    <div class="fleet-grid">
+
+      <!-- Luxury Bus -->
+      <article class="fleet-card reveal">
+        <div class="fleet-visual bus-bg">
+          <div class="fleet-badge">Passenger</div>
+          <!-- Inline SVG Bus Illustration -->
+          <svg class="fleet-svg-wrap" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Luxury passenger coach illustration">
+            <!-- Body -->
+            <rect x="10" y="28" width="170" height="72" rx="10" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <!-- Windows row -->
+            <rect x="22" y="36" width="22" height="18" rx="3" fill="rgba(255,193,7,0.25)" stroke="rgba(255,193,7,0.5)" stroke-width="1"/>
+            <rect x="50" y="36" width="22" height="18" rx="3" fill="rgba(255,193,7,0.25)" stroke="rgba(255,193,7,0.5)" stroke-width="1"/>
+            <rect x="78" y="36" width="22" height="18" rx="3" fill="rgba(255,193,7,0.25)" stroke="rgba(255,193,7,0.5)" stroke-width="1"/>
+            <rect x="106" y="36" width="22" height="18" rx="3" fill="rgba(255,193,7,0.25)" stroke="rgba(255,193,7,0.5)" stroke-width="1"/>
+            <rect x="134" y="36" width="22" height="18" rx="3" fill="rgba(255,193,7,0.25)" stroke="rgba(255,193,7,0.5)" stroke-width="1"/>
+            <!-- Door -->
+            <rect x="155" y="60" width="18" height="36" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <!-- Yellow stripe -->
+            <rect x="10" y="70" width="170" height="6" fill="rgba(255,193,7,0.35)"/>
+            <!-- Wheels -->
+            <circle cx="42" cy="100" r="14" fill="#0A1A3D" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <circle cx="42" cy="100" r="7" fill="rgba(255,255,255,0.15)"/>
+            <circle cx="148" cy="100" r="14" fill="#0A1A3D" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <circle cx="148" cy="100" r="7" fill="rgba(255,255,255,0.15)"/>
+            <!-- Headlight -->
+            <ellipse cx="14" cy="65" rx="4" ry="8" fill="rgba(255,193,7,0.6)"/>
+            <!-- Tems text on side -->
+            <text x="58" y="90" font-family="serif" font-size="14" font-weight="bold" fill="rgba(255,255,255,0.5)" letter-spacing="2">TEMS</text>
+          </svg>
+        </div>
+        <div class="fleet-body">
+          <h3>Luxury Coach</h3>
+          <p class="fleet-tagline">Premium intercity &amp; cross-border passenger transport</p>
+          <div class="fleet-specs">
+            <div class="spec-item">
+              <span class="spec-label">Capacity</span>
+              <span class="spec-value">54–65 Seats</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">A/C</span>
+              <span class="spec-value">Full Climate</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Charging</span>
+              <span class="spec-value">USB Per Seat</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Luggage</span>
+              <span class="spec-value">Undercarriage Bay</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Tracking</span>
+              <span class="spec-value">Real-Time GPS</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Seats</span>
+              <span class="spec-value">Reclining</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Cargo Trailer -->
+      <article class="fleet-card reveal reveal-delay-1">
+        <div class="fleet-visual cargo-bg">
+          <div class="fleet-badge">Cargo</div>
+          <!-- Inline SVG Truck Illustration -->
+          <svg class="fleet-svg-wrap" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cargo trailer truck illustration">
+            <!-- Trailer body -->
+            <rect x="30" y="30" width="138" height="68" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+            <!-- Trailer doors / panels -->
+            <line x1="99" y1="30" x2="99" y2="98" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line x1="30" y1="64" x2="168" y2="64" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <!-- Cab -->
+            <rect x="158" y="45" width="32" height="53" rx="5" fill="rgba(13,71,161,0.7)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <!-- Cab window -->
+            <rect x="162" y="50" width="22" height="18" rx="3" fill="rgba(255,193,7,0.25)" stroke="rgba(255,193,7,0.4)" stroke-width="1"/>
+            <!-- Headlight -->
+            <ellipse cx="192" cy="72" rx="3" ry="6" fill="rgba(255,193,7,0.7)"/>
+            <!-- Yellow stripe on trailer -->
+            <rect x="30" y="58" width="138" height="4" fill="rgba(255,193,7,0.25)"/>
+            <!-- Wheels -->
+            <circle cx="55" cy="104" r="14" fill="#0A1A3D" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <circle cx="55" cy="104" r="7" fill="rgba(255,255,255,0.12)"/>
+            <circle cx="85" cy="104" r="14" fill="#0A1A3D" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <circle cx="85" cy="104" r="7" fill="rgba(255,255,255,0.12)"/>
+            <circle cx="165" cy="104" r="13" fill="#0A1A3D" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <circle cx="165" cy="104" r="6" fill="rgba(255,255,255,0.12)"/>
+            <!-- TEMS text -->
+            <text x="55" y="80" font-family="serif" font-size="11" font-weight="bold" fill="rgba(255,255,255,0.4)" letter-spacing="2">TEMS LOGISTICS</text>
+          </svg>
+        </div>
+        <div class="fleet-body">
+          <h3>Cargo Trailer</h3>
+          <p class="fleet-tagline">Heavy haulage &amp; long-distance freight solutions</p>
+          <div class="fleet-specs">
+            <div class="spec-item">
+              <span class="spec-label">Load Capacity</span>
+              <span class="spec-value">Up to 34 tonnes</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Volume</span>
+              <span class="spec-value">90 m³</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Cargo Type</span>
+              <span class="spec-value">General &amp; Palletised</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Tracking</span>
+              <span class="spec-value">Live GPS + E-Seal</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Cross-Border</span>
+              <span class="spec-value">Yes — All SADC</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Insurance</span>
+              <span class="spec-value">Full Cargo Cover</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- === TESTIMONIALS === -->
+<section id="testimonials" class="section-pad" aria-label="Customer Testimonials">
+  <div class="container">
+    <span class="section-label reveal">What People Say</span>
+    <h2 class="section-title reveal" style="color:#fff;">Real journeys. Real satisfaction.</h2>
+
+    <div class="carousel-track-wrap reveal" id="carousel" role="region" aria-label="Customer testimonials carousel">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="testimonial-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>"I travel Johannesburg to Harare every two months for business, and Tems Logistics has become my only choice. The bus is always clean, the driver is professional, and they actually leave on time. That last part alone makes them stand out."</blockquote>
+          <div class="testimonial-meta">
+            <div class="meta-avatar" aria-hidden="true">TM</div>
+            <div>
+              <div class="meta-name">Tapiwa Munyama</div>
+              <div class="meta-route">Route: Johannesburg → Harare</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>"We used Tems for charter hire at our company annual conference — 58 delegates, two coaches, multiple pick-up points in Pretoria. Not a single hiccup. The drivers were professional and the vehicles were spotless. Highly recommend for corporate charters."</blockquote>
+          <div class="testimonial-meta">
+            <div class="meta-avatar" aria-hidden="true">NP</div>
+            <div>
+              <div class="meta-name">Nandi Phiri</div>
+              <div class="meta-route">Charter: Corporate Event, Pretoria</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>"Our factory ships goods to Maputo twice a month. Since switching to Tems, we've had zero lost shipments and better transit times than our previous carrier. The cargo tracking gives us peace of mind, and their team sorts out all the border paperwork without us having to chase."</blockquote>
+          <div class="testimonial-meta">
+            <div class="meta-avatar" aria-hidden="true">SR</div>
+            <div>
+              <div class="meta-name">Stefan Roux</div>
+              <div class="meta-route">Cargo: Johannesburg → Maputo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars" aria-label="4 stars">★★★★★</div>
+          <blockquote>"I was nervous travelling to Cape Town alone for the first time. The Tems bus was comfortable, there were charging ports for my phone, and the driver gave clear updates throughout. I arrived feeling rested. Will definitely use them again for my next trip."</blockquote>
+          <div class="testimonial-meta">
+            <div class="meta-avatar" aria-hidden="true">LK</div>
+            <div>
+              <div class="meta-name">Lerato Khumalo</div>
+              <div class="meta-route">Route: Johannesburg → Cape Town</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>"The 24/7 support line is not a gimmick — they actually answer. When our departure point changed last minute due to road works, their team called every booked passenger to advise. That kind of proactive communication is rare in this industry."</blockquote>
+          <div class="testimonial-meta">
+            <div class="meta-avatar" aria-hidden="true">BM</div>
+            <div>
+              <div class="meta-name">Bongani Mthethwa</div>
+              <div class="meta-route">Route: Durban → Johannesburg</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-controls" role="group" aria-label="Carousel navigation">
+      <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- === MAP === -->
+<section id="map-section" class="section-pad" aria-label="Our Location">
+  <div class="container">
+    <div class="map-header">
+      <div>
+        <span class="section-label reveal">Find Us</span>
+        <h2 class="section-title reveal">Based in Gauteng,<br>reaching all of Southern Africa.</h2>
+      </div>
+      <a href="#contact" class="btn-primary reveal" style="flex-shrink:0;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Get Directions
+      </a>
+    </div>
+    <div class="map-wrap reveal">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=27.5%2C-26.5%2C28.8%2C-25.6&layer=mapnik&marker=-26.2041%2C28.0473"
+        title="Tems Logistics location on map — Gauteng, South Africa"
+        loading="lazy"
+        allowfullscreen
+        aria-label="Map showing Tems Logistics location in Gauteng, South Africa">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- === CONTACT & BOOK === -->
+<section id="contact" class="section-pad" aria-label="Book a Trip or Contact Us">
+  <div class="container">
+    <span class="section-label reveal">Get in Touch</span>
+    <h2 class="section-title reveal">Book a trip or send us a message.</h2>
+    <p class="section-intro reveal">Ready to travel or need a cargo quote? Fill in the form and our team will get back to you within 2 business hours.</p>
+
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="contact-form reveal">
+        <form action="mailto:bookings@temslogistics.co.za" method="POST" enctype="text/plain" novalidate aria-label="Booking and contact form">
+          <label for="cf-name">Full Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your full name" required autocomplete="name" aria-required="true" />
+
+          <label for="cf-email">Email Address</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@example.com" required autocomplete="email" aria-required="true" />
+
+          <label for="cf-phone">Phone Number</label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="+27 00 000 0000" autocomplete="tel" />
+
+          <label for="cf-type">Trip / Service Type</label>
+          <select id="cf-type" name="trip_type" required aria-required="true">
+            <option value="" disabled selected>Select a service…</option>
+            <option value="passenger">Passenger Transport — Scheduled Route</option>
+            <option value="cargo">Cargo &amp; Freight</option>
+            <option value="charter">Charter Bus Hire</option>
+            <option value="crossborder">Cross-Border Travel</option>
+            <option value="other">Other Enquiry</option>
+          </select>
+
+          <label for="cf-message">Message or Route Details</label>
+          <textarea id="cf-message" name="message" placeholder="Tell us your departure city, destination, date, number of passengers or cargo details…" required aria-required="true"></textarea>
+
+          <button type="submit" class="btn-submit" aria-label="Submit booking enquiry">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Enquiry
+          </button>
+        </form>
+      </div>
+
+      <!-- CONTACT DETAILS -->
+      <div class="contact-info reveal reveal-delay-1">
+        <h3>Contact Details</h3>
+        <p>Our team is available from Monday to Saturday, 06:00 to 20:00 SAST. For emergencies and cross-border queries, we have 24/7 support available.</p>
+
+        <div class="contact-detail-list">
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>Address</strong>
+              <span>12 Transport Park, Kempton Park, Gauteng, 1620</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.47 2 2 0 0 1 3.68 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 16z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>Phone</strong>
+              <span>+27 11 000 0000</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>Email</strong>
+              <span>bookings@temslogistics.co.za</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>Operating Hours</strong>
+              <span>Mon – Sat: 06:00 – 20:00 SAST</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/27110000000?text=Hello%20Tems%20Logistics%2C%20I%20would%20like%20to%20make%20a%20booking%20enquiry." class="whatsapp-cta" target="_blank" rel="noopener noreferrer" aria-label="Chat with Tems Logistics on WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- === FOOTER === -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <a href="#" aria-label="Tems Logistics home" style="display:flex;align-items:center;gap:0.75rem;">
+          <svg width="36" height="36" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="42" height="42" rx="8" fill="#FFC107"/>
+            <rect x="8" y="10" width="26" height="5" rx="1.5" fill="#0D47A1"/>
+            <rect x="18" y="15" width="6" height="16" rx="1.5" fill="#0D47A1"/>
+            <line x1="26" y1="14" x2="36" y2="32" stroke="#0D47A1" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="36" cy="32" r="2.5" fill="#0A0E1A"/>
+          </svg>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:#fff;line-height:1;">TEMS</div>
+            <div style="font-family:'Inter',sans-serif;font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);">LOGISTICS</div>
+          </div>
+        </a>
+        <p>Connecting South Africa and the Southern African region through safe, reliable, and premium transport — passengers and cargo alike.</p>
+        <div class="social-icons" style="margin-top:1.25rem;">
+          <a href="#" class="social-icon" aria-label="Tems Logistics on Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Tems Logistics on Twitter / X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Tems Logistics on Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Tems Logistics on LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Passenger Transport</a></li>
+          <li><a href="#services">Cargo &amp; Freight</a></li>
+          <li><a href="#services">Charter Hire</a></li>
+          <li><a href="#routes">View All Routes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why">About Tems</a></li>
+          <li><a href="#fleet">Our Fleet</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#contact">Book a Trip</a></li>
+          <li><a href="#contact">Cargo Quote</a></li>
+          <li><a href="https://wa.me/27110000000" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
+          <li><a href="mailto:bookings@temslogistics.co.za">Send Email</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-tagline">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Licensed Transport Operator — South Africa
+      </span>
+      <span class="footer-copy">© 2025 Tems Logistics. All rights reserved.</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- === JAVASCRIPT === -->
+<script>
+  /* === NAV SCROLL SHRINK === */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* === HAMBURGER TOGGLE === */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* === HERO PARALLAX === */
+  const heroBefore = document.getElementById('hero');
+  const parallaxLayer = heroBefore ? heroBefore.querySelector('::before') : null;
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const heroEl = document.getElementById('hero');
+    if (heroEl && scrolled < heroEl.offsetHeight) {
+      heroEl.style.setProperty('--parallax-y', (scrolled * 0.35) + 'px');
+    }
+  }, { passive: true });
+
+  /* === SCROLL REVEAL (IntersectionObserver) === */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* === COUNT-UP ANIMATION === */
+  function countUp(el, target, suffix) {
+    const duration = 1800;
+    const start = performance.now();
+    const startVal = 0;
+
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(startVal + (target - startVal) * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        countUp(el, target, suffix);
+        statObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNumbers.forEach(el => statObserver.observe(el));
+
+  /* === TESTIMONIALS CAROUSEL === */
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentIndex = 0;
+
+  function getCardWidth() {
+    const card = track.querySelector('.testimonial-card');
+    if (!card) return 320;
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.gap) || 24;
+    return card.offsetWidth + gap;
+  }
+
+  function getMaxIndex() {
+    const cards = track.querySelectorAll('.testimonial-card');
+    const visible = Math.floor(track.parentElement.offsetWidth / getCardWidth());
+    return Math.max(0, cards.length - visible);
+  }
+
+  function moveCarousel(dir) {
+    const max = getMaxIndex();
+    currentIndex = Math.max(0, Math.min(currentIndex + dir, max));
+    track.style.transform = `translateX(-${currentIndex * getCardWidth()}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => moveCarousel(-1));
+  nextBtn.addEventListener('click', () => moveCarousel(1));
+
+  // Auto-scroll
+  let autoTimer = setInterval(() => moveCarousel(1), 5000);
+
+  track.parentElement.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  track.parentElement.addEventListener('mouseleave', () => {
+    autoTimer = setInterval(() => {
+      if (currentIndex >= getMaxIndex()) currentIndex = -1;
+      moveCarousel(1);
+    }, 5000);
+  });
+
+  // Touch / drag support
+  let dragStartX = 0;
+  let isDragging = false;
+
+  track.addEventListener('pointerdown', (e) => {
+    dragStartX = e.clientX;
+    isDragging = true;
+    track.setPointerCapture(e.pointerId);
+  });
+
+  track.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+  });
+
+  track.addEventListener('pointerup', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const diff = dragStartX - e.clientX;
+    if (Math.abs(diff) > 50) moveCarousel(diff > 0 ? 1 : -1);
+  });
+
+  /* === PARALLAX on hero pseudo-element via CSS var === */
+  const hero = document.getElementById('hero');
+  if (hero) {
+    hero.style.setProperty('--parallax-y', '0px');
+    // Inject the pseudo-element to use the CSS variable
+    const styleEl = document.createElement('style');
+    styleEl.textContent = `#hero::before { transform: translateY(var(--parallax-y, 0px)); }`;
+    document.head.appendChild(styleEl);
+  }
+</script>
+
+</body>
+</html>

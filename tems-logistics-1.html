@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Tems Logistics - Trusted passenger and cargo transport across Southern Africa.">
+<meta property="og:title" content="Tems Logistics | Golden Horizon">
+<meta property="og:description" content="Luxury passenger and cargo transport across Southern Africa.">
+<title>Tems Logistics | Golden Horizon</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--b:#0D47A1;--eb:#1565C0;--g:#FFC107;--d:#040C22;--glass:rgba(255,255,255,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Outfit,sans-serif;background:var(--d);color:#fff}
+.skip{position:absolute;left:-9999px}.skip:focus{left:10px;top:10px;background:#fff;color:#000;padding:8px}
+.glass{background:var(--glass);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:20px}
+nav{position:fixed;top:0;width:100%;z-index:99;padding:14px}
+.navin{max-width:1280px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:120px 20px;background:
+radial-gradient(circle at 20% 20%,#1565C0 0%,transparent 35%),
+radial-gradient(circle at 80% 30%,#0D47A1 0%,transparent 30%),#040C22;
+animation:mesh 8s infinite alternate}
+@keyframes mesh{to{background-position:20px 40px,-30px 20px,0 0}}
+h1{font-size:clamp(2.8rem,6vw,5.5rem);margin:.2em 0}
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;text-decoration:none;margin:6px}
+.gold{background:var(--g);color:#111}.dark{background:#111;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1280px;margin:auto}
+section{padding:90px 20px}
+.card{padding:24px;transition:.3s}.card:hover{transform:translateY(-6px) scale(1.02)}
+.ticker{display:flex;gap:16px;overflow:auto;padding:20px}
+.route{padding:14px 20px;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.count{font-size:3rem;font-weight:800;color:var(--g)}
+.tabs button{padding:10px 16px;margin-right:8px}
+.routes-panel{display:none}.routes-panel.active{display:grid}
+footer{padding:40px 20px;background:#020617}
+.cursor,.ring{position:fixed;pointer-events:none;border-radius:50%;z-index:1000}
+.cursor{width:8px;height:8px;background:#1565C0}.ring{width:30px;height:30px;border:2px solid #FFC107}
+.wa{position:fixed;right:20px;bottom:20px;background:#FFC107;color:#111;padding:16px;border-radius:999px;text-decoration:none;animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(1.1)}}
+@media(pointer:coarse){.cursor,.ring{display:none}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="cursor"></div><div class="ring"></div>
+
+<nav><div class="navin glass">
+<div><svg width="120" height="40" role="img" aria-label="Tems Logistics Logo"><path d="M10 5 L35 5 L25 35 L18 35 Z" fill="#0D47A1"/><path d="M35 5 L55 5 L42 35 L25 35 Z" fill="#FFC107"/></svg></div>
+<div><a class="btn gold" href="#contact">Book Now</a></div>
+</div></nav>
+
+<main id="main">
+<section class="hero">
+<div>
+<div style="color:#FFC107;letter-spacing:.2em">SOUTHERN AFRICA'S TRUSTED CARRIER</div>
+<h1>Move People. Move Cargo. Move Forward.</h1>
+<p>Premium passenger transport and dependable freight logistics connecting Johannesburg, Cape Town, Durban, Gaborone, Harare, Lusaka and beyond.</p>
+<a href="#contact" class="btn gold">Reserve a Seat</a>
+<a href="#routes" class="btn dark">Get Cargo Quote</a>
+</div>
+</section>
+
+<section>
+<div class="ticker">
+<div class="route glass">Johannesburg → Harare • Daily Departures</div>
+<div class="route glass">Pretoria → Gaborone • Daily Departures</div>
+<div class="route glass">Durban → Maputo • Daily Departures</div>
+<div class="route glass">Johannesburg → Lusaka • Daily Departures</div>
+</div>
+</section>
+
+<section>
+<h2>Services</h2>
+<div class="grid">
+<div class="glass card"><h3>Passenger Transport</h3><ul><li>Luxury coaches</li><li>Cross-border routes</li><li>Comfort seating</li></ul></div>
+<div class="glass card"><h3>Cargo Logistics</h3><ul><li>Regional freight</li><li>Trailer fleet</li><li>Reliable delivery</li></ul></div>
+<div class="glass card"><h3>Corporate Charter</h3><ul><li>Events</li><li>Staff transport</li><li>Custom schedules</li></ul></div>
+</div>
+</section>
+
+<section>
+<div class="grid">
+<div><h2>Why Tems Logistics?</h2><p>Trusted operators, professional drivers, route expertise, and a customer-first approach across Southern Africa.</p></div>
+<div class="stats">
+<div class="glass card"><div class="count" data-target="12">0</div>Years</div>
+<div class="glass card"><div class="count" data-target="35">0</div>Routes</div>
+<div class="glass card"><div class="count" data-target="250000">0</div>Passengers</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Fleet</h2>
+<div class="grid">
+<div class="glass card"><h3>Executive Coach</h3><p>50 Seats • Air-Con • Reclining Seats • USB Charging</p></div>
+<div class="glass card"><h3>Heavy Freight Trailer</h3><p>Cross-Border Freight • Commercial Cargo • Long-Haul Capacity</p></div>
+</div>
+</section>
+
+<section id="routes">
+<h2>Routes</h2>
+<div class="tabs"><button onclick="showTab('dom')">Domestic</button><button onclick="showTab('cross')">Cross-Border</button></div>
+<div id="dom" class="routes-panel active grid">
+<div class="glass card">Johannesburg → Durban</div>
+<div class="glass card">Cape Town → Johannesburg</div>
+</div>
+<div id="cross" class="routes-panel grid">
+<div class="glass card">Johannesburg → Harare</div>
+<div class="glass card">Pretoria → Gaborone</div>
+<div class="glass card">Durban → Maputo</div>
+<div class="glass card">Johannesburg → Lusaka</div>
+</div>
+</section>
+
+<section>
+<h2>Testimonials</h2>
+<div class="glass card" id="testimonial">“Excellent service and professional staff.”</div>
+</section>
+
+<section>
+<div class="glass" style="padding:20px;border-radius:20px">
+<h2>Our Operating Regions</h2>
+<iframe title="OSM" src="https://www.openstreetmap.org/export/embed.html" width="100%" height="400"></iframe>
+</div>
+</section>
+
+<section style="background:#FFC107;color:#040C22;text-align:center">
+<h2>Ready to Travel? Need a Cargo Quote?</h2>
+<a class="btn dark" href="#contact">Book Travel</a>
+<a class="btn dark" href="#contact">Get Quote</a>
+</section>
+
+<section id="contact">
+<div class="glass" style="max-width:800px;margin:auto;padding:24px">
+<h2>Contact Us</h2>
+<form>
+<label>Name<input required></label><br>
+<label>Phone<input required type="tel"></label><br>
+<label>Email<input required type="email"></label><br>
+<label>Service<select><option>Passenger</option><option>Cargo</option></select></label><br>
+<label>Travel Date<input type="date"></label><br>
+<label>Cargo Weight<input type="number"></label><br>
+<label>Message<textarea></textarea></label><br>
+<button class="btn gold" type="submit">Submit Request</button>
+</form>
+</div>
+</section>
+</main>
+
+<a class="wa" href="https://wa.me/27110000000">WhatsApp</a>
+
+<footer>
+<p>Tems Logistics • Licensed Operator in South Africa.</p>
+<p>© 2026 Tems Logistics</p>
+</footer>
+
+<script>
+function showTab(id){document.querySelectorAll('.routes-panel').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active')}
+document.querySelectorAll('.count').forEach(c=>{
+new IntersectionObserver(e=>{if(e[0].isIntersecting){let t=+c.dataset.target,n=0,s=Math.max(1,t/100);let i=setInterval(()=>{n+=s;if(n>=t){n=t;clearInterval(i)}c.textContent=Math.floor(n).toLocaleString()},20)}}).observe(c)
+});
+const arr=["Excellent service and professional staff.","Comfortable travel and on-time departures.","Reliable cargo partner for our business."];
+let i=0;setInterval(()=>{i=(i+1)%arr.length;document.getElementById('testimonial').textContent='“'+arr[i]+'”';},3500);
+const c=document.querySelector('.cursor'),r=document.querySelector('.ring');
+window.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';r.style.left=(e.clientX-11)+'px';r.style.top=(e.clientY-11)+'px';});
+</script>
+</body>
+</html>
