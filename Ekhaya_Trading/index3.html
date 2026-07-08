@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ekhaya Trading and Logistics — Your Goods. Our Mission. Home. | South Africa</title>
+<meta name="description" content="Ekhaya Trading and Logistics: courier delivery, home & office relocation and furniture removals across South Africa. Fully insured, nationwide, available 24/7.">
+<meta property="og:title" content="Ekhaya Trading and Logistics — Your Goods. Our Mission. Home.">
+<meta property="og:description" content="South Africa's trusted logistics partner. Courier, relocation and removals — fully insured and nationwide.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFD600">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* === TOKENS === */
+  :root{
+    --black:#080808;
+    --dark-surface:#101010;
+    --steel:#1B3A6B;
+    --yellow:#FFD600;
+    --yellow-warm:#FFC200;
+    --glass-surf:rgba(255,255,255,0.05);
+    --glass-border:rgba(255,255,255,0.12);
+    --yellow-glass:rgba(255,214,0,0.10);
+    --white:#FFFFFF;
+    --muted-white:#909090;
+    --steel-glow:rgba(27,58,107,0.6);
+
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+
+    --h1: clamp(3rem, 7vw, 7rem);
+    --h2: clamp(2rem, 4vw, 4rem);
+    --h3: 1.5rem;
+    --body: 1rem;
+    --tag: 0.7rem;
+
+    --max-w: 1280px;
+    --sec-pad: clamp(4.5rem, 9vw, 9rem);
+    --gap: 20px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    font-weight:400;
+    font-size:var(--body);
+    color:var(--white);
+    background:var(--black);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (pointer:fine){ body{ cursor:none; } a, button, input, select, textarea{ cursor:none; } }
+
+  h1,h2,h3{ margin:0; line-height:1.05; letter-spacing:-0.025em; font-family:var(--font-display); }
+  h1{ font-size:var(--h1); font-weight:700; }
+  h2{ font-size:var(--h2); font-weight:700; }
+  h3{ font-size:var(--h3); font-weight:700; }
+  p{ margin:0; }
+  a{ color:inherit; text-decoration:none; }
+  img,svg{ display:block; max-width:100%; }
+  button{ font-family:inherit; cursor:pointer; }
+  ul{ margin:0; padding:0; list-style:none; }
+
+  .tag{
+    font-size:var(--tag);
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    font-weight:500;
+    color:var(--yellow);
+    display:inline-block;
+  }
+
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding-left:clamp(1.25rem, 5vw, 2.5rem);
+    padding-right:clamp(1.25rem, 5vw, 2.5rem);
+  }
+
+  .skip-link{
+    position:absolute; left:-999px; top:0;
+    background:var(--yellow); color:var(--black);
+    padding:12px 20px; z-index:1000; font-weight:700;
+  }
+  .skip-link:focus{ left:0; }
+
+  :focus-visible{ outline:2px solid var(--yellow); outline-offset:3px; }
+
+  /* Custom cursor */
+  .cursor-dot, .cursor-ring{
+    position:fixed; top:0; left:0;
+    pointer-events:none; z-index:9999;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    display:none;
+  }
+  @media (pointer:fine){
+    .cursor-dot, .cursor-ring{ display:block; }
+  }
+  .cursor-dot{ width:8px; height:8px; background:var(--yellow); }
+  .cursor-ring{ width:34px; height:34px; border:1.5px solid rgba(255,214,0,0.5); transition:transform 0.2s ease; }
+  .cursor-ring.hovering{ transform:translate(-50%,-50%) scale(2); }
+
+  /* Glass utility */
+  .glass{
+    background:var(--glass-surf);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-radius:20px;
+    transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  @supports not (backdrop-filter: blur(1px)){
+    .glass{ background:rgba(8,8,8,0.95); }
+  }
+  .glass:hover{ transform:translateY(-8px); box-shadow:0 0 40px rgba(255,214,0,0.2); border-color:rgba(255,214,0,0.4); }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+    padding:16px 32px; border-radius:10px;
+    font-size:0.88rem; font-weight:500;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+    border:1px solid transparent;
+    min-height:44px;
+  }
+  .btn-yellow{ background:var(--yellow); color:var(--black); font-weight:700; }
+  .btn-yellow:hover{ transform:translateY(-2px); box-shadow:0 12px 30px rgba(255,214,0,0.35); }
+  .btn-glass{ background:var(--glass-surf); border:1px solid var(--glass-border); color:var(--white); }
+  .btn-glass:hover{ transform:translateY(-2px); border-color:rgba(255,214,0,0.4); }
+
+  .reveal{ opacity:0; transform:translateY(40px); transition:opacity 0.6s ease-out, transform 0.6s ease-out; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal-stagger.in-view > *{ transition-delay:calc(var(--i,0) * 0.1s); }
+
+  /* === NAV === */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:600;
+    padding:20px 0;
+    transition:background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:rgba(8,8,8,0.85);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    padding:12px 0;
+    border-bottom:1px solid var(--glass-border);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo svg{ height:42px; width:auto; }
+  .nav-links{ display:flex; gap:clamp(1.25rem,2.5vw,2.25rem); }
+  .nav-links a{ font-size:0.88rem; font-weight:500; color:var(--white); opacity:0.85; }
+  .nav-links a:hover{ opacity:1; color:var(--yellow); }
+  .nav-cta{
+    background:var(--yellow); color:var(--black);
+    padding:11px 24px; border-radius:999px;
+    font-size:0.82rem; font-weight:700;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+    white-space:nowrap; min-height:40px; display:inline-flex; align-items:center;
+  }
+  .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(255,214,0,0.35); }
+
+  .hamburger{
+    display:none; background:none; border:none;
+    width:44px; height:44px; align-items:center; justify-content:center;
+    flex-direction:column; gap:5px;
+  }
+  .hamburger span{ display:block; width:22px; height:2px; background:var(--white); border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease; }
+  .hamburger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  @media (max-width:960px){
+    .nav-links{ display:none; }
+    .nav-cta.desktop-only{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* Bottom-sheet mobile nav */
+  .sheet-backdrop{ position:fixed; inset:0; background:rgba(8,8,8,0.7); z-index:700; opacity:0; pointer-events:none; transition:opacity 0.3s ease; }
+  .sheet-backdrop.open{ opacity:1; pointer-events:auto; }
+  .bottom-sheet{
+    position:fixed; left:0; right:0; bottom:0; z-index:701;
+    background:#0D0D0D; border-top:1px solid var(--glass-border);
+    border-radius:24px 24px 0 0; padding:1.5rem 1.5rem 2.5rem;
+    transform:translateY(100%); transition:transform 0.4s ease-out;
+  }
+  .bottom-sheet.open{ transform:translateY(0); }
+  .sheet-handle{ width:40px; height:4px; background:var(--glass-border); border-radius:2px; margin:0 auto 1.5rem; }
+  .bottom-sheet a{ display:block; padding:16px 4px; font-size:1rem; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.08); min-height:44px; }
+  .bottom-sheet .nav-cta{ margin-top:1.25rem; justify-content:center; width:100%; }
+
+  /* === HERO === */
+  .hero{
+    position:relative; min-height:100vh; display:flex; align-items:center;
+    padding-top:120px; padding-bottom:5rem; overflow:hidden;
+  }
+  .hero-mesh{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,214,0,0.18), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(27,58,107,0.5), transparent 50%);
+    background-size:200% 200%;
+    animation:meshShift 10s ease-in-out infinite;
+    will-change:background-position;
+    z-index:0;
+  }
+  @keyframes meshShift{
+    0%,100%{ background-position:0% 0%, 100% 100%; }
+    50%{ background-position:20% 20%, 80% 80%; }
+  }
+  .hero-content{ position:relative; z-index:1; text-align:center; max-width:900px; margin:0 auto; }
+  .hero-eyebrow{ margin-bottom:1.5rem; }
+  .hero h1{ color:var(--white); margin-bottom:1.5rem; }
+  .hero h1 .accent{ color:var(--yellow); }
+  .hero-sub{ color:#C9CDD6; font-size:1.15rem; max-width:600px; margin:0 auto 2.5rem; font-weight:300; }
+  .hero-ctas{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .stat-chips{ display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center; }
+  .chip{ display:inline-flex; align-items:center; gap:0.5rem; padding:10px 18px; border-radius:999px; font-size:0.82rem; font-weight:500; color:#E4E8F0; }
+  .chip svg{ width:16px; height:16px; stroke:var(--yellow); }
+
+  /* === SERVICE TICKER === */
+  .ticker-band{ background:var(--yellow); overflow:hidden; padding:14px 0; white-space:nowrap; }
+  .ticker-track{ display:inline-flex; animation:scrollLeft 26s linear infinite; }
+  .ticker-band:hover .ticker-track{ animation-play-state:paused; }
+  .ticker-track span{ color:var(--black); font-weight:500; font-size:0.85rem; padding-right:2.5rem; }
+  @keyframes scrollLeft{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* === SERVICES (glass card stack) === */
+  .services{ padding:var(--sec-pad) 0; background:var(--black); }
+  .services-head{ text-align:center; max-width:640px; margin:0 auto 4rem; }
+  .services-head .tag{ margin-bottom:1rem; }
+  .services-head h2{ color:var(--white); }
+  .services-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:var(--gap); }
+  .service-card{ padding:2.25rem; display:flex; flex-direction:column; gap:1.25rem; }
+  .service-icon{ width:52px; height:52px; border-radius:14px; background:var(--yellow-glass); display:flex; align-items:center; justify-content:center; }
+  .service-icon svg{ width:26px; height:26px; stroke:var(--yellow); }
+  .service-card h3{ color:var(--white); }
+  .service-card p.desc{ color:var(--muted-white); font-size:0.92rem; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:0.5rem; }
+  .steel-chip{ font-size:0.72rem; font-weight:500; color:var(--white); background:var(--steel); padding:5px 12px; border-radius:999px; }
+  .card-link{ margin-top:auto; color:var(--yellow); font-weight:700; font-size:0.88rem; display:inline-flex; align-items:center; gap:0.4rem; }
+  .card-link svg{ width:16px; height:16px; stroke:var(--yellow); transition:transform 0.25s ease; }
+  .service-card:hover .card-link svg{ transform:translateX(4px); }
+
+  /* === STATS BAND === */
+  .stats-band{ padding:var(--sec-pad) 0; background:linear-gradient(135deg, var(--steel), var(--black)); }
+  .stats-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:2.5rem; text-align:center; }
+  @media (min-width:800px){ .stats-grid{ grid-template-columns:repeat(4,1fr); } }
+  .stat-value{ font-family:var(--font-display); font-size:clamp(2.5rem,5vw,4rem); font-weight:700; color:var(--yellow); display:block; }
+  .stat-label{ display:block; margin-top:0.5rem; font-size:0.82rem; color:var(--white); text-transform:uppercase; letter-spacing:0.06em; font-weight:300; }
+
+  /* === HOW IT WORKS === */
+  .how{ padding:var(--sec-pad) 0; background:var(--black); }
+  .how-head{ text-align:center; max-width:600px; margin:0 auto 4rem; }
+  .how-head .tag{ margin-bottom:1rem; }
+  .how-head h2{ color:var(--white); }
+  .how-grid{ display:grid; grid-template-columns:1fr; gap:1.5rem; position:relative; }
+  @media (min-width:700px){ .how-grid{ grid-template-columns:repeat(2,1fr); } }
+  .how-line-svg{ display:none; }
+  @media (min-width:700px){
+    .how-line-svg{ display:block; position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+  }
+  .how-card{ padding:2.5rem; display:flex; flex-direction:column; gap:0.75rem; position:relative; z-index:1; }
+  .step-circle{
+    width:48px; height:48px; border-radius:50%;
+    background:var(--yellow); color:var(--black);
+    font-family:var(--font-display); font-weight:700; font-size:1.2rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .how-card h3{ color:var(--white); font-size:1.2rem; }
+  .how-card p{ color:var(--muted-white); font-size:0.92rem; }
+
+  /* === WHY EKHAYA === */
+  .why{ padding:var(--sec-pad) 0; background:var(--black); }
+  .why-grid{ display:grid; grid-template-columns:1fr; gap:3rem; align-items:center; }
+  @media (min-width:960px){ .why-grid{ grid-template-columns:55fr 45fr; } }
+  .why-text .tag{ margin-bottom:1.25rem; }
+  .why-text h2{ color:var(--white); margin-bottom:1.25rem; }
+  .why-text h2 mark{ background:none; color:var(--yellow); }
+  .why-text p.body-copy{ color:var(--muted-white); max-width:480px; margin-bottom:2rem; font-size:1rem; }
+  .why-stats{ display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); }
+  .why-stat-card{ padding:1.75rem; text-align:center; }
+  .why-stat-value{ font-family:var(--font-display); font-size:clamp(1.8rem,3.5vw,2.4rem); font-weight:700; color:var(--yellow); display:block; }
+  .why-stat-label{ display:block; margin-top:0.4rem; font-size:0.76rem; color:var(--muted-white); text-transform:uppercase; letter-spacing:0.06em; }
+
+  /* === SERVICE DETAILS (tabbed) === */
+  .deep-dive{ padding:var(--sec-pad) 0; background:var(--black); }
+  .dive-head{ text-align:center; max-width:600px; margin:0 auto 3rem; }
+  .dive-head .tag{ margin-bottom:1rem; }
+  .dive-head h2{ color:var(--white); }
+  .tab-buttons{ display:flex; justify-content:center; gap:0.6rem; margin-bottom:3rem; flex-wrap:wrap; }
+  .tab-btn{
+    background:var(--glass-surf); border:1px solid var(--glass-border); color:var(--muted-white);
+    padding:12px 26px; border-radius:999px; font-size:0.88rem; font-weight:500;
+    transition:background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    min-height:44px;
+  }
+  .tab-btn[aria-selected="true"]{ background:var(--yellow); color:var(--black); border-color:var(--yellow); font-weight:700; }
+  .tab-panel{
+    display:none; grid-template-columns:1fr; gap:2.5rem; align-items:center;
+    opacity:0; transform:translateY(10px); transition:opacity 0.25s ease, transform 0.25s ease;
+    padding:2.5rem;
+  }
+  .tab-panel.active{ display:grid; opacity:1; transform:translateY(0); }
+  @media (min-width:900px){ .tab-panel{ grid-template-columns:1fr 1fr; } }
+  .tab-visual{ display:flex; align-items:center; justify-content:center; min-height:260px; }
+  .tab-visual svg{ width:80%; max-width:280px; }
+  .tab-features{ display:flex; flex-direction:column; gap:0.85rem; margin:1.25rem 0 1.75rem; }
+  .tab-features li{ display:flex; align-items:flex-start; gap:0.6rem; font-size:0.92rem; color:#DDE1EA; }
+  .tab-features li svg{ width:18px; height:18px; stroke:var(--yellow); flex-shrink:0; margin-top:2px; }
+  .tab-text h3{ color:var(--white); margin-bottom:0.75rem; }
+  .tab-text p.desc{ color:var(--muted-white); max-width:440px; }
+
+  /* === COVERAGE AREAS === */
+  .coverage{ padding:var(--sec-pad) 0; background:var(--black); }
+  .coverage-head{ text-align:center; max-width:640px; margin:0 auto 2.5rem; }
+  .coverage-head .tag{ margin-bottom:1rem; }
+  .coverage-head h2{ color:var(--white); }
+  .filter-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; margin-bottom:2.5rem; }
+  .filter-btn{
+    background:var(--glass-surf); border:1px solid var(--glass-border); color:var(--white);
+    padding:10px 20px; border-radius:999px; font-size:0.8rem; font-weight:500;
+    transition:background 0.2s ease, color 0.2s ease; min-height:40px;
+  }
+  .filter-btn.active{ background:var(--yellow); color:var(--black); border-color:var(--yellow); font-weight:700; }
+  .areas-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:1rem; transition:opacity 0.3s ease; }
+  .area-chip{
+    padding:14px 18px; border-radius:14px;
+    display:flex; align-items:center; gap:0.6rem;
+    font-size:0.88rem; font-weight:500;
+    transition:border-color 0.2s ease;
+  }
+  .area-chip::before{ content:''; width:7px; height:7px; border-radius:50%; background:var(--yellow); flex-shrink:0; transition:transform 0.3s ease; }
+  .area-chip:hover{ border-color:rgba(255,214,0,0.5); }
+  .area-chip:hover::before{ transform:scale(1.5); }
+  .area-chip.hidden{ display:none; }
+
+  /* === TESTIMONIALS (stacked glass, asymmetric) === */
+  .testimonials{ padding:var(--sec-pad) 0; background:var(--black); }
+  .testimonials-head{ text-align:center; max-width:600px; margin:0 auto 4rem; }
+  .testimonials-head .tag{ margin-bottom:1rem; }
+  .testimonials-head h2{ color:var(--white); }
+  .testi-asym-grid{ display:grid; grid-template-columns:1fr; gap:1.5rem; }
+  @media (min-width:860px){
+    .testi-asym-grid{ grid-template-columns:1fr 1fr; grid-template-rows:auto auto; }
+    .testi-card.big{ grid-row:1 / 3; }
+  }
+  .testi-card{ padding:2.25rem; display:flex; flex-direction:column; gap:1.25rem; }
+  .stars{ display:flex; gap:4px; }
+  .stars svg{ width:16px; height:16px; fill:var(--yellow); stroke:var(--yellow); }
+  .testi-card p.quote{ font-family:var(--font-display); font-style:italic; font-weight:500; color:var(--white); font-size:1.02rem; flex-grow:1; }
+  .testi-name{ color:var(--yellow); font-weight:700; font-size:0.9rem; }
+  .testi-meta{ color:var(--muted-white); font-size:0.82rem; }
+
+  /* === MAP === */
+  .map-section{ padding:var(--sec-pad) 0; background:var(--black); }
+  .map-head{ text-align:center; max-width:640px; margin:0 auto 2.5rem; }
+  .map-head .tag{ margin-bottom:1rem; }
+  .map-head h2{ color:var(--white); }
+  .map-glass{ padding:12px; border-color:rgba(255,214,0,0.3); box-shadow:0 0 60px rgba(255,214,0,0.08); }
+  .map-glass iframe{ width:100%; height:420px; border:0; border-radius:14px; display:block; }
+  .contact-chip-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:2rem; }
+  .contact-pill{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding:12px 22px; border-radius:999px;
+    font-size:0.88rem; font-weight:500; color:var(--white);
+  }
+  .contact-pill svg{ width:18px; height:18px; stroke:var(--yellow); }
+
+  /* === QUOTE / CONTACT === */
+  .contact-section{ padding:var(--sec-pad) 0 8rem; background:var(--black); }
+  .contact-card{ max-width:900px; margin:0 auto; padding:clamp(1.75rem,4vw,3.5rem); display:grid; grid-template-columns:1fr; gap:2.5rem; }
+  @media (min-width:900px){ .contact-card{ grid-template-columns:1.3fr 0.7fr; } }
+  .contact-form-side .tag{ margin-bottom:1rem; }
+  .contact-form-side h2{ color:var(--white); margin-bottom:1rem; }
+  .contact-form-side p.sub{ color:var(--muted-white); margin-bottom:2rem; }
+
+  form{ display:flex; flex-direction:column; gap:1.25rem; }
+  .form-row{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+  @media (min-width:560px){ .form-row.two{ grid-template-columns:1fr 1fr; } }
+  label{ display:block; font-size:0.75rem; font-weight:500; color:#C9CDD6; margin-bottom:0.5rem; }
+  input, select, textarea{
+    width:100%; padding:14px 16px;
+    border:1px solid var(--glass-border); border-radius:10px;
+    font-family:var(--font-body); font-size:0.95rem;
+    background:rgba(255,255,255,0.04); color:var(--white);
+    transition:border-color 0.2s ease, box-shadow 0.2s ease; min-height:44px;
+  }
+  input::placeholder, textarea::placeholder{ color:#5C6270; }
+  input:focus, select:focus, textarea:focus{ border-color:var(--yellow); outline:none; box-shadow:0 0 0 3px rgba(255,214,0,0.2); }
+  textarea{ resize:vertical; min-height:100px; }
+  select option{ background:#0D0D0D; color:var(--white); }
+
+  .service-toggle-group{ display:flex; flex-wrap:wrap; gap:0.6rem; }
+  .service-toggle-group button{
+    background:var(--glass-surf); border:1px solid var(--glass-border); color:var(--white);
+    padding:10px 20px; border-radius:999px; font-size:0.85rem; font-weight:500;
+    transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    min-height:44px;
+  }
+  .service-toggle-group button[aria-selected="true"]{ background:var(--yellow); color:var(--black); border-color:var(--yellow); font-weight:700; }
+  .submit-btn{ width:100%; }
+
+  .contact-chips-side{ display:flex; flex-direction:column; gap:1rem; justify-content:center; }
+  .mini-contact-card{
+    padding:1.5rem; display:flex; align-items:center; gap:1rem;
+  }
+  .mini-contact-card svg{ width:22px; height:22px; stroke:var(--yellow); flex-shrink:0; }
+  .mini-contact-card .mini-label{ font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted-white); display:block; margin-bottom:0.25rem; }
+  .mini-contact-card .mini-value{ font-size:0.92rem; font-weight:500; color:var(--white); }
+
+  /* Fixed WhatsApp bubble */
+  .whatsapp-bubble{
+    position:fixed; bottom:24px; right:24px;
+    width:60px; height:60px; border-radius:50%;
+    background:var(--yellow);
+    display:flex; align-items:center; justify-content:center;
+    z-index:400;
+    animation:pulseWA 2s infinite;
+  }
+  .whatsapp-bubble svg{ width:28px; height:28px; stroke:var(--black); }
+  @keyframes pulseWA{
+    0%,100%{ box-shadow:0 0 0 0 rgba(255,214,0,0.5); }
+    50%{ box-shadow:0 0 0 18px rgba(255,214,0,0); }
+  }
+
+  /* === FOOTER === */
+  footer{ background:var(--black); border-top:1px solid rgba(255,214,0,0.25); padding:4rem 0 2.5rem; }
+  .footer-top{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:2.5rem; padding-bottom:2.5rem; }
+  .footer-logo svg{ height:42px; width:auto; margin-bottom:1rem; }
+  .footer-tagline{ color:var(--muted-white); font-size:0.85rem; max-width:300px; font-weight:300; }
+  .footer-links{ display:flex; flex-wrap:wrap; gap:2.5rem; }
+  .footer-col h4{ font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--yellow); margin-bottom:1rem; font-weight:500; font-family:var(--font-body); }
+  .footer-col ul{ display:flex; flex-direction:column; gap:0.65rem; }
+  .footer-col a{ color:var(--muted-white); font-size:0.88rem; }
+  .footer-col a:hover{ color:var(--yellow); }
+  .social-icons{ display:flex; gap:1.25rem; }
+  .social-icons a svg{ width:18px; height:18px; stroke:var(--muted-white); transition:stroke 0.2s ease; }
+  .social-icons a:hover svg{ stroke:var(--yellow); }
+  .footer-bottom{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-size:0.78rem; color:#5C6270; font-weight:300; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Custom cursor (decorative, desktop only) -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- === NAV === -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Ekhaya Trading and Logistics home">
+      <svg viewBox="0 0 260 50" role="img" aria-label="Ekhaya Trading and Logistics Logo">
+        <circle cx="25" cy="25" r="23" fill="#101010" stroke="#FFD600" stroke-width="1.5"/>
+        <rect x="14" y="16" width="16" height="16" fill="none" stroke="#FFD600" stroke-width="2"/>
+        <path d="M26 16 L36 6 M36 6 H28 M36 6 V14" stroke="#FFD600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="58" y="23" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="17" fill="#FFFFFF">EKHAYA</text>
+        <text x="58" y="38" font-family="'Inter', sans-serif" font-size="8" letter-spacing="1.5" fill="#FFC200" font-weight="400">TRADING &amp; LOGISTICS</text>
+      </svg>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how">Process</a></li>
+        <li><a href="#areas">Coverage</a></li>
+        <li><a href="#why">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#contact" class="nav-cta desktop-only">Get a Quote</a>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="mobile-sheet" aria-label="Open menu" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Bottom sheet mobile nav -->
+<div class="sheet-backdrop" id="sheetBackdrop"></div>
+<div class="bottom-sheet" id="mobile-sheet" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <div class="sheet-handle"></div>
+  <a href="#services">Services</a>
+  <a href="#how">Process</a>
+  <a href="#areas">Coverage</a>
+  <a href="#why">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="nav-cta">Get a Quote</a>
+</div>
+
+<main id="main-content">
+
+  <!-- === HERO === -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="hero-mesh" aria-hidden="true"></div>
+    <div class="wrap hero-content">
+      <span class="tag hero-eyebrow">South Africa's Trusted Logistics Partner</span>
+      <h1>Your Goods. Our Mission. <span class="accent">Home.</span></h1>
+      <p class="hero-sub">Ekhaya means home — and every delivery, relocation and removal we run is built around getting your things there safely, on time, day or night.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-yellow">Request a Quote</a>
+        <a href="#services" class="btn btn-glass">Our Services</a>
+      </div>
+      <div class="stat-chips">
+        <span class="chip glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2 L21 6 V12 C21 17 17 21.5 12 23 C7 21.5 3 17 3 12 V6 Z"/></svg> Fully Insured</span>
+        <span class="chip glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3 C15 6 15 18 12 21 C9 18 9 6 12 3 Z"/></svg> Nationwide</span>
+        <span class="chip glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7 V12 L16 14"/></svg> 24/7 Available</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SERVICE TICKER === -->
+  <div class="ticker-band" role="presentation">
+    <div class="ticker-track">
+      <span>Same-Day Delivery · Home Relocation · Office Removals · Furniture Transport · Long-Distance Moves · Fully Insured · Nationwide ·</span>
+      <span>Same-Day Delivery · Home Relocation · Office Removals · Furniture Transport · Long-Distance Moves · Fully Insured · Nationwide ·</span>
+    </div>
+  </div>
+
+  <!-- === SERVICES (glass card stack) === -->
+  <section class="services" id="services" aria-label="Our services">
+    <div class="wrap">
+      <div class="services-head reveal">
+        <span class="tag">What We Do</span>
+        <h2>Three ways we get you home.</h2>
+      </div>
+      <div class="services-grid reveal-stagger">
+        <article class="service-card glass reveal" style="--i:0">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10 H20 L23 13 V17 H16 Z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></div>
+          <h3>Courier &amp; Deliveries</h3>
+          <p class="desc">Same-day and scheduled deliveries, tracked from pickup to signed hand-off.</p>
+          <div class="chip-row">
+            <span class="steel-chip">Same-Day</span>
+            <span class="steel-chip">Tracked</span>
+            <span class="steel-chip">Fragile-Safe</span>
+            <span class="steel-chip">Signed POD</span>
+          </div>
+          <a href="#contact" class="card-link">Get Quote <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg></a>
+        </article>
+        <article class="service-card glass reveal" style="--i:1">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 11 L12 4 L21 11"/><path d="M5 10 V20 H19 V10"/><rect x="10" y="14" width="4" height="6"/></svg></div>
+          <h3>Home &amp; Office Relocation</h3>
+          <p class="desc">Full-service relocation for households and businesses — packed, moved, unpacked.</p>
+          <div class="chip-row">
+            <span class="steel-chip">Full-Pack</span>
+            <span class="steel-chip">Insured</span>
+            <span class="steel-chip">Coordinator</span>
+            <span class="steel-chip">Reassembly</span>
+          </div>
+          <a href="#contact" class="card-link">Get Quote <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg></a>
+        </article>
+        <article class="service-card glass reveal" style="--i:2">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10 H20 M10 10 V20"/></svg></div>
+          <h3>Furniture Removals</h3>
+          <p class="desc">Single items to full office strip-outs, moved and placed exactly where needed.</p>
+          <div class="chip-row">
+            <span class="steel-chip">Office-Ready</span>
+            <span class="steel-chip">Asset-Tagged</span>
+            <span class="steel-chip">Weekend Crews</span>
+            <span class="steel-chip">Disposal</span>
+          </div>
+          <a href="#contact" class="card-link">Get Quote <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- === STATS BAND === -->
+  <section class="stats-band" aria-label="Our numbers">
+    <div class="wrap stats-grid">
+      <div><span class="stat-value" data-target="14200" data-suffix="+">0</span><span class="stat-label">Moves Completed</span></div>
+      <div><span class="stat-value" data-target="48" data-suffix="">0</span><span class="stat-label">Cities Covered</span></div>
+      <div><span class="stat-value" data-target="6400" data-suffix="+">0</span><span class="stat-label">Happy Clients</span></div>
+      <div><span class="stat-value" data-target="98" data-suffix="%">0</span><span class="stat-label">On-Time Rate</span></div>
+    </div>
+  </section>
+
+  <!-- === HOW IT WORKS === -->
+  <section class="how" id="how" aria-label="How it works">
+    <div class="wrap">
+      <div class="how-head reveal">
+        <span class="tag">The Process</span>
+        <h2>From request to delivered home.</h2>
+      </div>
+      <div class="how-grid reveal-stagger">
+        <svg class="how-line-svg" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <line id="line1" x1="200" y1="60" x2="200" y2="150" stroke="#FFD600" stroke-width="2" stroke-dasharray="8 8" stroke-dashoffset="200"/>
+          <line id="line2" x1="0" y1="150" x2="400" y2="150" stroke="#FFD600" stroke-width="2" stroke-dasharray="8 8" stroke-dashoffset="500"/>
+        </svg>
+        <div class="how-card glass reveal" style="--i:0">
+          <div class="step-circle">1</div>
+          <h3>Request Quote</h3>
+          <p>Tell us what's moving. We respond within one business day with clear pricing.</p>
+        </div>
+        <div class="how-card glass reveal" style="--i:1">
+          <div class="step-circle">2</div>
+          <h3>We Plan</h3>
+          <p>A coordinator confirms crew size, timing and route with you.</p>
+        </div>
+        <div class="how-card glass reveal" style="--i:2">
+          <div class="step-circle">3</div>
+          <h3>Pack &amp; Collect</h3>
+          <p>Trained teams pack, wrap and load under insured, tracked conditions.</p>
+        </div>
+        <div class="how-card glass reveal" style="--i:3">
+          <div class="step-circle">4</div>
+          <h3>Delivered Safe</h3>
+          <p>Goods arrive on time, unpacked and placed, with a final sign-off.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === WHY EKHAYA === -->
+  <section class="why" id="why" aria-label="Why choose Ekhaya">
+    <div class="wrap why-grid">
+      <div class="why-text reveal">
+        <span class="tag">Why Ekhaya</span>
+        <h2>We don't just move your things. We move them <mark>home</mark>.</h2>
+        <p class="body-copy">Every crew is trained, every vehicle insured, every move tracked from the first phone call to the final box placed. Ekhaya isn't just a name — it's the standard behind every job we take on, day or night.</p>
+        <a href="#contact" class="btn btn-yellow">Start Your Move</a>
+      </div>
+      <div class="why-stats reveal">
+        <div class="why-stat-card glass">
+          <span class="why-stat-value" data-target="14200" data-suffix="+">0</span>
+          <span class="why-stat-label">Moves Completed</span>
+        </div>
+        <div class="why-stat-card glass">
+          <span class="why-stat-value" data-target="6400" data-suffix="+">0</span>
+          <span class="why-stat-label">Happy Clients</span>
+        </div>
+        <div class="why-stat-card glass">
+          <span class="why-stat-value" data-target="48" data-suffix="">0</span>
+          <span class="why-stat-label">Cities Covered</span>
+        </div>
+        <div class="why-stat-card glass">
+          <span class="why-stat-value" data-target="98" data-suffix="%">0</span>
+          <span class="why-stat-label">On-Time Rate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SERVICE DETAILS (tabbed glass panel) === -->
+  <section class="deep-dive" aria-label="Service details">
+    <div class="wrap">
+      <div class="dive-head reveal">
+        <span class="tag">In Detail</span>
+        <h2>Every service, unpacked.</h2>
+      </div>
+
+      <div class="tab-buttons" role="tablist" aria-label="Service tabs">
+        <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-deliveries" id="tab-deliveries" data-tab="deliveries" tabindex="0">Deliveries</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-relocation" id="tab-relocation" data-tab="relocation" tabindex="-1">Relocation</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-removals" id="tab-removals" data-tab="removals" tabindex="-1">Removals</button>
+      </div>
+
+      <div class="tab-panel active glass" id="panel-deliveries" role="tabpanel" aria-labelledby="tab-deliveries" data-panel="deliveries">
+        <div class="tab-visual" aria-hidden="true">
+          <svg viewBox="0 0 200 180" fill="none">
+            <rect x="20" y="70" width="90" height="60" rx="2" stroke="#FFFFFF" stroke-width="2"/>
+            <path d="M110 90 H150 L175 115 V130 H110 Z" stroke="#FFD600" stroke-width="2"/>
+            <circle cx="55" cy="140" r="12" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="150" cy="140" r="12" stroke="#FFFFFF" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="tab-text">
+          <h3>Precision delivery, tracked door to door.</h3>
+          <p class="desc">Urgent documents, fragile freight, or scheduled runs — our courier fleet operates on tight, tracked windows across South Africa's major metros.</p>
+          <ul class="tab-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> Same-day and scheduled delivery slots</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> Live tracking with signed proof of delivery</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> Fragile and temperature-sensitive handling</li>
+          </ul>
+          <a href="#contact" class="btn btn-glass">Get a Courier Quote</a>
+        </div>
+      </div>
+
+      <div class="tab-panel glass" id="panel-relocation" role="tabpanel" aria-labelledby="tab-relocation" data-panel="relocation">
+        <div class="tab-visual" aria-hidden="true">
+          <svg viewBox="0 0 200 180" fill="none">
+            <path d="M40 90 L100 45 L160 90" stroke="#FFFFFF" stroke-width="2"/>
+            <rect x="55" y="90" width="90" height="60" stroke="#FFFFFF" stroke-width="2"/>
+            <rect x="90" y="115" width="22" height="35" stroke="#FFD600" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="tab-text">
+          <h3>Your home, moved like it's ours.</h3>
+          <p class="desc">Full-service household and office relocation from the first box to the last picture hung — packed, transported and unpacked by trained crews.</p>
+          <ul class="tab-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> Custom crating for fragile and high-value items</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> Full pack-unpack and furniture reassembly</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> A dedicated move coordinator throughout</li>
+          </ul>
+          <a href="#contact" class="btn btn-glass">Get a Relocation Quote</a>
+        </div>
+      </div>
+
+      <div class="tab-panel glass" id="panel-removals" role="tabpanel" aria-labelledby="tab-removals" data-panel="removals">
+        <div class="tab-visual" aria-hidden="true">
+          <svg viewBox="0 0 200 180" fill="none">
+            <rect x="45" y="40" width="110" height="100" stroke="#FFFFFF" stroke-width="2"/>
+            <line x1="45" y1="65" x2="155" y2="65" stroke="#FFD600" stroke-width="1.5"/>
+            <line x1="45" y1="90" x2="155" y2="90" stroke="#FFD600" stroke-width="1.5"/>
+            <line x1="45" y1="115" x2="155" y2="115" stroke="#FFD600" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="tab-text">
+          <h3>Office strip-outs and single-item moves, sorted.</h3>
+          <p class="desc">From one couch to an entire floor of workstations, we remove, transport and place furniture exactly where the new floor plan says it goes.</p>
+          <ul class="tab-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> Out-of-hours and weekend crews available</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> Asset tagging and floor-plan-matched placement</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg> Disposal and donation options for unwanted items</li>
+          </ul>
+          <a href="#contact" class="btn btn-glass">Get a Removals Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === COVERAGE AREAS === -->
+  <section class="coverage" id="areas" aria-label="Coverage areas">
+    <div class="wrap">
+      <div class="coverage-head reveal">
+        <span class="tag">Nationwide Reach</span>
+        <h2>We Cover Your South Africa.</h2>
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="All">All</button>
+        <button class="filter-btn" data-filter="Gauteng">Gauteng</button>
+        <button class="filter-btn" data-filter="Western Cape">Western Cape</button>
+        <button class="filter-btn" data-filter="KZN">KZN</button>
+        <button class="filter-btn" data-filter="Eastern Cape">Eastern Cape</button>
+        <button class="filter-btn" data-filter="Other">Other</button>
+      </div>
+      <div class="areas-grid" id="areasGrid">
+        <span class="area-chip glass" data-province="Gauteng">Johannesburg</span>
+        <span class="area-chip glass" data-province="Gauteng">Pretoria</span>
+        <span class="area-chip glass" data-province="Gauteng">Centurion</span>
+        <span class="area-chip glass" data-province="Western Cape">Cape Town</span>
+        <span class="area-chip glass" data-province="Western Cape">Stellenbosch</span>
+        <span class="area-chip glass" data-province="KZN">Durban</span>
+        <span class="area-chip glass" data-province="KZN">Pietermaritzburg</span>
+        <span class="area-chip glass" data-province="Eastern Cape">Gqeberha</span>
+        <span class="area-chip glass" data-province="Eastern Cape">East London</span>
+        <span class="area-chip glass" data-province="Other">Bloemfontein</span>
+        <span class="area-chip glass" data-province="Other">Nelspruit</span>
+        <span class="area-chip glass" data-province="Other">Polokwane</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- === TESTIMONIALS (stacked glass, asymmetric) === -->
+  <section class="testimonials" aria-label="Customer testimonials">
+    <div class="wrap">
+      <div class="testimonials-head reveal">
+        <span class="tag">Client Stories</span>
+        <h2>What moving with us feels like.</h2>
+      </div>
+      <div class="testi-asym-grid" id="testiGrid">
+        <article class="testi-card big glass">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <p class="quote">They moved our whole house from Soweto to Durban without a single damaged item. Everything arrived exactly as it left — it really did feel like coming home.</p>
+          <span class="testi-name">Nomsa D.</span>
+          <span class="testi-meta">Home Relocation, Durban</span>
+        </article>
+        <article class="testi-card glass">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <p class="quote">45 staff relocated over one weekend. By Monday morning every desk was exactly where the floor plan said it would be.</p>
+          <span class="testi-name">Thabo M.</span>
+          <span class="testi-meta">Office Removal, Johannesburg</span>
+        </article>
+        <article class="testi-card glass">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <p class="quote">Same-day courier for a contract that could not be late. Signed for two hours before deadline. Flawless.</p>
+          <span class="testi-name">Aisha K.</span>
+          <span class="testi-meta">Courier &amp; Delivery, Cape Town</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- === MAP === -->
+  <section class="map-section" id="map" aria-label="Coverage map">
+    <div class="wrap">
+      <div class="map-head reveal">
+        <span class="tag">Find Us</span>
+        <h2>Nationwide Coverage — Door to Door.</h2>
+      </div>
+      <div class="map-glass glass reveal">
+        <iframe
+          title="Ekhaya Trading and Logistics coverage map of South Africa"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=16.3,-34.9,32.9,-22.1&layer=mapnik"
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="contact-chip-row">
+        <a href="tel:+27116229040" class="contact-pill glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg> +27 11 622 9040</a>
+        <a href="mailto:hello@ekhayalogistics.co.za" class="contact-pill glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6 L12 13 L22 6"/></svg> hello@ekhayalogistics.co.za</a>
+        <a href="https://wa.me/27116229040" target="_blank" rel="noopener" class="contact-pill glass"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- === QUOTE / CONTACT === -->
+  <section class="contact-section" id="contact" aria-label="Request a quote">
+    <div class="wrap">
+      <div class="contact-card glass reveal">
+        <div class="contact-form-side">
+          <span class="tag">Get Started</span>
+          <h2>Start Your Move Today.</h2>
+          <p class="sub">Share your move details and a coordinator will send a written quote within one business day.</p>
+
+          <form aria-label="Request a moving quote" action="mailto:hello@ekhayalogistics.co.za" method="post" enctype="text/plain">
+            <div class="form-row two">
+              <div>
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name" required aria-required="true">
+              </div>
+              <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required aria-required="true">
+              </div>
+            </div>
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" autocomplete="email" required aria-required="true">
+            </div>
+            <div>
+              <label id="serviceToggleLabel">Service</label>
+              <div class="service-toggle-group" role="tablist" aria-labelledby="serviceToggleLabel">
+                <button type="button" role="tab" class="service-toggle-btn" data-service="Delivery" aria-selected="true">Delivery</button>
+                <button type="button" role="tab" class="service-toggle-btn" data-service="Relocation" aria-selected="false">Relocation</button>
+                <button type="button" role="tab" class="service-toggle-btn" data-service="Removal" aria-selected="false">Removal</button>
+              </div>
+              <input type="hidden" id="serviceValue" name="serviceType" value="Delivery">
+            </div>
+            <div class="form-row two">
+              <div>
+                <label for="fromLoc">From</label>
+                <input type="text" id="fromLoc" name="fromLoc" placeholder="Suburb, City">
+              </div>
+              <div>
+                <label for="toLoc">To</label>
+                <input type="text" id="toLoc" name="toLoc" placeholder="Suburb, City">
+              </div>
+            </div>
+            <div>
+              <label for="moveDate">Date</label>
+              <input type="date" id="moveDate" name="moveDate">
+            </div>
+            <div>
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" placeholder="Anything we should know — access restrictions, fragile items, floor levels..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-yellow submit-btn">Submit Request</button>
+          </form>
+        </div>
+
+        <div class="contact-chips-side">
+          <a href="tel:+27116229040" class="mini-contact-card glass">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+            <span><span class="mini-label">Phone</span><span class="mini-value">+27 11 622 9040</span></span>
+          </a>
+          <a href="mailto:hello@ekhayalogistics.co.za" class="mini-contact-card glass">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6 L12 13 L22 6"/></svg>
+            <span><span class="mini-label">Email</span><span class="mini-value">hello@ekhayalogistics.co.za</span></span>
+          </a>
+          <a href="https://wa.me/27116229040" target="_blank" rel="noopener" class="mini-contact-card glass">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span><span class="mini-label">WhatsApp</span><span class="mini-value">Chat Now</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Fixed WhatsApp bubble -->
+<a href="https://wa.me/27116229040" target="_blank" rel="noopener" class="whatsapp-bubble" aria-label="Chat with Ekhaya Trading and Logistics on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+
+<!-- === FOOTER === -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <svg viewBox="0 0 260 50" role="img" aria-label="Ekhaya Trading and Logistics Logo" class="footer-logo">
+          <circle cx="25" cy="25" r="23" fill="#101010" stroke="#FFD600" stroke-width="1.5"/>
+          <rect x="14" y="16" width="16" height="16" fill="none" stroke="#FFD600" stroke-width="2"/>
+          <path d="M26 16 L36 6 M36 6 H28 M36 6 V14" stroke="#FFD600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="58" y="23" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="17" fill="#FFFFFF">EKHAYA</text>
+          <text x="58" y="38" font-family="'Inter', sans-serif" font-size="8" letter-spacing="1.5" fill="#FFC200" font-weight="400">TRADING &amp; LOGISTICS</text>
+        </svg>
+        <p class="footer-tagline">Ekhaya means home. (Pty) Ltd | Reg: 2014/108562/07 | Licensed &amp; Insured | South Africa.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#why">About Us</a></li>
+            <li><a href="#areas">Coverage</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Courier &amp; Deliveries</a></li>
+            <li><a href="#services">Home &amp; Office Relocation</a></li>
+            <li><a href="#services">Furniture Removals</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Ekhaya on Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Ekhaya on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+            <a href="#" aria-label="Ekhaya on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ekhaya Trading and Logistics (Pty) Ltd. All rights reserved.</p>
+      <p>Licensed &amp; Insured — South Africa</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ---- Custom cursor (desktop, non-touch only) ---- */
+  if(!isCoarsePointer && !prefersReduced){
+    var dot = document.getElementById('cursorDot');
+    var ring = document.getElementById('cursorRing');
+    var mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+    window.addEventListener('mousemove', function(e){
+      mouseX = e.clientX; mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    });
+    function lerp(a,b,n){ return (1-n)*a + n*b; }
+    function animateRing(){
+      ringX = lerp(ringX, mouseX, 0.12);
+      ringY = lerp(ringY, mouseY, 0.12);
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+    var hoverables = document.querySelectorAll('a, button, input, select, textarea');
+    hoverables.forEach(function(el){
+      el.addEventListener('mouseenter', function(){ ring.classList.add('hovering'); });
+      el.addEventListener('mouseleave', function(){ ring.classList.remove('hovering'); });
+    });
+  }
+
+  /* ---- Sticky nav glass on scroll ---- */
+  var nav = document.getElementById('siteNav');
+  function handleScroll(){
+    if(window.scrollY > 30){ nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', handleScroll, {passive:true});
+  handleScroll();
+
+  /* ---- Bottom sheet mobile nav ---- */
+  var hamburger = document.getElementById('hamburgerBtn');
+  var sheet = document.getElementById('mobile-sheet');
+  var backdrop = document.getElementById('sheetBackdrop');
+
+  function closeSheet(){
+    hamburger.setAttribute('aria-expanded','false');
+    sheet.classList.remove('open');
+    backdrop.classList.remove('open');
+  }
+  function openSheet(){
+    hamburger.setAttribute('aria-expanded','true');
+    sheet.classList.add('open');
+    backdrop.classList.add('open');
+    var firstLink = sheet.querySelector('a');
+    if(firstLink) firstLink.focus();
+  }
+  hamburger.addEventListener('click', function(){
+    var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    expanded ? closeSheet() : openSheet();
+  });
+  backdrop.addEventListener('click', closeSheet);
+  sheet.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ closeSheet(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(sheet.classList.contains('open')){
+      if(e.key === 'Escape'){ closeSheet(); hamburger.focus(); }
+      if(e.key === 'Tab'){
+        var focusables = sheet.querySelectorAll('a, button');
+        var first = focusables[0], last = focusables[focusables.length-1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    }
+  });
+
+  /* ---- Scroll-triggered reveals ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* ---- How It Works dashed lines ---- */
+  var line1 = document.getElementById('line1');
+  var line2 = document.getElementById('line2');
+  var howSection = document.getElementById('how');
+  if(line1 && line2 && howSection && 'IntersectionObserver' in window){
+    var lineObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          line1.style.transition = 'stroke-dashoffset 1s ease-out';
+          line2.style.transition = 'stroke-dashoffset 1s ease-out 0.3s';
+          line1.style.strokeDashoffset = '0';
+          line2.style.strokeDashoffset = '0';
+          lineObs.disconnect();
+        }
+      });
+    }, {threshold:0.3});
+    lineObs.observe(howSection);
+  } else if(line1 && line2){
+    line1.style.strokeDashoffset = '0';
+    line2.style.strokeDashoffset = '0';
+  }
+
+  /* ---- CountUp stats ---- */
+  var statEls = document.querySelectorAll('.stat-value, .why-stat-value');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 2000;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(eased * target);
+      el.textContent = current.toLocaleString() + suffix;
+      if(progress < 1){ requestAnimationFrame(step); }
+      else { el.textContent = target.toLocaleString() + suffix; }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var statObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          statObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    statEls.forEach(function(n){ statObs.observe(n); });
+  } else {
+    statEls.forEach(animateCount);
+  }
+
+  /* ---- Tabbed service details ---- */
+  var tabButtons = document.querySelectorAll('.tab-btn');
+  var tabPanels = document.querySelectorAll('.tab-panel');
+  function activateTab(btn){
+    var target = btn.getAttribute('data-tab');
+    tabButtons.forEach(function(b){ b.setAttribute('aria-selected','false'); b.setAttribute('tabindex','-1'); });
+    tabPanels.forEach(function(p){ p.classList.remove('active'); });
+    btn.setAttribute('aria-selected','true');
+    btn.setAttribute('tabindex','0');
+    var panel = document.querySelector('.tab-panel[data-panel="' + target + '"]');
+    if(panel){ panel.classList.add('active'); }
+  }
+  tabButtons.forEach(function(btn, idx){
+    btn.addEventListener('click', function(){ activateTab(btn); btn.focus(); });
+    btn.addEventListener('keydown', function(e){
+      var newIdx;
+      if(e.key === 'ArrowRight'){ newIdx = (idx + 1) % tabButtons.length; }
+      else if(e.key === 'ArrowLeft'){ newIdx = (idx - 1 + tabButtons.length) % tabButtons.length; }
+      if(newIdx !== undefined){
+        e.preventDefault();
+        activateTab(tabButtons[newIdx]);
+        tabButtons[newIdx].focus();
+      }
+    });
+  });
+
+  /* ---- Coverage filter ---- */
+  var filterButtons = document.querySelectorAll('.filter-btn');
+  var areaChips = document.querySelectorAll('.area-chip');
+  filterButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterButtons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      areaChips.forEach(function(chip){
+        var province = chip.getAttribute('data-province');
+        if(filter === 'All' || province === filter){ chip.classList.remove('hidden'); }
+        else { chip.classList.add('hidden'); }
+      });
+    });
+  });
+
+  /* ---- Service toggle pills (contact form) ---- */
+  var serviceBtns = document.querySelectorAll('.service-toggle-btn');
+  var serviceHidden = document.getElementById('serviceValue');
+  serviceBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      serviceBtns.forEach(function(b){ b.setAttribute('aria-selected','false'); });
+      btn.setAttribute('aria-selected','true');
+      serviceHidden.value = btn.getAttribute('data-service');
+    });
+  });
+
+  /* ---- Testimonial touch-swipe (mobile stacking is CSS-handled; swipe just for feel) ---- */
+  var testiGrid = document.getElementById('testiGrid');
+  if(testiGrid){
+    var touchStartX = 0;
+    testiGrid.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+    testiGrid.addEventListener('touchend', function(e){ /* purely decorative swipe zone, no-op beyond native scroll */ }, {passive:true});
+  }
+
+})();
+</script>
+
+</body>
+</html>
