@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lethokozile Logistics — Your Stuff. Sorted. | South Africa</title>
+<meta name="description" content="Lethokozile Logistics: same-day delivery, home & office relocation and furniture removals across South Africa. Fully insured, trained teams, transparent pricing.">
+<meta property="og:title" content="Lethokozile Logistics — Your Stuff. Sorted.">
+<meta property="og:description" content="Bold, warm, and professional courier, relocation and removals across South Africa. Fully insured and nationwide.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#C4501A">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* === TOKENS === */
+  :root{
+    --orange:#C4501A;
+    --orange-dark:#A0400F;
+    --navy:#0F1F3D;
+    --cream:#FDF6EC;
+    --white:#FFFFFF;
+    --sand:#E8D5B0;
+    --muted:#4A4A5A;
+    --green:#2D7A3E;
+
+    --font-display:'Syne', sans-serif;
+    --font-body:'Nunito', sans-serif;
+
+    --h1: clamp(3rem, 7.5vw, 7rem);
+    --h2: clamp(2rem, 4vw, 4rem);
+    --h3: 1.5rem;
+    --body: 1.05rem;
+    --label: 0.7rem;
+
+    --max-w: 1280px;
+    --sec-pad: clamp(4rem, 8vw, 8rem);
+    --radius: 20px;
+    --gap: 24px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    font-weight:400;
+    font-size:var(--body);
+    line-height:1.8;
+    color:var(--muted);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    line-height:1.05;
+    letter-spacing:-0.03em;
+    margin:0;
+    color:var(--navy);
+  }
+  h1{ font-size:var(--h1); font-weight:800; }
+  h2{ font-size:var(--h2); font-weight:700; }
+  h3{ font-size:var(--h3); font-weight:600; }
+  p{ margin:0; }
+  a{ color:inherit; text-decoration:none; }
+  img,svg{ display:block; max-width:100%; }
+  button{ font-family:inherit; cursor:pointer; }
+  ul{ margin:0; padding:0; list-style:none; }
+
+  .label{
+    font-size:var(--label);
+    text-transform:uppercase;
+    letter-spacing:0.2em;
+    font-weight:700;
+    color:var(--orange);
+    display:inline-block;
+    font-family:var(--font-body);
+  }
+
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding-left:clamp(1.25rem, 5vw, 2.5rem);
+    padding-right:clamp(1.25rem, 5vw, 2.5rem);
+  }
+
+  .skip-link{
+    position:absolute; left:-999px; top:0;
+    background:var(--orange); color:var(--white);
+    padding:12px 20px; z-index:1000; font-weight:700;
+  }
+  .skip-link:focus{ left:0; }
+
+  :focus-visible{ outline:3px solid var(--orange); outline-offset:3px; }
+
+  .reveal{ opacity:0; transform:translateY(50px); transition:opacity 0.7s ease-out, transform 0.7s ease-out; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal-stagger.in-view > *{ transition-delay:calc(var(--i,0) * 0.12s); }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+    padding:16px 32px;
+    border-radius:999px;
+    font-size:0.9rem;
+    font-weight:700;
+    font-family:var(--font-body);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    border:2px solid transparent;
+    min-height:44px;
+  }
+  .btn-orange{ background:var(--orange); color:var(--white); }
+  .btn-orange:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(196,80,26,0.35); background:var(--orange-dark); }
+  .btn-outline-navy{ border-color:var(--navy); color:var(--navy); }
+  .btn-outline-navy:hover{ transform:translateY(-3px); background:var(--navy); color:var(--cream); }
+  .btn-navy{ background:var(--navy); color:var(--cream); }
+  .btn-navy:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(15,31,61,0.3); }
+
+  /* === NAV === */
+  .nav{
+    position:fixed; top:0; left:0; right:0;
+    z-index:600;
+    background:var(--cream);
+    border-bottom:2px solid var(--navy);
+    padding:18px 0;
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo svg{ height:46px; width:auto; }
+  .nav-links{ display:flex; gap:clamp(1.25rem,2.5vw,2.25rem); }
+  .nav-links a{ font-size:0.9rem; font-weight:600; color:var(--navy); position:relative; padding-bottom:3px; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:2px;
+    background:var(--orange); transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    background:var(--orange); color:var(--white);
+    padding:12px 26px; font-size:0.85rem; font-weight:700;
+    border-radius:999px; transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    white-space:nowrap; min-height:44px; display:inline-flex; align-items:center;
+  }
+  .nav-cta:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(196,80,26,0.35); background:var(--orange-dark); }
+
+  .hamburger{
+    display:none; background:none; border:none;
+    width:44px; height:44px; align-items:center; justify-content:center;
+    flex-direction:column; gap:6px;
+  }
+  .hamburger span{ display:block; width:26px; height:3px; background:var(--navy); border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease; }
+  .hamburger[aria-expanded="true"] span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+
+  @media (max-width:960px){
+    .nav-links{ display:none; }
+    .nav-cta.desktop-only{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* Full-screen overlay nav */
+  .overlay-nav{
+    position:fixed; inset:0;
+    background:var(--navy);
+    z-index:700;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2rem;
+    clip-path:circle(0% at calc(100% - 40px) 40px);
+    transition:clip-path 0.5s ease;
+    pointer-events:none;
+  }
+  .overlay-nav.open{ clip-path:circle(150% at calc(100% - 40px) 40px); pointer-events:auto; }
+  .overlay-nav a{
+    font-family:var(--font-display);
+    font-size:2rem;
+    font-weight:700;
+    color:var(--cream);
+  }
+  .overlay-nav a:hover{ color:var(--orange); }
+  .overlay-close{
+    position:absolute; top:24px; right:24px;
+    width:44px; height:44px;
+    background:none; border:2px solid var(--cream); border-radius:50%;
+    color:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .overlay-nav .nav-cta{ margin-top:1rem; }
+
+  /* === HERO === */
+  .hero{ background:var(--cream); padding-top:calc(80px + 4rem); padding-bottom:5rem; }
+  .hero-grid{ display:grid; grid-template-columns:1fr; gap:3rem; align-items:center; }
+  @media (min-width:1024px){ .hero-grid{ grid-template-columns:1.4fr 1fr; } }
+  .hero-eyebrow{ margin-bottom:1.5rem; }
+  .hero h1{ margin-bottom:1.75rem; }
+  .hero h1 span.orange-word{ color:var(--orange); }
+  .hero h1 .letter{ display:inline-block; opacity:0; transform:translateY(30px); animation:letterIn 0.5s ease forwards; }
+  .hero-sub{ max-width:520px; font-size:1.15rem; margin-bottom:2.25rem; }
+  .hero-ctas{ display:flex; gap:1rem; flex-wrap:wrap; }
+  @keyframes letterIn{ to{ opacity:1; transform:translateY(0); } }
+
+  .hero-cards{ display:flex; flex-direction:column; gap:1.25rem; }
+  .info-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:1.5rem 1.75rem;
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    box-shadow:0 16px 40px rgba(15,31,61,0.1);
+    opacity:0;
+    transform:translateY(40px);
+    animation:cardIn 0.6s ease forwards;
+  }
+  .info-card:nth-child(1){ animation-delay:0.2s; transform:rotate(-2deg); }
+  .info-card:nth-child(2){ animation-delay:0.35s; transform:rotate(1.5deg); }
+  .info-card:nth-child(3){ animation-delay:0.5s; transform:rotate(-1deg); }
+  @keyframes cardIn{ to{ opacity:1; transform:translateY(0) rotate(var(--rot,0)); } }
+  .info-card:nth-child(1){ --rot:-2deg; }
+  .info-card:nth-child(2){ --rot:1.5deg; }
+  .info-card:nth-child(3){ --rot:-1deg; }
+  .info-icon{
+    width:48px; height:48px;
+    background:var(--sand);
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .info-icon svg{ width:24px; height:24px; stroke:var(--orange); }
+  .info-card span{ font-weight:700; color:var(--navy); font-size:0.92rem; }
+
+  /* === MOVING NUMBERS STRIP === */
+  .numbers-strip{ background:var(--orange); padding:3.5rem 0; }
+  .numbers-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; text-align:center; }
+  @media (min-width:800px){ .numbers-grid{ grid-template-columns:repeat(4,1fr); } }
+  .num-value{ font-family:var(--font-display); font-size:clamp(2.25rem,4.5vw,3.5rem); font-weight:800; color:var(--cream); display:block; }
+  .num-label{ display:block; margin-top:0.4rem; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:#FBE4D2; font-weight:600; }
+
+  /* === SERVICES GRID === */
+  .services{ padding:var(--sec-pad) 0; background:var(--cream); }
+  .services-head{ text-align:center; max-width:640px; margin:0 auto 4rem; }
+  .services-head .label{ margin-bottom:1rem; }
+  .services-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:var(--gap); }
+  .service-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(15,31,61,0.06);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    position:relative;
+  }
+  .service-card::before{
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:6px;
+    background:var(--navy);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 0.35s ease;
+  }
+  .service-card:hover{ transform:translateY(-8px); box-shadow:0 20px 50px rgba(15,31,61,0.16); }
+  .service-card:hover::before{ transform:scaleX(1); }
+  .service-card-inner{ padding:2.5rem 2rem; }
+  .service-icon{
+    width:56px; height:56px;
+    background:var(--sand);
+    border-radius:16px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:1.5rem;
+  }
+  .service-icon svg{ width:28px; height:28px; stroke:var(--orange); }
+  .service-card h3{ margin-bottom:0.85rem; }
+  .service-card p.desc{ margin-bottom:1.5rem; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.75rem; }
+  .chip{
+    font-size:0.72rem; font-weight:700; color:var(--navy);
+    background:var(--sand); padding:6px 14px; border-radius:999px;
+  }
+
+  /* === HOW IT WORKS === */
+  .how{ padding:var(--sec-pad) 0; background:var(--navy); }
+  .how-head{ text-align:center; max-width:600px; margin:0 auto 4rem; }
+  .how-head .label{ margin-bottom:1rem; }
+  .how-head h2{ color:var(--cream); }
+  .how-grid{ display:grid; grid-template-columns:1fr; gap:1.5rem; }
+  @media (min-width:700px){ .how-grid{ grid-template-columns:repeat(2,1fr); } }
+  .how-card{
+    background:var(--cream);
+    border-radius:var(--radius);
+    padding:2.5rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.75rem;
+  }
+  .how-num{ font-family:var(--font-display); font-size:3rem; font-weight:800; color:var(--orange); }
+  .how-card h3{ font-size:1.3rem; }
+  .how-card p{ color:var(--muted); font-size:0.95rem; }
+
+  /* === WHY CHOOSE LETHOKOZILE === */
+  .why{ padding:var(--sec-pad) 0; background:var(--cream); }
+  .why-grid{ display:grid; grid-template-columns:1fr; gap:3.5rem; align-items:center; }
+  @media (min-width:960px){ .why-grid{ grid-template-columns:1.1fr 0.9fr; } }
+  .why-text .label{ margin-bottom:1.25rem; }
+  .why-text h2{ margin-bottom:1.5rem; }
+  .why-text h2 mark{ background:none; color:var(--orange); }
+  .why-text p.body-copy{ max-width:520px; }
+  .trust-list{ display:flex; flex-direction:column; gap:1.5rem; }
+  .trust-item{ display:flex; align-items:flex-start; gap:1rem; }
+  .trust-check{
+    width:32px; height:32px;
+    background:rgba(45,122,62,0.12);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .trust-check svg{ width:18px; height:18px; stroke:var(--green); }
+  .trust-item strong{ display:block; color:var(--navy); font-family:var(--font-display); font-size:1.1rem; font-weight:700; }
+
+  /* === SERVICE DEEP DIVE === */
+  .deep-dive{ background:var(--cream); }
+  .dive-row{
+    display:grid; grid-template-columns:1fr; gap:3rem;
+    align-items:center;
+    padding:clamp(3rem,6vw,5.5rem) 0;
+  }
+  .dive-row.tint{ background:var(--sand); }
+  @media (min-width:960px){ .dive-row{ grid-template-columns:1fr 1fr; } }
+  .dive-row.reverse .dive-visual{ order:2; }
+  .dive-row.reverse .dive-text{ order:1; }
+  .dive-text .label{ margin-bottom:1rem; }
+  .dive-text h3{ font-size:2rem; margin-bottom:1rem; }
+  .dive-text p.desc{ margin-bottom:1.5rem; max-width:480px; }
+  .dive-features{ display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.75rem; }
+  .dive-features li{ display:flex; gap:0.6rem; font-size:0.92rem; color:var(--navy); font-weight:600; }
+  .dive-features li::before{ content:'→'; color:var(--orange); font-weight:800; }
+  .dive-visual{
+    display:flex; align-items:center; justify-content:center;
+    padding:2rem;
+  }
+  .dive-visual svg{ width:100%; max-width:320px; }
+  .dive-text{ padding:0 clamp(1.25rem,5vw,0); }
+
+  /* === TESTIMONIALS === */
+  .testimonials{ padding:var(--sec-pad) 0; background:var(--navy); }
+  .testimonials-head{ text-align:center; max-width:600px; margin:0 auto 4rem; }
+  .testimonials-head .label{ margin-bottom:1rem; }
+  .testimonials-head h2{ color:var(--cream); }
+  .testi-grid{ display:grid; grid-template-columns:1fr; gap:2rem; }
+  @media (min-width:860px){ .testi-grid{ grid-template-columns:repeat(3,1fr); } }
+  .testi-card{
+    background:var(--cream);
+    border-radius:var(--radius);
+    padding:2.25rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.25rem;
+  }
+  .stars{ display:flex; gap:4px; }
+  .stars svg{ width:16px; height:16px; fill:var(--orange); stroke:var(--orange); }
+  .testi-card p.quote{ font-style:italic; color:var(--navy); font-size:1.02rem; flex-grow:1; }
+  .testi-name{ font-weight:700; color:var(--navy); font-size:0.9rem; }
+  .testi-meta{ font-size:0.82rem; color:var(--muted); }
+  @media (max-width:859px){
+    .testi-grid{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:1.25rem; }
+    .testi-card{ flex:0 0 82%; scroll-snap-align:start; }
+  }
+
+  /* === COVERAGE AREAS === */
+  .areas{ padding:var(--sec-pad) 0; background:var(--cream); }
+  .areas-head{ text-align:center; max-width:640px; margin:0 auto 3.5rem; }
+  .areas-head .label{ margin-bottom:1rem; }
+  .areas-chips{ display:flex; flex-wrap:wrap; gap:0.9rem; justify-content:center; }
+  .area-chip{
+    background:var(--navy);
+    color:var(--cream);
+    padding:12px 22px 12px 16px;
+    border-radius:999px;
+    font-size:0.9rem;
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .area-chip::before{
+    content:'';
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--orange);
+    flex-shrink:0;
+  }
+  .area-chip:hover{ background:var(--orange); color:var(--white); }
+
+  /* === MAP === */
+  .map-section{ padding:var(--sec-pad) 0; background:var(--cream); }
+  .map-head{ text-align:center; max-width:640px; margin:0 auto 3rem; }
+  .map-head .label{ margin-bottom:1rem; }
+  .map-frame-wrap{
+    border:3px solid var(--navy);
+    border-radius:var(--radius);
+    padding:10px;
+    background:var(--white);
+  }
+  .map-frame-wrap iframe{ width:100%; height:440px; border:0; border-radius:12px; display:block; }
+  .map-contact{ text-align:center; margin-top:2rem; font-size:0.95rem; }
+  .map-contact strong{ color:var(--navy); }
+  .map-contact a{ color:var(--orange); font-weight:700; }
+
+  /* === QUOTE FORM === */
+  .quote-section{ background:var(--orange); padding:var(--sec-pad) 0; }
+  .quote-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    box-shadow:0 30px 70px rgba(15,31,61,0.25);
+    display:grid;
+    grid-template-columns:1fr;
+    overflow:hidden;
+  }
+  @media (min-width:960px){ .quote-card{ grid-template-columns:1.2fr 0.8fr; } }
+  .quote-form-side{ padding:clamp(2rem,5vw,3.5rem); }
+  .quote-form-side .label{ margin-bottom:1rem; }
+  .quote-form-side h2{ margin-bottom:0.75rem; font-size:clamp(1.75rem,3.5vw,2.5rem); }
+  .quote-form-side p.sub{ margin-bottom:2rem; max-width:440px; }
+
+  form{ display:flex; flex-direction:column; gap:1.25rem; }
+  .form-row{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+  @media (min-width:560px){ .form-row.two{ grid-template-columns:1fr 1fr; } }
+  label{ display:block; font-size:0.78rem; font-weight:700; color:var(--navy); margin-bottom:0.5rem; }
+  input, select, textarea{
+    width:100%;
+    padding:14px 16px;
+    border:2px solid var(--sand);
+    border-radius:10px;
+    font-family:var(--font-body);
+    font-size:0.95rem;
+    background:var(--cream);
+    color:var(--navy);
+    transition:border-color 0.2s ease;
+    min-height:44px;
+  }
+  input:focus, select:focus, textarea:focus{ border-color:var(--orange); outline:none; }
+  textarea{ resize:vertical; min-height:100px; }
+  .submit-btn{ align-self:flex-start; }
+
+  .quote-contact-side{
+    background:var(--orange);
+    color:var(--white);
+    padding:clamp(2rem,5vw,3.5rem);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:2rem;
+  }
+  .quote-contact-side h3{ color:var(--cream); font-family:var(--font-body); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.6rem; font-weight:700; }
+  .quote-contact-side p, .quote-contact-side a{ color:#FDF0E4; }
+  .whatsapp-cta{
+    display:inline-flex; align-items:center; gap:0.75rem;
+    background:var(--navy); color:var(--cream) !important;
+    padding:14px 26px; border-radius:999px;
+    font-size:0.88rem; font-weight:700;
+    width:fit-content;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .whatsapp-cta:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(15,31,61,0.3); }
+
+  /* === FOOTER === */
+  footer{ background:var(--navy); color:var(--cream); padding:4rem 0 2.5rem; }
+  .footer-top{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:2.5rem; padding-bottom:2.5rem; }
+  .footer-logo svg{ height:44px; width:auto; margin-bottom:1rem; }
+  .footer-tagline{ color:var(--sand); font-size:0.85rem; max-width:280px; }
+  .footer-links{ display:flex; flex-wrap:wrap; gap:2.5rem; }
+  .footer-col h4{ font-family:var(--font-body); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--orange); margin-bottom:1rem; font-weight:700; }
+  .footer-col ul{ display:flex; flex-direction:column; gap:0.65rem; }
+  .footer-col a{ color:var(--sand); font-size:0.88rem; }
+  .footer-col a:hover{ color:var(--orange); }
+  .social-icons{ display:flex; gap:1.25rem; margin-top:0.5rem; }
+  .social-icons a svg{ width:18px; height:18px; stroke:var(--sand); transition:stroke 0.2s ease; }
+  .social-icons a:hover svg{ stroke:var(--orange); }
+  .footer-rule{ border:none; border-top:2px solid var(--orange); margin:0 0 2rem; opacity:0.6; }
+  .footer-bottom{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-size:0.8rem; color:#9FAAC4; }
+
+  /* Fixed WhatsApp bubble */
+  .whatsapp-bubble{
+    position:fixed; bottom:24px; right:24px;
+    width:60px; height:60px; border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 30px rgba(37,211,102,0.4);
+    z-index:400;
+    animation:pulseWA 2s infinite;
+  }
+  .whatsapp-bubble svg{ width:28px; height:28px; stroke:#FFFFFF; }
+  @keyframes pulseWA{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.12); } }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- === NAV === -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Lethokozile Logistics home">
+      <svg viewBox="0 0 280 60" role="img" aria-label="Lethokozile Logistics Logo">
+        <polygon points="30,4 50,16 50,40 30,52 10,40 10,16" fill="#C4501A"/>
+        <polygon points="30,4 50,16 50,40 30,52" fill="#0F1F3D"/>
+        <text x="24" y="36" font-family="'Syne', sans-serif" font-weight="800" font-size="22" fill="#FDF6EC">L</text>
+        <text x="62" y="26" font-family="'Syne', sans-serif" font-weight="800" font-size="16" fill="#0F1F3D">LETHOKOZILE</text>
+        <text x="62" y="42" font-family="'Nunito', sans-serif" font-size="9" letter-spacing="3" fill="#C4501A" font-weight="700">LOGISTICS</text>
+      </svg>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how">Process</a></li>
+        <li><a href="#areas">Coverage</a></li>
+        <li><a href="#why">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#contact" class="nav-cta desktop-only">Book a Move</a>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="overlayNav" aria-label="Open menu" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Full-screen overlay nav -->
+<div class="overlay-nav" id="overlayNav" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <button class="overlay-close" id="overlayClose" aria-label="Close menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 L6 18 M6 6 L18 18"/></svg>
+  </button>
+  <a href="#services">Services</a>
+  <a href="#how">Process</a>
+  <a href="#areas">Coverage</a>
+  <a href="#why">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="nav-cta">Book a Move</a>
+</div>
+
+<main id="main-content">
+
+  <!-- === HERO === -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="label hero-eyebrow">Deliveries · Relocation · Removals</span>
+        <h1 aria-label="Your Stuff. Sorted.">
+          YOUR<br>STUFF.<br><span class="orange-word" id="sortedWord">SORTED.</span>
+        </h1>
+        <p class="hero-sub">Lethokozile Logistics handles South African deliveries, relocations and removals with bold professionalism and a personal touch — fully insured, always on time.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-orange">Get a Free Quote</a>
+          <a href="#services" class="btn btn-outline-navy">See Our Services</a>
+        </div>
+      </div>
+      <div class="hero-cards" aria-hidden="true">
+        <div class="info-card">
+          <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7 V12 L16 14"/></svg></div>
+          <span>Same-Day Delivery Available</span>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3 C15 6 15 18 12 21 C9 18 9 6 12 3 Z"/></svg></div>
+          <span>Nationwide Removals</span>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2 L21 6 V12 C21 17 17 21.5 12 23 C7 21.5 3 17 3 12 V6 Z"/></svg></div>
+          <span>Fully Insured</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === MOVING NUMBERS STRIP === -->
+  <section class="numbers-strip" aria-label="Our numbers">
+    <div class="wrap numbers-grid">
+      <div><span class="num-value" data-target="12800" data-suffix="+">0</span><span class="num-label">Moves Completed</span></div>
+      <div><span class="num-value" data-target="42" data-suffix="">0</span><span class="num-label">Cities Covered</span></div>
+      <div><span class="num-value" data-target="5900" data-suffix="+">0</span><span class="num-label">Happy Clients</span></div>
+      <div><span class="num-value" data-target="14" data-suffix="">0</span><span class="num-label">Years Active</span></div>
+    </div>
+  </section>
+
+  <!-- === SERVICES GRID === -->
+  <section class="services" id="services" aria-label="Our services">
+    <div class="wrap">
+      <div class="services-head reveal">
+        <span class="label">What We Do</span>
+        <h2>Three ways we sort your move.</h2>
+      </div>
+      <div class="services-grid reveal-stagger">
+        <article class="service-card reveal" style="--i:0">
+          <div class="service-card-inner">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7 V12 L16 14"/></svg></div>
+            <h3>Same-Day Delivery</h3>
+            <p class="desc">Urgent parcels and scheduled deliveries handled with speed and tracked precision.</p>
+            <div class="chip-row">
+              <span class="chip">Tracked</span>
+              <span class="chip">Metro Coverage</span>
+              <span class="chip">Signed POD</span>
+              <span class="chip">Fragile-Safe</span>
+            </div>
+            <a href="#contact" class="btn btn-orange">Get Quote</a>
+          </div>
+        </article>
+        <article class="service-card reveal" style="--i:1">
+          <div class="service-card-inner">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 11 L12 4 L21 11"/><path d="M5 10 V20 H19 V10"/><rect x="10" y="14" width="4" height="6"/></svg></div>
+            <h3>Home &amp; Office Relocation</h3>
+            <p class="desc">Full-service relocation for households and businesses — packed, moved, unpacked.</p>
+            <div class="chip-row">
+              <span class="chip">Full-Pack</span>
+              <span class="chip">Insured</span>
+              <span class="chip">Coordinator</span>
+              <span class="chip">Reassembly</span>
+            </div>
+            <a href="#contact" class="btn btn-orange">Get Quote</a>
+          </div>
+        </article>
+        <article class="service-card reveal" style="--i:2">
+          <div class="service-card-inner">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10 H20 M10 10 V20"/></svg></div>
+            <h3>Furniture Removals</h3>
+            <p class="desc">Single items to full office strip-outs, moved and placed exactly where needed.</p>
+            <div class="chip-row">
+              <span class="chip">Office-Ready</span>
+              <span class="chip">Asset-Tagged</span>
+              <span class="chip">Weekend Crews</span>
+              <span class="chip">Disposal Option</span>
+            </div>
+            <a href="#contact" class="btn btn-orange">Get Quote</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- === HOW IT WORKS === -->
+  <section class="how" id="how" aria-label="How it works">
+    <div class="wrap">
+      <div class="how-head reveal">
+        <span class="label">The Process</span>
+        <h2>From request to delivered.</h2>
+      </div>
+      <div class="how-grid reveal-stagger">
+        <div class="how-card reveal" style="--i:0">
+          <span class="how-num" aria-hidden="true">01</span>
+          <h3>Quote Request</h3>
+          <p>Tell us what's moving. We respond within one business day with clear pricing.</p>
+        </div>
+        <div class="how-card reveal" style="--i:1">
+          <span class="how-num" aria-hidden="true">02</span>
+          <h3>We Plan</h3>
+          <p>A coordinator confirms crew size, timing and route to fit your schedule.</p>
+        </div>
+        <div class="how-card reveal" style="--i:2">
+          <span class="how-num" aria-hidden="true">03</span>
+          <h3>Pack &amp; Load</h3>
+          <p>Trained teams pack, wrap and load under insured, tracked conditions.</p>
+        </div>
+        <div class="how-card reveal" style="--i:3">
+          <span class="how-num" aria-hidden="true">04</span>
+          <h3>Deliver &amp; Done</h3>
+          <p>Goods arrive on time, unpacked and placed, with a final sign-off.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === WHY CHOOSE LETHOKOZILE === -->
+  <section class="why" id="why" aria-label="Why choose Lethokozile Logistics">
+    <div class="wrap why-grid">
+      <div class="why-text reveal">
+        <span class="label">Why Lethokozile</span>
+        <h2>"We treat your <mark>belongings</mark> like our own."</h2>
+        <p class="body-copy">That's not a slogan — it's how every crew is trained. From the first phone call to the final box placed, we bring the same care to a single parcel as we do to an entire household relocation.</p>
+      </div>
+      <div class="trust-list reveal reveal-stagger">
+        <div class="trust-item" style="--i:0">
+          <div class="trust-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12 L10 17 L19 7"/></svg></div>
+          <div><strong>Damage-Free Handling</strong><p>Purpose-built crating and padded transport for every item, big or small.</p></div>
+        </div>
+        <div class="trust-item" style="--i:1">
+          <div class="trust-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12 L10 17 L19 7"/></svg></div>
+          <div><strong>Trained Teams</strong><p>Every crew member vetted, trained, and briefed before they touch a single box.</p></div>
+        </div>
+        <div class="trust-item" style="--i:2">
+          <div class="trust-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12 L10 17 L19 7"/></svg></div>
+          <div><strong>Transparent Pricing</strong><p>Written quotes with no hidden fees — what we quote is what you pay.</p></div>
+        </div>
+        <div class="trust-item" style="--i:3">
+          <div class="trust-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12 L10 17 L19 7"/></svg></div>
+          <div><strong>Real-Time Updates</strong><p>Know exactly where your move stands, from pickup to final delivery.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SERVICE DEEP DIVE === -->
+  <section class="deep-dive" aria-label="Service details">
+    <div class="wrap">
+      <div class="dive-row">
+        <div class="dive-text reveal">
+          <span class="label">Same-Day Delivery</span>
+          <h3>Speed you can set your watch to.</h3>
+          <p class="desc">Urgent documents, fragile freight, or scheduled runs — our courier fleet operates on tight, tracked windows across South Africa's major metros.</p>
+          <ul class="dive-features">
+            <li>Same-day and scheduled delivery slots</li>
+            <li>Live tracking with signed proof of delivery</li>
+            <li>Fragile and temperature-sensitive handling</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-navy">Get a Courier Quote</a>
+        </div>
+        <div class="dive-visual reveal" aria-hidden="true">
+          <svg viewBox="0 0 240 200" fill="none">
+            <polygon points="120,10 220,60 220,140 120,190 20,140 20,60" stroke="#0F1F3D" stroke-width="2"/>
+            <polygon points="120,50 180,80 180,120 120,150 60,120 60,80" stroke="#C4501A" stroke-width="2"/>
+            <circle cx="120" cy="100" r="12" fill="#C4501A"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="dive-row tint">
+      <div class="wrap" style="display:contents;">
+        <div class="dive-text reveal">
+          <span class="label">Home &amp; Office Relocation</span>
+          <h3>Every box, exactly where it belongs.</h3>
+          <p class="desc">Full-service household and office relocation from the first box to the last picture hung — packed, transported and unpacked by trained crews.</p>
+          <ul class="dive-features">
+            <li>Custom crating for fragile and high-value items</li>
+            <li>Full pack-unpack and furniture reassembly</li>
+            <li>A dedicated move coordinator throughout</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-navy">Get a Relocation Quote</a>
+        </div>
+        <div class="dive-visual reveal" aria-hidden="true">
+          <svg viewBox="0 0 240 200" fill="none">
+            <rect x="40" y="60" width="160" height="120" stroke="#0F1F3D" stroke-width="2"/>
+            <rect x="70" y="90" width="45" height="45" stroke="#C4501A" stroke-width="2"/>
+            <rect x="125" y="90" width="45" height="45" stroke="#C4501A" stroke-width="2"/>
+            <path d="M40 60 L120 20 L200 60" stroke="#0F1F3D" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="dive-row">
+      <div class="dive-text reveal">
+        <span class="label">Furniture Removals</span>
+        <h3>From one couch to a full floor.</h3>
+        <p class="desc">Office strip-outs and single-item moves handled with the same attention to detail, placed exactly where the new floor plan says it goes.</p>
+        <ul class="dive-features">
+          <li>Out-of-hours and weekend crews available</li>
+          <li>Asset tagging and floor-plan-matched placement</li>
+          <li>Disposal and donation options for unwanted items</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline-navy">Get a Removals Quote</a>
+      </div>
+      <div class="dive-visual reveal" aria-hidden="true">
+        <svg viewBox="0 0 240 200" fill="none">
+          <rect x="30" y="30" width="180" height="140" rx="4" stroke="#0F1F3D" stroke-width="2"/>
+          <line x1="30" y1="70" x2="210" y2="70" stroke="#C4501A" stroke-width="1.5"/>
+          <line x1="30" y1="110" x2="210" y2="110" stroke="#C4501A" stroke-width="1.5"/>
+          <line x1="30" y1="150" x2="210" y2="150" stroke="#C4501A" stroke-width="1.5"/>
+          <line x1="90" y1="30" x2="90" y2="170" stroke="#0F1F3D" stroke-width="1.5" opacity="0.3"/>
+          <line x1="150" y1="30" x2="150" y2="170" stroke="#0F1F3D" stroke-width="1.5" opacity="0.3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- === TESTIMONIALS === -->
+  <section class="testimonials" aria-label="Customer testimonials">
+    <div class="wrap">
+      <div class="testimonials-head reveal">
+        <span class="label">Client Stories</span>
+        <h2>What moving with us feels like.</h2>
+      </div>
+      <div class="testi-grid reveal-stagger">
+        <article class="testi-card reveal" style="--i:0">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <p class="quote">They moved our whole house from Soweto to Durban without a single damaged item. Everything arrived exactly as it left.</p>
+          <span class="testi-name">Nomsa D.</span>
+          <span class="testi-meta">Home Relocation, Durban</span>
+        </article>
+        <article class="testi-card reveal" style="--i:1">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <p class="quote">45 staff relocated over one weekend. By Monday morning every desk and cable was exactly where the floor plan said it would be.</p>
+          <span class="testi-name">Thabo M.</span>
+          <span class="testi-meta">Office Relocation, Johannesburg</span>
+        </article>
+        <article class="testi-card reveal" style="--i:2">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <p class="quote">Same-day courier for a contract that absolutely could not be late. Signed for two hours before the deadline. Flawless every time.</p>
+          <span class="testi-name">Aisha K.</span>
+          <span class="testi-meta">Same-Day Delivery, Cape Town</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- === COVERAGE AREAS === -->
+  <section class="areas" id="areas" aria-label="Coverage areas">
+    <div class="wrap">
+      <div class="areas-head reveal">
+        <span class="label">Nationwide Reach</span>
+        <h2>Where We Operate.</h2>
+      </div>
+      <div class="areas-chips reveal reveal-stagger">
+        <span class="area-chip" style="--i:0">Gauteng</span>
+        <span class="area-chip" style="--i:1">Western Cape</span>
+        <span class="area-chip" style="--i:2">KwaZulu-Natal</span>
+        <span class="area-chip" style="--i:3">Eastern Cape</span>
+        <span class="area-chip" style="--i:4">Limpopo</span>
+        <span class="area-chip" style="--i:5">Mpumalanga</span>
+        <span class="area-chip" style="--i:6">Free State</span>
+        <span class="area-chip" style="--i:7">North West</span>
+        <span class="area-chip" style="--i:8">Northern Cape</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- === MAP === -->
+  <section class="map-section" id="map" aria-label="Coverage map">
+    <div class="wrap">
+      <div class="map-head reveal">
+        <span class="label">Find Us</span>
+        <h2>Where We Operate.</h2>
+      </div>
+      <div class="map-frame-wrap reveal">
+        <iframe
+          title="Lethokozile Logistics coverage map of South Africa"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=16.3,-34.9,32.9,-22.1&layer=mapnik"
+          loading="lazy">
+        </iframe>
+      </div>
+      <p class="map-contact">Head Office: <strong>21 Baobab Way, Midrand, Johannesburg, 1685</strong> &nbsp;|&nbsp; <strong>+27 10 445 2290</strong> &nbsp;|&nbsp; <a href="https://wa.me/27104452290" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+    </div>
+  </section>
+
+  <!-- === QUOTE FORM === -->
+  <section class="quote-section" id="contact" aria-label="Request a quote">
+    <div class="wrap">
+      <div class="quote-card reveal">
+        <div class="quote-form-side">
+          <span class="label">Get Started</span>
+          <h2>Request Your Free Quote.</h2>
+          <p class="sub">Share your move details and a coordinator will send a written quote within one business day.</p>
+
+          <form aria-label="Request a moving quote" action="mailto:hello@lethokozilelogistics.co.za" method="post" enctype="text/plain">
+            <div class="form-row two">
+              <div>
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+              </div>
+              <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              </div>
+            </div>
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div>
+              <label for="serviceType">Service</label>
+              <select id="serviceType" name="serviceType">
+                <option>Same-Day Delivery</option>
+                <option>Home &amp; Office Relocation</option>
+                <option>Furniture Removals</option>
+              </select>
+            </div>
+            <div class="form-row two">
+              <div>
+                <label for="fromLoc">From</label>
+                <input type="text" id="fromLoc" name="fromLoc" placeholder="Suburb, City">
+              </div>
+              <div>
+                <label for="toLoc">To</label>
+                <input type="text" id="toLoc" name="toLoc" placeholder="Suburb, City">
+              </div>
+            </div>
+            <div>
+              <label for="moveDate">Date</label>
+              <input type="date" id="moveDate" name="moveDate">
+            </div>
+            <div>
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" placeholder="Anything we should know — access restrictions, fragile items, floor levels..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-navy submit-btn">Submit Request</button>
+          </form>
+        </div>
+
+        <div class="quote-contact-side">
+          <div>
+            <h3>Speak To Us</h3>
+            <p>+27 10 445 2290</p>
+            <p>hello@lethokozilelogistics.co.za</p>
+          </div>
+          <div>
+            <h3>Business Hours</h3>
+            <p>Monday – Friday: 07:00 – 18:00</p>
+            <p>Saturday: 08:00 – 13:00</p>
+            <p>Sunday: Closed (Emergency Callouts Only)</p>
+          </div>
+          <a class="whatsapp-cta" href="https://wa.me/27104452290" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Fixed WhatsApp bubble -->
+<a href="https://wa.me/27104452290" target="_blank" rel="noopener" class="whatsapp-bubble" aria-label="Chat with Lethokozile Logistics on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+
+<!-- === FOOTER === -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <svg viewBox="0 0 280 60" role="img" aria-label="Lethokozile Logistics Logo" class="footer-logo">
+          <polygon points="30,4 50,16 50,40 30,52 10,40 10,16" fill="#C4501A"/>
+          <polygon points="30,4 50,16 50,40 30,52" fill="#FDF6EC" opacity="0.15"/>
+          <text x="24" y="36" font-family="'Syne', sans-serif" font-weight="800" font-size="22" fill="#FDF6EC">L</text>
+          <text x="62" y="26" font-family="'Syne', sans-serif" font-weight="800" font-size="16" fill="#FDF6EC">LETHOKOZILE</text>
+          <text x="62" y="42" font-family="'Nunito', sans-serif" font-size="9" letter-spacing="3" fill="#C4501A" font-weight="700">LOGISTICS</text>
+        </svg>
+        <p class="footer-tagline">Fully Licensed &amp; Insured — South Africa.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#why">About Us</a></li>
+            <li><a href="#areas">Coverage</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Same-Day Delivery</a></li>
+            <li><a href="#services">Home &amp; Office Relocation</a></li>
+            <li><a href="#services">Furniture Removals</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Lethokozile Logistics on Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Lethokozile Logistics on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+            <a href="#" aria-label="Lethokozile Logistics on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-rule">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lethokozile Logistics (Pty) Ltd. All rights reserved.</p>
+      <p>Fully Licensed &amp; Insured — South Africa</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- Character-by-character stagger on "SORTED." ---- */
+  var sortedWord = document.getElementById('sortedWord');
+  if(sortedWord){
+    var text = sortedWord.textContent;
+    sortedWord.textContent = '';
+    text.split('').forEach(function(ch, i){
+      var span = document.createElement('span');
+      span.className = 'letter';
+      span.style.animationDelay = (0.6 + i * 0.05) + 's';
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      sortedWord.appendChild(span);
+    });
+  }
+
+  /* ---- Full-screen overlay nav ---- */
+  var hamburger = document.getElementById('hamburgerBtn');
+  var overlayNav = document.getElementById('overlayNav');
+  var overlayClose = document.getElementById('overlayClose');
+
+  function closeOverlay(){
+    hamburger.setAttribute('aria-expanded','false');
+    overlayNav.classList.remove('open');
+  }
+  function openOverlay(){
+    hamburger.setAttribute('aria-expanded','true');
+    overlayNav.classList.add('open');
+    var firstLink = overlayNav.querySelector('a');
+    if(firstLink) firstLink.focus();
+  }
+  hamburger.addEventListener('click', function(){
+    var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    expanded ? closeOverlay() : openOverlay();
+  });
+  overlayClose.addEventListener('click', closeOverlay);
+  overlayNav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ closeOverlay(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(overlayNav.classList.contains('open')){
+      if(e.key === 'Escape'){ closeOverlay(); hamburger.focus(); }
+      if(e.key === 'Tab'){
+        var focusables = overlayNav.querySelectorAll('a, button');
+        var first = focusables[0], last = focusables[focusables.length-1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    }
+  });
+
+  /* ---- Scroll-triggered fade-up reveals ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* ---- CountUp numbers ---- */
+  var numEls = document.querySelectorAll('.num-value');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1600;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(eased * target);
+      el.textContent = current.toLocaleString() + suffix;
+      if(progress < 1){ requestAnimationFrame(step); }
+      else { el.textContent = target.toLocaleString() + suffix; }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var numObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          numObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    numEls.forEach(function(n){ numObs.observe(n); });
+  } else {
+    numEls.forEach(animateCount);
+  }
+
+  /* ---- Testimonial auto-cycle on mobile ---- */
+  var testiGrid = document.querySelector('.testi-grid');
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(testiGrid && window.matchMedia('(max-width: 859px)').matches && !prefersReduced){
+    var cards = testiGrid.querySelectorAll('.testi-card');
+    var idx = 0;
+    setInterval(function(){
+      idx = (idx + 1) % cards.length;
+      cards[idx].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
+    }, 4500);
+  }
+
+})();
+</script>
+
+</body>
+</html>
