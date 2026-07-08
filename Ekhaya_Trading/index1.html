@@ -1,1 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ekhaya Trading and Logistics — We Bring It Home | South Africa</title>
+<meta name="description" content="Ekhaya Trading and Logistics delivers reliable courier, relocation and removal services across South Africa. Licensed, fully insured, vetted teams, on-time every time.">
+<meta property="og:title" content="Ekhaya Trading and Logistics — We Bring It Home">
+<meta property="og:description" content="Bold, reliable deliveries, relocations and removals across South Africa. Licensed, insured, and nationwide.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFD600">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* === TOKENS === */
+  :root{
+    --yellow:#FFD600;
+    --yellow-dark:#E6C000;
+    --charcoal:#1A1A1A;
+    --charcoal-mid:#2E2E2E;
+    --off-white:#F5F5F0;
+    --white:#FFFFFF;
+    --muted-light:#4A4A4A;
+    --muted-dark:#A0A0A0;
+    --steel:#3A3F52;
+
+    --font-display:'Bebas Neue', sans-serif;
+    --font-body:'Inter', sans-serif;
+
+    --h1: clamp(4rem, 10vw, 9rem);
+    --h2: clamp(2.5rem, 5vw, 5rem);
+    --h3: clamp(1.3rem, 2.5vw, 2rem);
+    --body: 1.05rem;
+    --eyebrow: 0.72rem;
+
+    --max-w: 1340px;
+    --sec-pad: clamp(5rem, 10vw, 10rem);
+    --radius: 8px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    font-size:var(--body);
+    line-height:1.75;
+    letter-spacing:0.01em;
+    color:var(--muted-light);
+    background:var(--off-white);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    line-height:0.95;
+    letter-spacing:0.02em;
+    margin:0;
+    color:var(--charcoal);
+    font-weight:400;
+    text-transform:uppercase;
+  }
+  h1{ font-size:var(--h1); }
+  h2{ font-size:var(--h2); }
+  h3{ font-size:var(--h3); }
+  p{ margin:0; }
+  a{ color:inherit; text-decoration:none; }
+  img,svg{ display:block; max-width:100%; }
+  button{ font-family:inherit; cursor:pointer; }
+  ul{ margin:0; padding:0; list-style:none; }
+
+  .eyebrow{
+    font-family:var(--font-body);
+    font-size:var(--eyebrow);
+    text-transform:uppercase;
+    letter-spacing:0.25em;
+    font-weight:700;
+    color:var(--yellow-dark);
+    display:inline-block;
+  }
+
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding-left:clamp(1.5rem, 5vw, 3rem);
+    padding-right:clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .skip-link{
+    position:absolute; left:-999px; top:0;
+    background:var(--yellow); color:var(--charcoal);
+    padding:12px 20px; z-index:1000; font-weight:700;
+  }
+  .skip-link:focus{ left:0; }
+
+  :focus-visible{ outline:3px solid var(--yellow); outline-offset:3px; }
+
+  .reveal{ opacity:0; transform:translateY(50px); transition:opacity 0.65s ease-out, transform 0.65s ease-out; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal-stagger.in-view > *{ transition-delay:calc(var(--i,0) * 0.12s); }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding:16px 34px; border-radius:999px;
+    font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+    border:2px solid transparent;
+    min-height:44px;
+  }
+  .btn-yellow{ background:var(--yellow); color:var(--charcoal); }
+  .btn-yellow:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(255,214,0,0.4); background:var(--yellow-dark); }
+  .btn-outline-white{ border-color:var(--white); color:var(--white); }
+  .btn-outline-white:hover{ transform:translateY(-3px); background:var(--white); color:var(--charcoal); }
+  .btn-outline-charcoal{ border-color:var(--charcoal); color:var(--charcoal); }
+  .btn-outline-charcoal:hover{ transform:translateY(-3px); background:var(--charcoal); color:var(--white); }
+
+  /* === NAV === */
+  .nav{
+    position:sticky; top:0; z-index:600;
+    background:var(--charcoal);
+    padding:20px 0;
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo svg{ height:48px; width:auto; }
+  .nav-links{ display:flex; gap:clamp(1.25rem,2.5vw,2.25rem); }
+  .nav-links a{ font-size:0.88rem; font-weight:500; color:var(--white); position:relative; padding-bottom:3px; }
+  .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--yellow); transition:width 0.25s ease; }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    background:var(--yellow); color:var(--charcoal);
+    padding:12px 26px; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em;
+    border-radius:999px; transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(255,214,0,0.35); background:var(--yellow-dark); }
+
+  .hamburger{
+    display:none; background:none; border:none;
+    width:32px; height:24px; flex-direction:column; justify-content:space-between;
+  }
+  .hamburger span{ display:block; height:2px; background:var(--white); border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease; }
+  .hamburger[aria-expanded="true"] span{ background:var(--charcoal); }
+  .hamburger[aria-expanded="true"] span:nth-child(1){ transform:translateY(11px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-11px) rotate(-45deg); }
+
+  @media (max-width:960px){
+    .nav-links{ display:none; }
+    .nav-cta.desktop-only{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* Full-screen yellow overlay nav */
+  .overlay-nav{
+    position:fixed; inset:0; z-index:700;
+    background:var(--yellow);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem;
+    clip-path:circle(0% at calc(100% - 40px) 40px);
+    transition:clip-path 0.4s ease;
+    pointer-events:none;
+  }
+  .overlay-nav.open{ clip-path:circle(150% at calc(100% - 40px) 40px); pointer-events:auto; }
+  .overlay-nav a{
+    font-family:var(--font-display);
+    font-size:2.5rem;
+    letter-spacing:0.03em;
+    color:var(--charcoal);
+  }
+  .overlay-nav a:hover{ color:var(--white); }
+  .overlay-close{
+    position:absolute; top:24px; right:24px;
+    width:44px; height:44px; background:var(--charcoal); border:none; border-radius:50%;
+    color:var(--yellow); display:flex; align-items:center; justify-content:center;
+  }
+  .overlay-nav .nav-cta{ background:var(--charcoal); color:var(--yellow); margin-top:1rem; }
+
+  /* === HERO === */
+  .hero{
+    background:var(--charcoal);
+    color:var(--white);
+    min-height:92vh;
+    display:flex; align-items:center;
+    padding-top:3rem; padding-bottom:4rem;
+    overflow:hidden;
+  }
+  .hero-grid{ display:grid; grid-template-columns:1fr; gap:3rem; align-items:center; }
+  @media (min-width:1024px){ .hero-grid{ grid-template-columns:1.2fr 0.8fr; } }
+  .hero-eyebrow{ margin-bottom:1.5rem; }
+  .hero h1{ color:var(--white); margin-bottom:1.75rem; }
+  .hero h1 .word{ display:block; opacity:0; transform:translateY(60px); animation:wordIn 0.7s ease forwards; }
+  .hero h1 .word:nth-child(1){ animation-delay:0.1s; }
+  .hero h1 .word:nth-child(2){ animation-delay:0.2s; }
+  .hero h1 .word.yellow-word{ color:var(--yellow); animation-delay:0.3s; }
+  @keyframes wordIn{ to{ opacity:1; transform:translateY(0); } }
+  .hero-sub{ max-width:520px; font-size:1.15rem; color:rgba(255,255,255,0.7); margin-bottom:2.5rem; }
+  .hero-ctas{ display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .hero-trust-chips{ display:flex; flex-wrap:wrap; gap:1.5rem; }
+  .hero-trust-chips span{ display:inline-flex; align-items:center; gap:0.5rem; font-size:0.85rem; color:var(--white); font-weight:500; }
+  .hero-trust-chips span::before{ content:''; width:8px; height:8px; border-radius:50%; background:var(--yellow); }
+
+  .hero-visual{ display:flex; align-items:center; justify-content:center; }
+  .hero-visual svg{ width:100%; max-width:340px; }
+  .hero-visual .arrow-el{ animation:arrowRotate 8s ease-in-out infinite; transform-origin:center; }
+  @keyframes arrowRotate{ 0%,100%{ transform:rotate(-3deg); } 50%{ transform:rotate(3deg); } }
+
+  /* === TRUST STRIP === */
+  .trust-strip{ background:var(--yellow); padding:1.75rem 0; overflow:hidden; }
+  .trust-marquee-track{ display:flex; gap:3rem; justify-content:center; flex-wrap:wrap; }
+  .trust-marquee-track span{ display:inline-flex; align-items:center; gap:0.5rem; color:var(--charcoal); font-weight:700; font-size:0.88rem; white-space:nowrap; }
+  @media (max-width:760px){
+    .trust-strip{ padding:1.5rem 0; }
+    .trust-marquee-track{
+      display:inline-flex; flex-wrap:nowrap;
+      animation:marqueeScroll 22s linear infinite;
+    }
+    .trust-strip:hover .trust-marquee-track{ animation-play-state:paused; }
+  }
+  @keyframes marqueeScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* === SERVICES === */
+  .services{ padding:var(--sec-pad) 0; background:var(--off-white); }
+  .services-head{ text-align:center; max-width:680px; margin:0 auto 4.5rem; }
+  .services-head .eyebrow{ margin-bottom:1rem; }
+  .services-grid{ display:grid; grid-template-columns:1fr; gap:2rem; }
+  @media (min-width:900px){ .services-grid{ grid-template-columns:repeat(3,1fr); } }
+  .service-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(26,26,26,0.06);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-card:hover{ transform:translateY(-6px); box-shadow:0 20px 45px rgba(26,26,26,0.14); }
+  .service-top-bar{ height:4px; background:var(--charcoal); transition:height 0.3s ease; }
+  .service-card:hover .service-top-bar{ height:8px; }
+  .service-card-body{ padding:2.5rem 2rem; }
+  .service-icon{ width:56px; height:56px; margin-bottom:1.5rem; }
+  .service-icon svg{ width:100%; height:100%; stroke:var(--yellow-dark); }
+  .service-card h3{ margin-bottom:0.85rem; font-size:1.75rem; }
+  .service-card p.desc{ margin-bottom:1.25rem; }
+  .service-features{ display:flex; flex-direction:column; gap:0.55rem; margin-bottom:1.75rem; }
+  .service-features li{ display:flex; align-items:flex-start; gap:0.6rem; font-size:0.92rem; }
+  .service-features li::before{ content:''; width:6px; height:6px; margin-top:8px; background:var(--yellow-dark); flex-shrink:0; }
+  .card-link{ display:inline-flex; align-items:center; gap:0.5rem; color:var(--charcoal); font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em; border-bottom:2px solid var(--yellow); padding-bottom:2px; }
+
+  /* === THE NUMBERS === */
+  .numbers{ background:var(--charcoal); padding:var(--sec-pad) 0; }
+  .numbers-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:2.5rem; text-align:center; }
+  @media (min-width:800px){ .numbers-grid{ grid-template-columns:repeat(4,1fr); } }
+  .num-value{ font-family:var(--font-display); font-size:clamp(3.5rem,7vw,6.5rem); color:var(--yellow); line-height:1; display:block; }
+  .num-label{ display:block; margin-top:0.75rem; font-size:0.85rem; color:var(--white); text-transform:uppercase; letter-spacing:0.08em; font-weight:500; }
+
+  /* === HOW IT WORKS === */
+  .how{ padding:var(--sec-pad) 0; background:var(--off-white); }
+  .how-head{ text-align:center; max-width:600px; margin:0 auto 4.5rem; }
+  .how-head .eyebrow{ margin-bottom:1rem; }
+  .how-line-wrap{ position:relative; }
+  .how-line-svg{ display:none; }
+  @media (min-width:900px){ .how-line-svg{ display:block; position:absolute; top:32px; left:0; width:100%; height:3px; } }
+  .how-steps{ position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:2.5rem; }
+  @media (min-width:900px){ .how-steps{ grid-template-columns:repeat(4,1fr); } }
+  .how-step{ text-align:center; }
+  .step-circle{
+    width:64px; height:64px; border-radius:50%;
+    background:var(--yellow); color:var(--charcoal);
+    font-family:var(--font-display); font-size:1.6rem;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 1.5rem;
+    border:4px solid var(--off-white);
+    box-shadow:0 8px 20px rgba(26,26,26,0.12);
+  }
+  .how-step h3{ font-size:1.3rem; margin-bottom:0.6rem; }
+  .how-step p{ font-size:0.92rem; }
+
+  /* === ABOUT === */
+  .about{ padding:var(--sec-pad) 0; background:var(--white); }
+  .about-grid{ display:grid; grid-template-columns:1fr; gap:3rem; }
+  @media (min-width:960px){ .about-grid{ grid-template-columns:0.9fr 1.1fr; align-items:center; } }
+  .about-quote{ font-size:clamp(2rem,3.5vw,2.75rem); line-height:1.1; }
+  .about-body{ border-left:4px solid var(--yellow); padding-left:2rem; }
+  .about-body p{ margin-bottom:1.25rem; }
+  .about-body p:last-of-type{ margin-bottom:0; }
+
+  /* === SERVICE DEEP DIVE === */
+  .deep-dive{ position:relative; }
+  .dive-row{
+    position:relative;
+    padding:clamp(4rem,8vw,7rem) 0;
+    overflow:hidden;
+  }
+  .dive-row.dark{ background:var(--charcoal); color:var(--white); }
+  .dive-row.light{ background:var(--off-white); }
+  .dive-watermark{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    font-family:var(--font-display);
+    font-size:clamp(4rem, 14vw, 11rem);
+    white-space:nowrap;
+    opacity:0.05;
+    z-index:0;
+    pointer-events:none;
+    letter-spacing:0.02em;
+  }
+  .dive-row.dark .dive-watermark{ color:var(--white); }
+  .dive-row.light .dive-watermark{ color:var(--charcoal); }
+  .dive-content{ position:relative; z-index:1; max-width:640px; }
+  .dive-content.right{ margin-left:auto; }
+  .dive-content .eyebrow{ margin-bottom:1rem; }
+  .dive-content h3{ font-size:clamp(2rem,4vw,3rem); margin-bottom:1.25rem; }
+  .dive-row.dark h3{ color:var(--white); }
+  .dive-features{ display:flex; flex-direction:column; gap:0.65rem; margin:1.25rem 0 1.75rem; }
+  .dive-features li{ display:flex; align-items:flex-start; gap:0.6rem; font-size:0.95rem; }
+  .dive-features li::before{ content:''; width:6px; height:6px; margin-top:8px; background:var(--yellow); flex-shrink:0; }
+  .dive-row.dark p.desc{ color:rgba(255,255,255,0.72); }
+
+  /* === TESTIMONIALS === */
+  .testimonials{ padding:var(--sec-pad) 0; background:var(--charcoal); }
+  .testimonials-head{ text-align:center; max-width:600px; margin:0 auto 4rem; }
+  .testimonials-head .eyebrow{ margin-bottom:1rem; }
+  .testimonials-head h2{ color:var(--white); }
+  .testi-grid{ display:grid; grid-template-columns:1fr; gap:2rem; }
+  @media (min-width:860px){ .testi-grid{ grid-template-columns:repeat(3,1fr); } }
+  .testi-card{
+    background:var(--charcoal-mid);
+    border-radius:var(--radius);
+    padding:2.25rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.25rem;
+  }
+  .stars{ display:flex; gap:4px; }
+  .stars svg{ width:16px; height:16px; fill:var(--yellow); stroke:var(--yellow); }
+  .quote-mark{ font-family:var(--font-display); font-size:3rem; color:var(--yellow); line-height:0.5; }
+  .testi-card p.quote{ color:var(--white); font-style:italic; font-size:1rem; flex-grow:1; }
+  .testi-name{ color:var(--yellow); font-weight:700; font-size:0.9rem; }
+  .testi-meta{ color:var(--muted-dark); font-size:0.82rem; }
+  @media (max-width:859px){
+    .testi-grid{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:1.25rem; }
+    .testi-card{ flex:0 0 82%; scroll-snap-align:start; }
+  }
+
+  /* === COVERAGE AREAS === */
+  .areas{ padding:var(--sec-pad) 0; background:var(--off-white); }
+  .areas-head{ text-align:center; max-width:640px; margin:0 auto 3rem; }
+  .areas-head .eyebrow{ margin-bottom:1rem; }
+  .filter-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; margin-bottom:2.5rem; }
+  .filter-btn{
+    background:var(--white); border:2px solid var(--charcoal); color:var(--charcoal);
+    padding:10px 20px; border-radius:999px; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
+    transition:background 0.2s ease, color 0.2s ease; min-height:40px;
+  }
+  .filter-btn.active{ background:var(--charcoal); color:var(--yellow); }
+  .areas-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:1rem; }
+  .area-chip{
+    background:var(--charcoal); color:var(--white);
+    border:2px solid var(--yellow);
+    padding:14px 18px; border-radius:999px;
+    font-size:0.88rem; font-weight:600; text-align:center;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .area-chip:hover{ background:var(--yellow); color:var(--charcoal); }
+  .area-chip.hidden{ display:none; }
+
+  /* === MAP === */
+  .map-section{ background:var(--white); padding:var(--sec-pad) 0; }
+  .map-head{ text-align:center; max-width:640px; margin:0 auto 3rem; }
+  .map-head .eyebrow{ margin-bottom:1rem; }
+  .map-frame-wrap{ border-left:8px solid var(--yellow); }
+  .map-frame-wrap iframe{ width:100%; height:460px; border:0; display:block; }
+  .map-contact-strip{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem;
+    margin-top:2rem; font-size:0.95rem;
+  }
+  .map-contact-strip strong{ color:var(--charcoal); }
+
+  /* === QUOTE / CONTACT === */
+  .contact{ display:grid; grid-template-columns:1fr; }
+  @media (min-width:1024px){ .contact{ grid-template-columns:1fr 1fr; } }
+  .contact-left{ background:var(--off-white); padding:var(--sec-pad) clamp(1.5rem,5vw,3.5rem); }
+  .contact-left .eyebrow{ margin-bottom:1rem; }
+  .contact-left h2{ margin-bottom:0.75rem; font-size:clamp(2rem,4vw,3.5rem); }
+  .contact-sub{ max-width:480px; margin-bottom:2.25rem; }
+
+  form{ display:flex; flex-direction:column; gap:1.25rem; max-width:560px; }
+  .form-row{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+  @media (min-width:560px){ .form-row.two{ grid-template-columns:1fr 1fr; } }
+  label{ display:block; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; color:var(--muted-light); margin-bottom:0.5rem; }
+  input, select, textarea{
+    width:100%; padding:14px 16px;
+    border:2px solid #DDD8CC; border-radius:6px;
+    font-family:var(--font-body); font-size:0.95rem;
+    background:var(--white); color:var(--charcoal);
+    transition:border-color 0.2s ease;
+  }
+  input:focus, select:focus, textarea:focus{ border-color:var(--yellow-dark); outline:none; }
+  textarea{ resize:vertical; min-height:100px; }
+  .submit-btn{
+    background:var(--yellow); color:var(--charcoal);
+    border:none; padding:16px 34px; border-radius:999px;
+    font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;
+    align-self:flex-start;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .submit-btn:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(255,214,0,0.4); background:var(--yellow-dark); }
+
+  .contact-right{
+    background:var(--charcoal); color:var(--white);
+    padding:var(--sec-pad) clamp(1.5rem,5vw,3.5rem);
+    display:flex; flex-direction:column; justify-content:center; gap:2.25rem;
+  }
+  .contact-right h3{ color:var(--yellow); font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.75rem; font-weight:700; }
+  .contact-right p, .contact-right a{ color:rgba(255,255,255,0.78); }
+  .whatsapp-cta{
+    display:inline-flex; align-items:center; gap:0.75rem;
+    background:var(--yellow); color:var(--charcoal) !important;
+    padding:14px 26px; border-radius:999px;
+    font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em;
+    width:fit-content;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .whatsapp-cta:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(255,214,0,0.4); background:var(--yellow-dark); }
+
+  /* === FOOTER === */
+  footer{ background:var(--charcoal); color:var(--white); padding:4rem 0 2.5rem; }
+  .footer-top{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:2.5rem; padding-bottom:2.5rem; }
+  .footer-logo svg{ height:48px; width:auto; margin-bottom:1rem; }
+  .footer-tagline{ color:var(--muted-dark); font-size:0.85rem; max-width:300px; font-weight:300; }
+  .footer-links{ display:flex; flex-wrap:wrap; gap:2.5rem; }
+  .footer-col h4{ font-family:var(--font-body); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--yellow); margin-bottom:1rem; font-weight:700; }
+  .footer-col ul{ display:flex; flex-direction:column; gap:0.65rem; }
+  .footer-col a{ color:rgba(255,255,255,0.7); font-size:0.88rem; }
+  .footer-col a:hover{ color:var(--yellow); }
+  .social-icons{ display:flex; gap:1.25rem; }
+  .social-icons a svg{ width:18px; height:18px; stroke:rgba(255,255,255,0.7); transition:stroke 0.2s ease; }
+  .social-icons a:hover svg{ stroke:var(--yellow); }
+  .footer-rule{ border:none; border-top:1px solid rgba(255,214,0,0.3); margin:0 0 2rem; }
+  .footer-bottom{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-size:0.78rem; color:var(--muted-dark); font-weight:300; }
+
+  /* Fixed WhatsApp bubble */
+  .whatsapp-bubble{
+    position:fixed; bottom:24px; right:24px;
+    width:60px; height:60px; border-radius:50%;
+    background:var(--yellow);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 30px rgba(255,214,0,0.5);
+    z-index:400;
+    animation:pulseWA 2s infinite;
+  }
+  .whatsapp-bubble svg{ width:28px; height:28px; stroke:var(--charcoal); }
+  @keyframes pulseWA{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.12); } }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- === NAV === -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Ekhaya Trading and Logistics home">
+      <svg viewBox="0 0 320 60" role="img" aria-label="Ekhaya Trading and Logistics Logo">
+        <rect x="0" y="4" width="52" height="52" rx="6" fill="#FFD600"/>
+        <path d="M12 34 L26 18 L40 34 V44 H12 Z" fill="#1A1A1A"/>
+        <path d="M26 18 L40 6 M40 6 H30 M40 6 V16" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="62" y="30" font-family="'Bebas Neue', sans-serif" font-size="24" letter-spacing="1" fill="#FFFFFF">EKHAYA</text>
+        <line x1="62" y1="38" x2="230" y2="38" stroke="#FFD600" stroke-width="1.5"/>
+        <text x="62" y="50" font-family="'Inter', sans-serif" font-size="8" letter-spacing="1.5" fill="#FFD600" font-weight="600">TRADING &amp; LOGISTICS</text>
+      </svg>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#areas">Coverage</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#contact" class="nav-cta desktop-only">Get a Quote</a>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="overlayNav" aria-label="Open menu" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Full-screen yellow overlay nav -->
+<div class="overlay-nav" id="overlayNav" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <button class="overlay-close" id="overlayClose" aria-label="Close menu">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 L6 18 M6 6 L18 18"/></svg>
+  </button>
+  <a href="#services">Services</a>
+  <a href="#how">How It Works</a>
+  <a href="#areas">Coverage</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="nav-cta">Get a Quote</a>
+</div>
+
+<main id="main-content">
+
+  <!-- === HERO === -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow hero-eyebrow">Deliveries · Relocation · Removals</span>
+        <h1>
+          <span class="word">WE BRING</span>
+          <span class="word">IT</span>
+          <span class="word yellow-word">HOME.</span>
+        </h1>
+        <p class="hero-sub">Reliable deliveries, professional relocations and stress-free removals across South Africa. Ekhaya means home — every move we make brings you one step closer to yours.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-yellow">Request a Quote</a>
+          <a href="#services" class="btn btn-outline-white">Our Services</a>
+        </div>
+        <div class="hero-trust-chips">
+          <span>Fully Insured</span>
+          <span>Nationwide</span>
+          <span>Same-Day Available</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 300 300" fill="none">
+          <circle cx="150" cy="150" r="120" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.5"/>
+          <circle cx="150" cy="150" r="85" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1.5"/>
+          <g class="arrow-el">
+            <path d="M90 190 L190 90" stroke="#FFD600" stroke-width="6" stroke-linecap="round"/>
+            <path d="M190 90 H130 M190 90 V150" stroke="#FFD600" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <circle cx="90" cy="190" r="8" fill="#FFFFFF"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- === TRUST STRIP === -->
+  <section class="trust-strip" aria-label="Trust indicators">
+    <div class="wrap">
+      <div class="trust-marquee-track">
+        <span>✓ Licensed Operator</span>
+        <span>✓ Fully Insured</span>
+        <span>✓ Vetted Teams</span>
+        <span>✓ Damage-Free Guarantee</span>
+        <span>✓ On-Time Delivery</span>
+        <span>✓ Licensed Operator</span>
+        <span>✓ Fully Insured</span>
+        <span>✓ Vetted Teams</span>
+        <span>✓ Damage-Free Guarantee</span>
+        <span>✓ On-Time Delivery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SERVICES === -->
+  <section class="services" id="services" aria-label="Our services">
+    <div class="wrap">
+      <div class="services-head reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2>Three ways we bring it home.</h2>
+      </div>
+      <div class="services-grid reveal reveal-stagger">
+        <article class="service-card" style="--i:0">
+          <div class="service-top-bar"></div>
+          <div class="service-card-body">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10 H20 L23 13 V17 H16 Z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></div>
+            <h3>Courier &amp; Deliveries</h3>
+            <p class="desc">Same-day and scheduled deliveries, tracked from pickup to signed hand-off.</p>
+            <ul class="service-features">
+              <li>Same-day and scheduled delivery slots</li>
+              <li>Live tracking with signed proof of delivery</li>
+              <li>Fragile and temperature-sensitive handling</li>
+            </ul>
+            <a href="#contact" class="card-link">Get a Quote</a>
+          </div>
+        </article>
+        <article class="service-card" style="--i:1">
+          <div class="service-top-bar"></div>
+          <div class="service-card-body">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 11 L12 4 L21 11"/><path d="M5 10 V20 H19 V10"/><rect x="10" y="14" width="4" height="6"/></svg></div>
+            <h3>Residential Relocation</h3>
+            <p class="desc">Full-service household moves — packed, transported and unpacked with care.</p>
+            <ul class="service-features">
+              <li>Custom crating for fragile and high-value items</li>
+              <li>Full pack-unpack and furniture reassembly</li>
+              <li>A dedicated move coordinator throughout</li>
+            </ul>
+            <a href="#contact" class="card-link">Get a Quote</a>
+          </div>
+        </article>
+        <article class="service-card" style="--i:2">
+          <div class="service-top-bar"></div>
+          <div class="service-card-body">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10 H20 M10 10 V20"/></svg></div>
+            <h3>Furniture &amp; Office Removals</h3>
+            <p class="desc">Single items to full office strip-outs, moved and placed exactly where needed.</p>
+            <ul class="service-features">
+              <li>Out-of-hours and weekend crews available</li>
+              <li>Asset tagging and floor-plan-matched placement</li>
+              <li>Disposal and donation options for unwanted items</li>
+            </ul>
+            <a href="#contact" class="card-link">Get a Quote</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- === THE NUMBERS === -->
+  <section class="numbers" aria-label="Our numbers">
+    <div class="wrap numbers-grid">
+      <div><span class="num-value" data-target="14200" data-suffix="+">0</span><span class="num-label">Moves Completed</span></div>
+      <div><span class="num-value" data-target="6400" data-suffix="+">0</span><span class="num-label">Happy Clients</span></div>
+      <div><span class="num-value" data-target="48" data-suffix="">0</span><span class="num-label">Cities Covered</span></div>
+      <div><span class="num-value" data-target="12" data-suffix="">0</span><span class="num-label">Years Active</span></div>
+    </div>
+  </section>
+
+  <!-- === HOW IT WORKS === -->
+  <section class="how" id="how" aria-label="How it works">
+    <div class="wrap">
+      <div class="how-head reveal">
+        <span class="eyebrow">The Process</span>
+        <h2>Four steps. Zero surprises.</h2>
+      </div>
+      <div class="how-line-wrap">
+        <svg class="how-line-svg" viewBox="0 0 1000 3" preserveAspectRatio="none" aria-hidden="true">
+          <line id="dashLine" x1="0" y1="1.5" x2="1000" y2="1.5" stroke="#1A1A1A" stroke-width="3" stroke-dasharray="800" stroke-dashoffset="800"/>
+        </svg>
+        <div class="how-steps">
+          <div class="how-step reveal">
+            <div class="step-circle">1</div>
+            <h3>Request a Quote</h3>
+            <p>Tell us what's moving. We respond within one business day with clear pricing.</p>
+          </div>
+          <div class="how-step reveal">
+            <div class="step-circle">2</div>
+            <h3>We Plan Your Move</h3>
+            <p>A coordinator maps crew size, timing and route to fit your schedule.</p>
+          </div>
+          <div class="how-step reveal">
+            <div class="step-circle">3</div>
+            <h3>Pack &amp; Load</h3>
+            <p>Trained teams pack, wrap and load under insured, tracked conditions.</p>
+          </div>
+          <div class="how-step reveal">
+            <div class="step-circle">4</div>
+            <h3>Delivered Safe</h3>
+            <p>Goods arrive on time, unpacked and placed, with a final walkthrough.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === ABOUT / WHO WE ARE === -->
+  <section class="about" id="about" aria-label="Who we are">
+    <div class="wrap about-grid">
+      <h2 class="about-quote reveal">Ekhaya means home. Every move we make brings you one step closer to yours.</h2>
+      <div class="about-body reveal">
+        <p>Ekhaya Trading and Logistics was founded on a simple belief: moving day should feel like progress, not chaos. What started as a small courier operation has grown into a nationwide network of trained crews, dedicated coordinators, and fully insured vehicles.</p>
+        <p>Rooted in South Africa and built by South Africans, we understand what "home" means here — whether that's a family relocating across provinces or a business setting up its next chapter. Every parcel, every piece of furniture, every box carries that same promise: we bring it home, intact and on time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SERVICE DEEP DIVE === -->
+  <section class="deep-dive" aria-label="Service details">
+
+    <div class="dive-row dark">
+      <span class="dive-watermark" aria-hidden="true">SAME-DAY</span>
+      <div class="wrap">
+        <div class="dive-content reveal">
+          <span class="eyebrow">Same-Day Delivery</span>
+          <h3>Speed you can set your watch to.</h3>
+          <p class="desc">Urgent documents, fragile freight, or scheduled runs — our courier fleet operates on tight, tracked windows across South Africa's major metros.</p>
+          <ul class="dive-features">
+            <li>Same-day and scheduled delivery slots</li>
+            <li>Live tracking with signed proof of delivery</li>
+            <li>Fragile and temperature-sensitive handling</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-white">Get a Courier Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dive-row light">
+      <span class="dive-watermark" aria-hidden="true">RELOCATE</span>
+      <div class="wrap">
+        <div class="dive-content right reveal">
+          <span class="eyebrow">Long-Distance Relocation</span>
+          <h3>Every province, every box, on time.</h3>
+          <p class="desc">Full-service household relocation across South Africa's provinces — packed, transported and unpacked by trained crews who treat your home like their own.</p>
+          <ul class="dive-features">
+            <li>Custom crating for fragile and high-value items</li>
+            <li>Full pack-unpack and furniture reassembly</li>
+            <li>A dedicated move coordinator throughout</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-charcoal">Get a Relocation Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dive-row dark">
+      <span class="dive-watermark" aria-hidden="true">REMOVE</span>
+      <div class="wrap">
+        <div class="dive-content reveal">
+          <span class="eyebrow">Furniture Removals</span>
+          <h3>From one couch to a full floor.</h3>
+          <p class="desc">Single-item pickups to full office strip-outs, moved and placed exactly where the new floor plan says it goes.</p>
+          <ul class="dive-features">
+            <li>Out-of-hours and weekend crews available</li>
+            <li>Asset tagging and floor-plan-matched placement</li>
+            <li>Disposal and donation options for unwanted items</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-white">Get a Removals Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dive-row light">
+      <span class="dive-watermark" aria-hidden="true">OFFICE</span>
+      <div class="wrap">
+        <div class="dive-content right reveal">
+          <span class="eyebrow">Office Moves</span>
+          <h3>Zero downtime, guaranteed.</h3>
+          <p class="desc">Workstations struck down Friday evening, rebuilt and cabled by Monday's first stand-up. We plan around your operating hours, not the other way around.</p>
+          <ul class="dive-features">
+            <li>Out-of-hours and weekend relocation crews</li>
+            <li>IT, server room and workstation decommissioning</li>
+            <li>Asset tagging and floor-plan-matched placement</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-charcoal">Get an Office Move Quote</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- === TESTIMONIALS === -->
+  <section class="testimonials" aria-label="Customer testimonials">
+    <div class="wrap">
+      <div class="testimonials-head reveal">
+        <span class="eyebrow">Client Stories</span>
+        <h2>What moving with us feels like.</h2>
+      </div>
+      <div class="testi-grid reveal reveal-stagger">
+        <article class="testi-card" style="--i:0">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p class="quote">They moved our whole house from Soweto to Durban without a single damaged item. Everything arrived exactly as it left.</p>
+          <span class="testi-name">Nomsa D.</span>
+          <span class="testi-meta">Residential Relocation, Durban</span>
+        </article>
+        <article class="testi-card" style="--i:1">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p class="quote">45 staff relocated over one weekend. By Monday morning every desk and cable was exactly where the floor plan said it would be.</p>
+          <span class="testi-name">Thabo M.</span>
+          <span class="testi-meta">Office Move, Johannesburg</span>
+        </article>
+        <article class="testi-card" style="--i:2">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+          </div>
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p class="quote">Same-day courier for a contract that absolutely could not be late. Signed for two hours before the deadline. Flawless.</p>
+          <span class="testi-name">Aisha K.</span>
+          <span class="testi-meta">Courier &amp; Delivery, Cape Town</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- === COVERAGE AREAS === -->
+  <section class="areas" id="areas" aria-label="Coverage areas">
+    <div class="wrap">
+      <div class="areas-head reveal">
+        <span class="eyebrow">Nationwide Reach</span>
+        <h2>We Cover SA.</h2>
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="All">All</button>
+        <button class="filter-btn" data-filter="Gauteng">Gauteng</button>
+        <button class="filter-btn" data-filter="Western Cape">Western Cape</button>
+        <button class="filter-btn" data-filter="KZN">KZN</button>
+        <button class="filter-btn" data-filter="Eastern Cape">Eastern Cape</button>
+        <button class="filter-btn" data-filter="Other">Other</button>
+      </div>
+      <div class="areas-grid reveal reveal-stagger" id="areasGrid">
+        <span class="area-chip" data-province="Gauteng" style="--i:0">Johannesburg</span>
+        <span class="area-chip" data-province="Gauteng" style="--i:1">Pretoria</span>
+        <span class="area-chip" data-province="Gauteng" style="--i:2">Centurion</span>
+        <span class="area-chip" data-province="Western Cape" style="--i:3">Cape Town</span>
+        <span class="area-chip" data-province="Western Cape" style="--i:4">Stellenbosch</span>
+        <span class="area-chip" data-province="KZN" style="--i:5">Durban</span>
+        <span class="area-chip" data-province="KZN" style="--i:6">Pietermaritzburg</span>
+        <span class="area-chip" data-province="Eastern Cape" style="--i:7">Gqeberha</span>
+        <span class="area-chip" data-province="Eastern Cape" style="--i:8">East London</span>
+        <span class="area-chip" data-province="Other" style="--i:9">Bloemfontein</span>
+        <span class="area-chip" data-province="Other" style="--i:10">Nelspruit</span>
+        <span class="area-chip" data-province="Other" style="--i:11">Polokwane</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- === MAP === -->
+  <section class="map-section" id="map" aria-label="Coverage map">
+    <div class="wrap">
+      <div class="map-head reveal">
+        <span class="eyebrow">Find Us</span>
+        <h2>Find Us. We'll Find You.</h2>
+      </div>
+    </div>
+    <div class="map-frame-wrap reveal">
+      <iframe
+        title="Ekhaya Trading and Logistics coverage map of South Africa"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=16.3,-34.9,32.9,-22.1&layer=mapnik"
+        loading="lazy">
+      </iframe>
+    </div>
+    <div class="wrap">
+      <div class="map-contact-strip">
+        <span><strong>Head Office:</strong> 8 Freedom Square, Alexandra, Johannesburg, 2090</span>
+        <span><strong>Phone:</strong> +27 11 622 9040</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- === QUOTE / CONTACT === -->
+  <section class="contact" id="contact" aria-label="Request a quote">
+    <div class="contact-left">
+      <span class="eyebrow">Get Started</span>
+      <h2>Request Your Free Quote.</h2>
+      <p class="contact-sub">Share your move details and a coordinator will send a written quote within one business day.</p>
+
+      <form aria-label="Request a moving quote" action="mailto:hello@ekhayalogistics.co.za" method="post" enctype="text/plain">
+        <div class="form-row two">
+          <div>
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+          </div>
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="serviceType">Service Type</label>
+          <select id="serviceType" name="serviceType">
+            <option>Courier &amp; Deliveries</option>
+            <option>Residential Relocation</option>
+            <option>Furniture &amp; Office Removals</option>
+          </select>
+        </div>
+        <div class="form-row two">
+          <div>
+            <label for="fromAddr">From Address</label>
+            <input type="text" id="fromAddr" name="fromAddr" placeholder="Suburb, City">
+          </div>
+          <div>
+            <label for="toAddr">To Address</label>
+            <input type="text" id="toAddr" name="toAddr" placeholder="Suburb, City">
+          </div>
+        </div>
+        <div>
+          <label for="moveDate">Date</label>
+          <input type="date" id="moveDate" name="moveDate">
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Anything we should know — access restrictions, fragile items, floor levels..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit Request</button>
+      </form>
+    </div>
+
+    <div class="contact-right">
+      <div>
+        <h3>Speak To Us</h3>
+        <p>+27 11 622 9040</p>
+        <p>hello@ekhayalogistics.co.za</p>
+      </div>
+      <div>
+        <h3>Business Hours</h3>
+        <p>Monday – Friday: 07:00 – 18:00</p>
+        <p>Saturday: 08:00 – 13:00</p>
+        <p>Sunday: Closed (Emergency Callouts Only)</p>
+      </div>
+      <a class="whatsapp-cta" href="https://wa.me/27116229040" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Fixed WhatsApp bubble -->
+<a href="https://wa.me/27116229040" target="_blank" rel="noopener" class="whatsapp-bubble" aria-label="Chat with Ekhaya Trading and Logistics on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+
+<!-- === FOOTER === -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <svg viewBox="0 0 320 60" role="img" aria-label="Ekhaya Trading and Logistics Logo" class="footer-logo">
+          <rect x="0" y="4" width="52" height="52" rx="6" fill="#FFD600"/>
+          <path d="M12 34 L26 18 L40 34 V44 H12 Z" fill="#1A1A1A"/>
+          <path d="M26 18 L40 6 M40 6 H30 M40 6 V16" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="62" y="30" font-family="'Bebas Neue', sans-serif" font-size="24" letter-spacing="1" fill="#FFFFFF">EKHAYA</text>
+          <line x1="62" y1="38" x2="230" y2="38" stroke="#FFD600" stroke-width="1.5"/>
+          <text x="62" y="50" font-family="'Inter', sans-serif" font-size="8" letter-spacing="1.5" fill="#FFD600" font-weight="600">TRADING &amp; LOGISTICS</text>
+        </svg>
+        <p class="footer-tagline">Ekhaya means home. (Pty) Ltd Reg No. 2014/108562/07 — Licensed &amp; Insured, South Africa.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#areas">Coverage</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Courier &amp; Deliveries</a></li>
+            <li><a href="#services">Residential Relocation</a></li>
+            <li><a href="#services">Furniture &amp; Office Removals</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Ekhaya on Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Ekhaya on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+            <a href="#" aria-label="Ekhaya on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-rule">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ekhaya Trading and Logistics (Pty) Ltd. All rights reserved.</p>
+      <p>Licensed &amp; Insured — South Africa</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- Full-screen overlay nav ---- */
+  var hamburger = document.getElementById('hamburgerBtn');
+  var overlayNav = document.getElementById('overlayNav');
+  var overlayClose = document.getElementById('overlayClose');
+
+  function closeOverlay(){
+    hamburger.setAttribute('aria-expanded','false');
+    overlayNav.classList.remove('open');
+  }
+  function openOverlay(){
+    hamburger.setAttribute('aria-expanded','true');
+    overlayNav.classList.add('open');
+    var firstLink = overlayNav.querySelector('a');
+    if(firstLink) firstLink.focus();
+  }
+  hamburger.addEventListener('click', function(){
+    var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    expanded ? closeOverlay() : openOverlay();
+  });
+  overlayClose.addEventListener('click', closeOverlay);
+  overlayNav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ closeOverlay(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(overlayNav.classList.contains('open')){
+      if(e.key === 'Escape'){ closeOverlay(); hamburger.focus(); }
+      if(e.key === 'Tab'){
+        var focusables = overlayNav.querySelectorAll('a, button');
+        var first = focusables[0], last = focusables[focusables.length-1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    }
+  });
+
+  /* ---- Scroll-triggered fade-up reveals ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* ---- How It Works dashed line draw ---- */
+  var dashLine = document.getElementById('dashLine');
+  var howSection = document.getElementById('how');
+  if(dashLine && howSection){
+    if('IntersectionObserver' in window){
+      var lineObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            dashLine.style.transition = 'stroke-dashoffset 1.8s ease-in-out';
+            dashLine.style.strokeDashoffset = '0';
+            lineObs.disconnect();
+          }
+        });
+      }, {threshold:0.3});
+      lineObs.observe(howSection);
+    } else {
+      dashLine.style.strokeDashoffset = '0';
+    }
+  }
+
+  /* ---- CountUp numbers ---- */
+  var numEls = document.querySelectorAll('.num-value');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1500;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(eased * target);
+      el.textContent = current.toLocaleString() + suffix;
+      if(progress < 1){ requestAnimationFrame(step); }
+      else { el.textContent = target.toLocaleString() + suffix; }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var numObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          numObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    numEls.forEach(function(n){ numObs.observe(n); });
+  } else {
+    numEls.forEach(animateCount);
+  }
+
+  /* ---- Coverage areas filter ---- */
+  var filterButtons = document.querySelectorAll('.filter-btn');
+  var areaChips = document.querySelectorAll('.area-chip');
+  filterButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterButtons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      areaChips.forEach(function(chip){
+        var province = chip.getAttribute('data-province');
+        if(filter === 'All' || province === filter){ chip.classList.remove('hidden'); }
+        else { chip.classList.add('hidden'); }
+      });
+    });
+  });
+
+  /* ---- Testimonial auto-cycle on mobile ---- */
+  var testiGrid = document.querySelector('.testi-grid');
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(testiGrid && window.matchMedia('(max-width: 859px)').matches && !prefersReduced){
+    var cards = testiGrid.querySelectorAll('.testi-card');
+    var idx = 0;
+    setInterval(function(){
+      idx = (idx + 1) % cards.length;
+      cards[idx].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
+    }, 4500);
+  }
+
+})();
+</script>
+
+</body>
+</html>
