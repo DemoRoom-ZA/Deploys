@@ -1,1 +1,97 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="MKY Logistics — Premium Deliveries, Relocation & Removals">
+  <meta property="og:description" content="Your Move. Our Mission. MKY Logistics provides trusted, luxury-level delivery, relocation, and removal services across South Africa.">
+  <meta property="og:type" content="website">
+  <title>MKY Logistics | Premium Deliveries, Relocation & Removals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* === RESET & BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #080F1E; background: #fff; line-height: 1.75; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; line-height: 1.15; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(3rem, 7vw, 6rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+    h3 { font-size: clamp(1.25rem, 2vw, 2rem); }
+    a { text-decoration: none; color: inherit; }
+    img, svg { max-width: 100%; height: auto; }
+    .btn { display:inline-block; padding:0.75rem 1.5rem; border-radius:4px; font-weight:600; transition:transform .3s ease, box-shadow .3s ease; }
+    .btn-gold { background:#C9A84C; color:#fff; }
+    .btn-gold:hover { transform:scale(1.04); box-shadow:0 0 12px rgba(201,168,76,0.6); }
+    .btn-outline { border:2px solid #fff; color:#fff; }
+    .btn-outline:hover { background:#fff; color:#0B3D91; }
+    section { padding:clamp(4rem,8vw,9rem) 1rem; max-width:1320px; margin:auto; }
+    [aria-hidden="true"] { pointer-events:none; }
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { position:static; width:auto; height:auto; background:#C9A84C; color:#fff; padding:0.5rem; }
+    :focus-visible { outline:3px solid #C9A84C; outline-offset:2px; }
+    /* === NAV === */
+    header { position:sticky; top:0; z-index:999; background:transparent; transition:all .3s ease; }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; }
+    nav.shrink { background:rgba(11,61,145,0.85); backdrop-filter:blur(8px); padding:0.5rem 2rem; }
+    nav ul { display:flex; gap:2rem; list-style:none; }
+    nav .cta { margin-left:auto; }
+    /* === LOGO === */
+    .logo { display:flex; align-items:center; gap:0.5rem; color:#0B3D91; }
+    .logo svg { width:48px; height:48px; }
+    .logo-text { display:flex; flex-direction:column; }
+    .logo-text span:first-child { font-family:'Playfair Display', serif; font-weight:700; font-size:1.5rem; }
+    .logo-text span:last-child { font-size:0.75rem; letter-spacing:0.1em; opacity:0.6; }
+    /* === HERO === */
+    .hero { background:#0B3D91; color:#fff; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; min-height:100vh; clip-path:polygon(0 0,100% 0,100% 90%,0 100%); }
+    .hero-content { flex:1; padding:2rem; }
+    .hero-ctas { margin-top:2rem; display:flex; gap:1rem; }
+    .hero-illustration { flex:1; display:flex; align-items:center; justify-content:center; }
+    .truck { animation:float 3s ease-in-out infinite; }
+    @keyframes float { 0%{transform:translateY(-6px);} 50%{transform:translateY(0);} 100%{transform:translateY(-6px);} }
+    /* === TRUST STRIP === */
+    .trust-strip { background:#fff; display:flex; justify-content:space-around; padding:2rem 1rem; }
+    .trust-item { text-align:center; font-size:0.9rem; }
+    /* === SERVICES === */
+    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; transform:skewY(-3deg); }
+    .service-card { background:#E3F0FF; padding:2rem; transform:skewY(3deg); border-radius:8px; }
+    .service-card h3 { margin-bottom:1rem; }
+    .service-card a { color:#C9A84C; font-weight:600; }
+    /* === HOW IT WORKS === */
+    .steps { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; position:relative; }
+    .step { flex:1; min-width:200px; text-align:center; }
+    .step-number { font-size:2rem; color:#C9A84C; font-weight:700; }
+    .dashed-line { position:absolute; top:50%; left:0; right:0; height:2px; background:repeating-linear-gradient(to right,#C9A84C 0 10px,transparent 10px 20px); opacity:0.5; }
+    /* === WHY MKY === */
+    .why { display:flex; flex-wrap:wrap; gap:2rem; align-items:center; }
+    .why-text { flex:1; }
+    .why-text strong { color:#C9A84C; }
+    .stats { flex:1; display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; }
+    .stat { text-align:center; }
+    .stat-number { font-size:2rem; font-weight:700; color:#0B3D91; }
+    /* === AREAS COVERED === */
+    .areas { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+    .area-card { background:#fff; border:1px solid #E3F0FF; padding:1rem; border-radius:6px; opacity:0; transform:translateY(40px); transition:all .65s ease-out; }
+    .area-card.visible { opacity:1; transform:translateY(0); }
+    /* === TESTIMONIALS === */
+    .testimonials { background:#E3F0FF; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+    .testimonial { background:#fff; padding:1.5rem; border-radius:8px; }
+    .stars { color:#C9A84C; }
+    /* === MAP === */
+    .map iframe { width:100%; height:450px; border:0; }
+    /* === CONTACT === */
+    .contact { display:flex; flex-wrap:wrap; gap:2rem; }
+    form { flex:1; display:grid; gap:1rem; }
+    input,select,textarea { padding:0.75rem; border:1px solid #546080; border-radius:4px; width:100%; }
+    button { border:none; cursor:pointer; }
+    .contact-info { flex:1; }
+    /* === FOOTER === */
+    footer { background:#0B3D91; color:#fff; padding:2rem; text-align:center; }
+    footer .logo { justify-content:center; color:#fff; }
+    footer p { margin-top:1rem; font-size:0.85rem; }
+    /* === ANIMATIONS === */
+    .fade-up { opacity:0; transform:translateY(40px); transition:all .65s ease-out; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+<a href
