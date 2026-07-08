@@ -1,97 +1,1343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="MKY Logistics — Premium Deliveries, Relocation & Removals">
-  <meta property="og:description" content="Your Move. Our Mission. MKY Logistics provides trusted, luxury-level delivery, relocation, and removal services across South Africa.">
-  <meta property="og:type" content="website">
-  <title>MKY Logistics | Premium Deliveries, Relocation & Removals</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* === RESET & BASE === */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #080F1E; background: #fff; line-height: 1.75; }
-    h1,h2,h3 { font-family: 'Playfair Display', serif; line-height: 1.15; letter-spacing: -0.02em; }
-    h1 { font-size: clamp(3rem, 7vw, 6rem); }
-    h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
-    h3 { font-size: clamp(1.25rem, 2vw, 2rem); }
-    a { text-decoration: none; color: inherit; }
-    img, svg { max-width: 100%; height: auto; }
-    .btn { display:inline-block; padding:0.75rem 1.5rem; border-radius:4px; font-weight:600; transition:transform .3s ease, box-shadow .3s ease; }
-    .btn-gold { background:#C9A84C; color:#fff; }
-    .btn-gold:hover { transform:scale(1.04); box-shadow:0 0 12px rgba(201,168,76,0.6); }
-    .btn-outline { border:2px solid #fff; color:#fff; }
-    .btn-outline:hover { background:#fff; color:#0B3D91; }
-    section { padding:clamp(4rem,8vw,9rem) 1rem; max-width:1320px; margin:auto; }
-    [aria-hidden="true"] { pointer-events:none; }
-    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus { position:static; width:auto; height:auto; background:#C9A84C; color:#fff; padding:0.5rem; }
-    :focus-visible { outline:3px solid #C9A84C; outline-offset:2px; }
-    /* === NAV === */
-    header { position:sticky; top:0; z-index:999; background:transparent; transition:all .3s ease; }
-    nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; }
-    nav.shrink { background:rgba(11,61,145,0.85); backdrop-filter:blur(8px); padding:0.5rem 2rem; }
-    nav ul { display:flex; gap:2rem; list-style:none; }
-    nav .cta { margin-left:auto; }
-    /* === LOGO === */
-    .logo { display:flex; align-items:center; gap:0.5rem; color:#0B3D91; }
-    .logo svg { width:48px; height:48px; }
-    .logo-text { display:flex; flex-direction:column; }
-    .logo-text span:first-child { font-family:'Playfair Display', serif; font-weight:700; font-size:1.5rem; }
-    .logo-text span:last-child { font-size:0.75rem; letter-spacing:0.1em; opacity:0.6; }
-    /* === HERO === */
-    .hero { background:#0B3D91; color:#fff; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; min-height:100vh; clip-path:polygon(0 0,100% 0,100% 90%,0 100%); }
-    .hero-content { flex:1; padding:2rem; }
-    .hero-ctas { margin-top:2rem; display:flex; gap:1rem; }
-    .hero-illustration { flex:1; display:flex; align-items:center; justify-content:center; }
-    .truck { animation:float 3s ease-in-out infinite; }
-    @keyframes float { 0%{transform:translateY(-6px);} 50%{transform:translateY(0);} 100%{transform:translateY(-6px);} }
-    /* === TRUST STRIP === */
-    .trust-strip { background:#fff; display:flex; justify-content:space-around; padding:2rem 1rem; }
-    .trust-item { text-align:center; font-size:0.9rem; }
-    /* === SERVICES === */
-    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; transform:skewY(-3deg); }
-    .service-card { background:#E3F0FF; padding:2rem; transform:skewY(3deg); border-radius:8px; }
-    .service-card h3 { margin-bottom:1rem; }
-    .service-card a { color:#C9A84C; font-weight:600; }
-    /* === HOW IT WORKS === */
-    .steps { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; position:relative; }
-    .step { flex:1; min-width:200px; text-align:center; }
-    .step-number { font-size:2rem; color:#C9A84C; font-weight:700; }
-    .dashed-line { position:absolute; top:50%; left:0; right:0; height:2px; background:repeating-linear-gradient(to right,#C9A84C 0 10px,transparent 10px 20px); opacity:0.5; }
-    /* === WHY MKY === */
-    .why { display:flex; flex-wrap:wrap; gap:2rem; align-items:center; }
-    .why-text { flex:1; }
-    .why-text strong { color:#C9A84C; }
-    .stats { flex:1; display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; }
-    .stat { text-align:center; }
-    .stat-number { font-size:2rem; font-weight:700; color:#0B3D91; }
-    /* === AREAS COVERED === */
-    .areas { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
-    .area-card { background:#fff; border:1px solid #E3F0FF; padding:1rem; border-radius:6px; opacity:0; transform:translateY(40px); transition:all .65s ease-out; }
-    .area-card.visible { opacity:1; transform:translateY(0); }
-    /* === TESTIMONIALS === */
-    .testimonials { background:#E3F0FF; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-    .testimonial { background:#fff; padding:1.5rem; border-radius:8px; }
-    .stars { color:#C9A84C; }
-    /* === MAP === */
-    .map iframe { width:100%; height:450px; border:0; }
-    /* === CONTACT === */
-    .contact { display:flex; flex-wrap:wrap; gap:2rem; }
-    form { flex:1; display:grid; gap:1rem; }
-    input,select,textarea { padding:0.75rem; border:1px solid #546080; border-radius:4px; width:100%; }
-    button { border:none; cursor:pointer; }
-    .contact-info { flex:1; }
-    /* === FOOTER === */
-    footer { background:#0B3D91; color:#fff; padding:2rem; text-align:center; }
-    footer .logo { justify-content:center; color:#fff; }
-    footer p { margin-top:1rem; font-size:0.85rem; }
-    /* === ANIMATIONS === */
-    .fade-up { opacity:0; transform:translateY(40px); transition:all .65s ease-out; }
-    .fade-up.visible { opacity:1; transform:translateY(0); }
-    @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MKY Logistics — Premium Removals &amp; Relocation, South Africa</title>
+<meta name="description" content="MKY Logistics delivers white-glove household removals, commercial relocations and same-day courier services across South Africa. Fully insured, damage-free, punctual every time.">
+<meta name="theme-color" content="#0B3D91">
+
+<!-- Google Fonts: Cormorant Garamond (display) + DM Sans (UI/body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================= */
+  /* 1. RESET & CUSTOM PROPERTIES  */
+  /* ============================= */
+  :root{
+    --ink:#06091A;
+    --deep-blue:#0B3D91;
+    --mid-blue:#1A56C4;
+    --white:#FFFFFF;
+    --warm-white:#F8F9FC;
+    --gold:#B8952A;
+    --muted:#5A6480;
+    --tint:#EEF4FF;
+
+    --font-display:'Cormorant Garamond', serif;
+    --font-body:'DM Sans', sans-serif;
+
+    --h1: clamp(3.5rem, 8vw, 7.5rem);
+    --h2: clamp(2rem, 4vw, 4rem);
+    --h3: 1.6rem;
+    --body: 1.05rem;
+    --eyebrow: 0.7rem;
+
+    --unit: 8px;
+    --max-w: 1440px;
+    --section-pad: clamp(6rem, 12vw, 12rem);
+    --radius: 4px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    font-size:var(--body);
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    line-height:1.0;
+    letter-spacing:-0.04em;
+    margin:0;
+    font-weight:500;
+  }
+  h1{ font-size:var(--h1); }
+  h2{ font-size:var(--h2); }
+  h3{ font-size:var(--h3); font-weight:600; }
+
+  p{ margin:0; }
+  a{ color:inherit; text-decoration:none; }
+  img,svg{ display:block; max-width:100%; }
+  button{ font-family:inherit; cursor:pointer; }
+
+  .eyebrow{
+    font-family:var(--font-body);
+    font-size:var(--eyebrow);
+    text-transform:uppercase;
+    letter-spacing:0.2em;
+    color:var(--gold);
+    font-weight:700;
+    display:inline-block;
+  }
+
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding-left:clamp(1.5rem, 5vw, 4rem);
+    padding-right:clamp(1.5rem, 5vw, 4rem);
+  }
+
+  /* Skip link */
+  .skip-link{
+    position:absolute;
+    left:-999px;
+    top:0;
+    background:var(--gold);
+    color:var(--ink);
+    padding:12px 20px;
+    z-index:1000;
+    font-weight:700;
+    border-radius:0 0 var(--radius) 0;
+  }
+  .skip-link:focus{ left:0; }
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  /* ============================= */
+  /* 2. NAV                        */
+  /* ============================= */
+  .nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:500;
+    background:var(--white);
+    border-bottom:1px solid var(--gold);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .nav-logo{ width:150px; }
+  .nav-logo svg{ width:100%; height:auto; }
+
+  .nav-links{
+    display:flex;
+    gap:clamp(1.5rem, 3vw, 2.75rem);
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .nav-links a{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    font-weight:700;
+    position:relative;
+    padding-bottom:4px;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width:100%; height:1px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 0.3s ease;
+  }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after{ transform:scaleX(1); }
+
+  .nav-cta{
+    border:1px solid var(--gold);
+    color:var(--gold);
+    padding:10px 22px;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    font-weight:700;
+    border-radius:var(--radius);
+    background:transparent;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{
+    background:var(--gold);
+    color:var(--white);
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(184,149,42,0.3);
+  }
+
+  .hamburger{
+    display:none;
+    background:none;
+    border:none;
+    width:32px; height:24px;
+    position:relative;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .hamburger span{
+    display:block;
+    height:2px;
+    background:var(--ink);
+    border-radius:2px;
+    transition:transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(1){ transform:translateY(11px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-11px) rotate(-45deg); }
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    background:var(--white);
+    border-bottom:1px solid var(--gold);
+    padding:1rem clamp(1.5rem,5vw,4rem) 2rem;
+  }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{
+    padding:14px 0;
+    border-bottom:1px solid var(--tint);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:0.85rem;
+    font-weight:700;
+  }
+  .mobile-menu .nav-cta{ margin-top:1rem; text-align:center; }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .nav-cta.desktop-only{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* ============================= */
+  /* 3. HERO                       */
+  /* ============================= */
+  .hero{
+    display:grid;
+    grid-template-columns:1fr;
+    min-height:100vh;
+    padding-top:73px;
+  }
+  @media (min-width:1024px){
+    .hero{ grid-template-columns:1fr 1fr; }
+  }
+  .hero-left{
+    background:var(--warm-white);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:clamp(3rem,6vw,6rem) clamp(1.5rem,5vw,4.5rem);
+    gap:2rem;
+  }
+  .hero-eyebrow{ margin-bottom:0.5rem; }
+  .hero-title{
+    font-style:italic;
+    display:flex;
+    flex-direction:column;
+  }
+  .hero-title span{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(25px);
+    animation:wordIn 0.7s ease forwards;
+  }
+  .hero-title .l1{ animation-delay:0.3s; }
+  .hero-title .l2{ animation-delay:0.37s; }
+  .hero-title .l3{ animation-delay:0.44s; }
+  @keyframes wordIn{ to{ opacity:1; transform:translateY(0); } }
+
+  .hero-rule{
+    width:120px;
+    height:2px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transform-origin:left;
+    margin-top:0.5rem;
+  }
+  .hero-rule.in-view{ animation:ruleIn 0.8s ease-out forwards; animation-delay:0.9s; }
+  @keyframes ruleIn{ to{ transform:scaleX(1); } }
+
+  .hero-copy{
+    max-width:480px;
+    color:var(--muted);
+    font-size:1.1rem;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:16px 32px;
+    border-radius:var(--radius);
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    font-weight:700;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-filled{
+    background:var(--deep-blue);
+    color:var(--white);
+    border:1px solid var(--deep-blue);
+  }
+  .btn-filled:hover{ transform:translateY(-3px); box-shadow:0 14px 24px rgba(11,61,145,0.28); }
+  .btn-outline{
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold);
+  }
+  .btn-outline:hover{ transform:translateY(-3px); box-shadow:0 14px 24px rgba(184,149,42,0.25); background:var(--gold); color:var(--white); }
+
+  .hero-right{
+    background:var(--deep-blue);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:360px;
+    overflow:hidden;
+  }
+  .hero-right svg{ width:min(80%, 520px); }
+  .hero-right circle{
+    fill:none;
+    stroke:var(--white);
+    stroke-opacity:0.55;
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:circleDraw 2.4s ease-out forwards;
+  }
+  .hero-right .c1{ animation-delay:0.2s; }
+  .hero-right .c2{ animation-delay:0.5s; }
+  .hero-right .c3{ animation-delay:0.8s; }
+  .hero-right .c4{ animation-delay:1.1s; }
+  @keyframes circleDraw{ to{ stroke-dashoffset:0; } }
+  .hero-right .node{ fill:var(--gold); }
+
+  /* ============================= */
+  /* 4. MARQUEE                    */
+  /* ============================= */
+  .marquee-strip{
+    background:var(--ink);
+    overflow:hidden;
+    padding:18px 0;
+    white-space:nowrap;
+  }
+  .marquee-track{
+    display:inline-flex;
+    animation:scrollLeft 32s linear infinite;
+    will-change:transform;
+  }
+  .marquee-strip:hover .marquee-track{ animation-play-state:paused; }
+  .marquee-track span{
+    color:var(--gold);
+    font-size:0.85rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding-right:2.5rem;
+    font-weight:700;
+  }
+  @keyframes scrollLeft{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+
+  /* ============================= */
+  /* 5. SERVICES (alternating)     */
+  /* ============================= */
+  .services{ padding:var(--section-pad) 0; background:var(--white); }
+  .service-row{
+    display:grid;
+    grid-template-columns:1fr;
+    align-items:center;
+    gap:3rem;
+    padding:clamp(3rem,6vw,5rem) 0;
+    border-bottom:1px solid var(--tint);
+  }
+  .service-row:last-child{ border-bottom:none; }
+  @media (min-width:900px){
+    .service-row{ grid-template-columns:1fr 1fr; }
+    .service-row.reverse .service-text{ order:2; }
+    .service-row.reverse .service-graphic{ order:1; }
+  }
+  .service-text{
+    opacity:0;
+    transform:translateX(-40px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+  }
+  .service-graphic{
+    opacity:0;
+    transform:translateX(40px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+  }
+  .service-row.reverse .service-text{ transform:translateX(40px); }
+  .service-row.reverse .service-graphic{ transform:translateX(-40px); }
+  .service-row.in-view .service-text,
+  .service-row.in-view .service-graphic{ opacity:1; transform:translateX(0); }
+
+  .service-number{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:5rem;
+    color:var(--tint);
+    -webkit-text-stroke:1px var(--gold);
+    color:transparent;
+    line-height:1;
+    margin-bottom:0.5rem;
+  }
+  .service-text h3{ font-size:2rem; font-family:var(--font-display); font-style:italic; margin-bottom:1rem; }
+  .service-text p.desc{ color:var(--muted); max-width:460px; margin-bottom:1.5rem; }
+  .service-features{
+    list-style:none;
+    padding:0; margin:0 0 1.75rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.65rem;
+  }
+  .service-features li{
+    display:flex;
+    align-items:flex-start;
+    gap:0.6rem;
+    font-size:0.92rem;
+    color:var(--ink);
+  }
+  .service-features li::before{
+    content:'';
+    width:6px; height:6px;
+    margin-top:8px;
+    background:var(--gold);
+    flex-shrink:0;
+  }
+  .enquire-link{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    font-weight:700;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--deep-blue);
+    position:relative;
+    padding-bottom:4px;
+  }
+  .enquire-link::after{
+    content:'';
+    position:absolute; left:0; bottom:0;
+    width:100%; height:1px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 0.3s ease;
+  }
+  .enquire-link:hover::after{ transform:scaleX(1); }
+
+  .service-graphic{
+    background:var(--warm-white);
+    border-radius:var(--radius);
+    padding:2.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:280px;
+  }
+  .service-graphic svg{ width:100%; max-width:280px; }
+
+  /* ============================= */
+  /* 6. THE MKY STANDARD            */
+  /* ============================= */
+  .standard{
+    background:var(--ink);
+    color:var(--white);
+    padding:var(--section-pad) 0;
+  }
+  .standard-head{ text-align:center; margin-bottom:4rem; }
+  .standard-head h2{ color:var(--white); margin-top:0.75rem; }
+  .standard-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:3rem;
+  }
+  @media (min-width:800px){
+    .standard-grid{ grid-template-columns:repeat(3,1fr); }
+  }
+  .standard-item{ text-align:left; }
+  .standard-icon{ width:44px; height:44px; margin-bottom:1.5rem; }
+  .standard-icon svg{ stroke:var(--gold); }
+  .standard-item h3{ color:var(--white); font-family:var(--font-display); font-style:italic; font-size:1.7rem; margin-bottom:0.75rem; }
+  .standard-item p{ color:#B9C0D6; font-size:0.95rem; }
+
+  /* ============================= */
+  /* 7. BY THE NUMBERS               */
+  /* ============================= */
+  .numbers{ background:var(--warm-white); padding:var(--section-pad) 0; }
+  .numbers-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:3rem 2rem;
+    text-align:center;
+  }
+  @media (min-width:800px){ .numbers-grid{ grid-template-columns:repeat(4,1fr); } }
+  .number-value{
+    font-family:var(--font-display);
+    font-size:clamp(2.5rem,5vw,4rem);
+    color:var(--deep-blue);
+    font-style:italic;
+  }
+  .number-label{
+    display:block;
+    margin-top:0.5rem;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--muted);
+    font-weight:700;
+  }
+
+  /* ============================= */
+  /* 8. PROCESS                     */
+  /* ============================= */
+  .process{ padding:var(--section-pad) 0; background:var(--white); }
+  .process-head{ text-align:center; margin-bottom:4rem; }
+  .process-head h2{ margin-top:0.75rem; }
+  .process-timeline{
+    display:flex;
+    gap:1.5rem;
+    overflow-x:auto;
+    padding-bottom:1rem;
+    scroll-snap-type:x mandatory;
+  }
+  @media (min-width:1000px){
+    .process-timeline{ overflow:visible; }
+  }
+  .process-step{
+    background:var(--warm-white);
+    border-radius:var(--radius);
+    padding:2.5rem 2rem;
+    flex:0 0 260px;
+    scroll-snap-align:start;
+    position:relative;
+  }
+  @media (min-width:1000px){ .process-step{ flex:1; } }
+  .process-step::after{
+    content:'';
+    position:absolute;
+    top:38px; right:-1.5rem;
+    width:1.5rem; height:1px;
+    background:var(--gold);
+    display:none;
+  }
+  @media (min-width:1000px){
+    .process-step:not(:last-child)::after{ display:block; }
+  }
+  .step-circle{
+    width:46px; height:46px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:1.3rem;
+    margin-bottom:1.5rem;
+  }
+  .process-step h3{ font-size:1.25rem; margin-bottom:0.6rem; font-family:var(--font-body); font-weight:700; letter-spacing:-0.01em;}
+  .process-step p{ color:var(--muted); font-size:0.9rem; }
+
+  /* ============================= */
+  /* 9. TESTIMONIALS                */
+  /* ============================= */
+  .testimonials{
+    background:var(--deep-blue);
+    color:var(--white);
+    padding:var(--section-pad) 0;
+    text-align:center;
+  }
+  .testimonial-wrap{ max-width:820px; margin:0 auto; position:relative; min-height:220px; }
+  .quote-mark{ font-family:var(--font-display); font-style:italic; color:var(--gold); font-size:4rem; line-height:0.5; display:block; margin-bottom:1rem; }
+  .testimonial-slide{
+    display:none;
+    opacity:0;
+    transition:opacity 0.6s ease;
+  }
+  .testimonial-slide.active{ display:block; opacity:1; }
+  .testimonial-slide p.quote{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:clamp(1.4rem,3vw,2.1rem);
+    line-height:1.4;
+    margin-bottom:2rem;
+  }
+  .testimonial-meta{
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--gold);
+    font-weight:700;
+  }
+  .testimonial-dots{
+    display:flex;
+    gap:0.6rem;
+    justify-content:center;
+    margin-top:2.5rem;
+  }
+  .testimonial-dots button{
+    width:8px; height:8px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    background:transparent;
+    padding:0;
+  }
+  .testimonial-dots button.active{ background:var(--gold); }
+
+  /* ============================= */
+  /* 10. COVERAGE MAP                */
+  /* ============================= */
+  .coverage{ padding:var(--section-pad) 0; background:var(--warm-white); }
+  .coverage-head{ text-align:center; margin-bottom:3.5rem; }
+  .coverage-head h2{ margin-top:0.75rem; }
+  .map-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:10px;
+    position:relative;
+    box-shadow:0 20px 50px rgba(6,9,26,0.08);
+  }
+  .map-card::before, .map-card::after{
+    content:'';
+    position:absolute;
+    width:28px; height:28px;
+    border-color:var(--gold);
+    border-style:solid;
+  }
+  .map-card::before{ top:-2px; left:-2px; border-width:3px 0 0 3px; }
+  .map-card::after{ bottom:-2px; right:-2px; border-width:0 3px 3px 0; }
+  .map-card iframe{
+    width:100%;
+    height:420px;
+    border:0;
+    border-radius:2px;
+    display:block;
+  }
+  .coverage-list{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2.5rem;
+    margin-top:3.5rem;
+  }
+  @media (min-width:700px){ .coverage-list{ grid-template-columns:repeat(3,1fr); } }
+  .coverage-list h3{ font-size:1.15rem; margin-bottom:1rem; color:var(--deep-blue); font-family:var(--font-display); font-style:italic; }
+  .coverage-list ul{ list-style:none; margin:0; padding:0; color:var(--muted); font-size:0.92rem; line-height:2; }
+
+  /* ============================= */
+  /* 11. CONTACT / QUOTE             */
+  /* ============================= */
+  .contact{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:1024px){ .contact{ grid-template-columns:1fr 1fr; } }
+  .contact-left{
+    background:var(--white);
+    padding:var(--section-pad) clamp(1.5rem,5vw,4.5rem);
+  }
+  .contact-left h2{ margin-bottom:0.75rem; font-style:italic; }
+  .contact-left .eyebrow{ margin-bottom:0.75rem; }
+  .contact-sub{ color:var(--muted); max-width:480px; margin-bottom:2.5rem; }
+
+  form{ display:flex; flex-direction:column; gap:1.25rem; max-width:560px; }
+  .form-row{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+  @media (min-width:560px){ .form-row.two{ grid-template-columns:1fr 1fr; } }
+  label{
+    display:block;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-weight:700;
+    color:var(--muted);
+    margin-bottom:0.5rem;
+  }
+  input, select, textarea{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #D9DEEB;
+    border-radius:var(--radius);
+    font-family:var(--font-body);
+    font-size:0.95rem;
+    background:var(--warm-white);
+    color:var(--ink);
+    transition:border-color 0.2s ease;
+  }
+  input:focus, select:focus, textarea:focus{ border-color:var(--gold); outline:none; }
+  textarea{ resize:vertical; min-height:100px; }
+  .submit-btn{
+    background:var(--deep-blue);
+    color:var(--white);
+    border:none;
+    padding:16px 32px;
+    border-radius:var(--radius);
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    font-weight:700;
+    align-self:flex-start;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .submit-btn:hover{ transform:translateY(-3px); box-shadow:0 14px 24px rgba(11,61,145,0.28); }
+
+  .contact-right{
+    background:var(--ink);
+    color:var(--white);
+    padding:var(--section-pad) clamp(1.5rem,5vw,4.5rem);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:2.25rem;
+  }
+  .contact-right h3{ color:var(--gold); font-family:var(--font-body); text-transform:uppercase; font-size:0.78rem; letter-spacing:0.18em; margin-bottom:0.75rem; font-weight:700; }
+  .contact-right p, .contact-right a{ color:#DCE1EF; font-size:0.98rem; }
+  .whatsapp-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:0.75rem;
+    border:1px solid var(--gold);
+    color:var(--gold) !important;
+    padding:14px 26px;
+    border-radius:var(--radius);
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-weight:700;
+    width:fit-content;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+  }
+  .whatsapp-cta:hover{ background:var(--gold); color:var(--ink) !important; transform:translateY(-3px); box-shadow:0 14px 24px rgba(184,149,42,0.25); }
+
+  /* ============================= */
+  /* 12. FOOTER                      */
+  /* ============================= */
+  footer{
+    background:var(--ink);
+    color:var(--white);
+    padding:4rem 0 2.5rem;
+    text-align:center;
+  }
+  .footer-logo{ width:170px; margin:0 auto 2.5rem; }
+  .footer-nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:2.5rem;
+    list-style:none;
+    padding:0; margin:0 0 2.5rem;
+  }
+  .footer-nav a{ font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:#B9C0D6; }
+  .footer-nav a:hover{ color:var(--gold); }
+  .footer-rule{ border:none; border-top:1px solid var(--gold); opacity:0.4; max-width:var(--max-w); margin:0 auto 2rem; }
+  .footer-legal{ font-size:0.78rem; color:#7A8299; display:flex; flex-direction:column; gap:1rem; align-items:center; }
+  .social-icons{ display:flex; gap:1.25rem; }
+  .social-icons a svg{ width:18px; height:18px; stroke:#B9C0D6; transition:stroke 0.2s ease; }
+  .social-icons a:hover svg{ stroke:var(--gold); }
+
+  /* Generic section heading component */
+  .section-head-eyebrow{ display:block; margin-bottom:0.75rem; }
+</style>
 </head>
 <body>
-<a href
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ============================= -->
+<!-- NAV                            -->
+<!-- ============================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="MKY Logistics home">
+      <svg viewBox="0 0 260 70" role="img" aria-label="MKY Logistics Logo">
+        <line x1="4" y1="24" x2="256" y2="24" stroke="#B8952A" stroke-width="1.5"/>
+        <text x="40" y="34" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="30" fill="#06091A">[ MKY ]</text>
+        <text x="27" y="58" font-family="'DM Sans', sans-serif" font-size="10" letter-spacing="4" fill="#0B3D91">LOGISTICS</text>
+      </svg>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#standard">The Standard</a></li>
+        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#contact" class="nav-cta desktop-only">Book a Move</a>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services">Services</a>
+    <a href="#standard">The Standard</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Book a Move</a>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ============================= -->
+  <!-- HERO                           -->
+  <!-- ============================= -->
+  <section class="hero" id="top">
+    <div class="hero-left">
+      <span class="eyebrow hero-eyebrow">Household &amp; Commercial Relocation — South Africa</span>
+      <h1 class="hero-title">
+        <span class="l1">We move</span>
+        <span class="l2">what</span>
+        <span class="l3">matters most.</span>
+      </h1>
+      <div class="hero-rule" id="heroRule"></div>
+      <p class="hero-copy">MKY Logistics handles your home, your office, and everything in between with the precision of a Swiss timetable and the care of a family heirloom. Fully insured. Nationwide. Every single time.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-filled">Get a Quote</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-right" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <circle class="c1 node" cx="200" cy="200" r="4"/>
+        <circle class="c1" cx="200" cy="200" r="70"/>
+        <circle class="c2" cx="200" cy="200" r="115"/>
+        <circle class="c3" cx="200" cy="200" r="160"/>
+        <circle class="c4" cx="200" cy="200" r="190" stroke-opacity="0.25"/>
+        <circle class="node" cx="270" cy="130" r="3.5"/>
+        <circle class="node" cx="120" cy="260" r="3.5"/>
+        <circle class="node" cx="310" cy="240" r="3.5"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- MARQUEE                        -->
+  <!-- ============================= -->
+  <div class="marquee-strip" role="presentation">
+    <div class="marquee-track">
+      <span>Household Removals · Office Relocations · Same-Day Delivery · Furniture Transport · Long-Distance Moves · White-Glove Packing ·</span>
+      <span>Household Removals · Office Relocations · Same-Day Delivery · Furniture Transport · Long-Distance Moves · White-Glove Packing ·</span>
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- SERVICES                       -->
+  <!-- ============================= -->
+  <section class="services" id="services">
+    <div class="wrap">
+
+      <div class="service-row">
+        <div class="service-text">
+          <span class="service-number" aria-hidden="true">01</span>
+          <span class="eyebrow">Courier &amp; Deliveries</span>
+          <h3>Precision, same-day, on your schedule.</h3>
+          <p class="desc">From urgent documents to fragile freight, our courier fleet moves across metros with tracked, time-stamped handovers — because "later today" should mean exactly that.</p>
+          <ul class="service-features">
+            <li>Same-day and scheduled delivery windows</li>
+            <li>Live tracking with signed proof of delivery</li>
+            <li>Temperature-safe and fragile-item handling</li>
+          </ul>
+          <a href="#contact" class="enquire-link">Enquire About Couriers →</a>
+        </div>
+        <div class="service-graphic" aria-hidden="true">
+          <svg viewBox="0 0 200 180" fill="none">
+            <rect x="20" y="70" width="90" height="60" rx="2" stroke="#0B3D91" stroke-width="2"/>
+            <path d="M110 90 H150 L175 115 V130 H110 Z" stroke="#B8952A" stroke-width="2"/>
+            <circle cx="55" cy="140" r="12" stroke="#06091A" stroke-width="2"/>
+            <circle cx="150" cy="140" r="12" stroke="#06091A" stroke-width="2"/>
+            <line x1="20" y1="55" x2="90" y2="55" stroke="#B8952A" stroke-width="2"/>
+            <line x1="20" y1="42" x2="70" y2="42" stroke="#EEF4FF" stroke-width="6"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="service-row reverse">
+        <div class="service-text">
+          <span class="service-number" aria-hidden="true">02</span>
+          <span class="eyebrow">Residential Relocation</span>
+          <h3>Your home, handled like it's ours.</h3>
+          <p class="desc">Full-service household moves — from heirloom china to the piano nobody wants to lift. Our crews pack, wrap, transport and unpack with white-glove discipline.</p>
+          <ul class="service-features">
+            <li>Custom crating for antiques and fine art</li>
+            <li>Full pack-unpack and furniture reassembly</li>
+            <li>Dedicated move coordinator, start to finish</li>
+          </ul>
+          <a href="#contact" class="enquire-link">Enquire About Home Moves →</a>
+        </div>
+        <div class="service-graphic" aria-hidden="true">
+          <svg viewBox="0 0 200 180" fill="none">
+            <path d="M40 90 L100 45 L160 90" stroke="#0B3D91" stroke-width="2"/>
+            <rect x="55" y="90" width="90" height="60" stroke="#06091A" stroke-width="2"/>
+            <rect x="90" y="115" width="22" height="35" stroke="#B8952A" stroke-width="2"/>
+            <rect x="65" y="100" width="18" height="18" stroke="#B8952A" stroke-width="2"/>
+            <rect x="117" y="100" width="18" height="18" stroke="#B8952A" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-text">
+          <span class="service-number" aria-hidden="true">03</span>
+          <span class="eyebrow">Commercial Removals</span>
+          <h3>Office moves that don't cost you a Monday.</h3>
+          <p class="desc">Workstations struck down Friday evening, rebuilt and cabled by Monday's first stand-up. We plan around your operating hours, not the other way around.</p>
+          <ul class="service-features">
+            <li>Out-of-hours and weekend relocation crews</li>
+            <li>IT, server room and workstation decommissioning</li>
+            <li>Asset tagging and floor-plan-matched placement</li>
+          </ul>
+          <a href="#contact" class="enquire-link">Enquire About Office Moves →</a>
+        </div>
+        <div class="service-graphic" aria-hidden="true">
+          <svg viewBox="0 0 200 180" fill="none">
+            <rect x="45" y="40" width="110" height="100" stroke="#0B3D91" stroke-width="2"/>
+            <line x1="45" y1="65" x2="155" y2="65" stroke="#B8952A" stroke-width="1.5"/>
+            <line x1="45" y1="90" x2="155" y2="90" stroke="#B8952A" stroke-width="1.5"/>
+            <line x1="45" y1="115" x2="155" y2="115" stroke="#B8952A" stroke-width="1.5"/>
+            <line x1="80" y1="40" x2="80" y2="140" stroke="#EEF4FF" stroke-width="1.5"/>
+            <line x1="120" y1="40" x2="120" y2="140" stroke="#EEF4FF" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- THE MKY STANDARD                -->
+  <!-- ============================= -->
+  <section class="standard" id="standard">
+    <div class="wrap">
+      <div class="standard-head">
+        <span class="eyebrow">The MKY Standard</span>
+        <h2>A promise, not a policy.</h2>
+      </div>
+      <div class="standard-grid">
+        <div class="standard-item">
+          <div class="standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none"><path d="M22 4 L38 11 V22 C38 32 31 39 22 41 C13 39 6 32 6 22 V11 Z" stroke-width="2"/><path d="M15 22 L20 27 L30 16" stroke-width="2"/></svg>
+          </div>
+          <h3>Fully Insured</h3>
+          <p>Every move is covered end to end, so the value of what you own is never left to chance in transit.</p>
+        </div>
+        <div class="standard-item">
+          <div class="standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none"><rect x="8" y="8" width="28" height="28" rx="2" stroke-width="2"/><path d="M15 22 H29 M22 15 V29" stroke-width="2"/></svg>
+          </div>
+          <h3>Damage-Free Handling</h3>
+          <p>Purpose-built crating, padded transport, and crews trained to treat your goods as irreplaceable — because often they are.</p>
+        </div>
+        <div class="standard-item">
+          <div class="standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="16" stroke-width="2"/><path d="M22 13 V22 L29 26" stroke-width="2"/></svg>
+          </div>
+          <h3>Punctual Every Time</h3>
+          <p>Arrival windows we hold ourselves to, communicated clearly and honoured without excuses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- BY THE NUMBERS                  -->
+  <!-- ============================= -->
+  <section class="numbers">
+    <div class="wrap">
+      <div class="numbers-grid">
+        <div>
+          <span class="number-value" data-target="14200" data-suffix="+">0</span>
+          <span class="number-label">Completed Moves</span>
+        </div>
+        <div>
+          <span class="number-value" data-target="48" data-suffix="">0</span>
+          <span class="number-label">Cities Reached</span>
+        </div>
+        <div>
+          <span class="number-value" data-target="98" data-suffix="%">0</span>
+          <span class="number-label">Client Satisfaction Rate</span>
+        </div>
+        <div>
+          <span class="number-value" data-target="17" data-suffix="">0</span>
+          <span class="number-label">Years in Operation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- PROCESS                         -->
+  <!-- ============================= -->
+  <section class="process">
+    <div class="wrap">
+      <div class="process-head">
+        <span class="eyebrow">How It Works</span>
+        <h2>Four steps to moving day.</h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="step-circle">1</div>
+          <h3>Request a Quote</h3>
+          <p>Tell us what's moving and where. We respond within one business day with a clear, itemised estimate.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">2</div>
+          <h3>Site Survey</h3>
+          <p>A coordinator visits or video-walks the space to plan crating, crew size, and access logistics.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">3</div>
+          <h3>Pack &amp; Transport</h3>
+          <p>Our crews pack, load, and move your goods under insured, tracked conditions, door to door.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">4</div>
+          <h3>Unpack &amp; Settle</h3>
+          <p>Furniture reassembled, boxes placed by room, and a final walkthrough before we leave.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- TESTIMONIALS                    -->
+  <!-- ============================= -->
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="testimonial-wrap">
+        <span class="quote-mark" aria-hidden="true">&#8220;</span>
+        <div class="testimonial-slide active">
+          <p class="quote">They moved our entire house from Sandton to Cape Town and not a single glass survived the packing — because none needed to. Everything arrived exactly as it left.</p>
+          <p class="testimonial-meta">Naledi M. — Residential Relocation, Cape Town</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="quote">We relocated 60 staff over a single weekend. Monday morning, every desk, monitor and cable was exactly where the floor plan said it would be.</p>
+          <p class="testimonial-meta">Werner B. — Commercial Removal, Johannesburg</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="quote">Same-day courier for a client contract that absolutely could not be late. MKY had it signed for two hours before the deadline.</p>
+          <p class="testimonial-meta">Amahle K. — Courier &amp; Delivery, Durban</p>
+        </div>
+        <div class="testimonial-dots">
+          <button class="active" aria-label="Show testimonial 1" data-i="0"></button>
+          <button aria-label="Show testimonial 2" data-i="1"></button>
+          <button aria-label="Show testimonial 3" data-i="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- COVERAGE MAP                    -->
+  <!-- ============================= -->
+  <section class="coverage" id="coverage">
+    <div class="wrap">
+      <div class="coverage-head">
+        <span class="eyebrow">Where We Operate</span>
+        <h2>Nationwide Coverage.</h2>
+      </div>
+      <div class="map-card">
+        <iframe
+          title="MKY Logistics coverage map of South Africa"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=16.3,-34.9,32.9,-22.1&layer=mapnik"
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="coverage-list">
+        <div>
+          <h3>Gauteng &amp; Surrounds</h3>
+          <ul>
+            <li>Johannesburg</li>
+            <li>Pretoria</li>
+            <li>Sandton</li>
+            <li>Centurion</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Coastal Metros</h3>
+          <ul>
+            <li>Cape Town</li>
+            <li>Durban</li>
+            <li>Gqeberha</li>
+            <li>East London</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Inland &amp; Regional</h3>
+          <ul>
+            <li>Bloemfontein</li>
+            <li>Polokwane</li>
+            <li>Nelspruit</li>
+            <li>Kimberley</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- CONTACT / QUOTE                 -->
+  <!-- ============================= -->
+  <section class="contact" id="contact">
+    <div class="contact-left">
+      <span class="eyebrow">Get Started</span>
+      <h2>Start Your Move Today.</h2>
+      <p class="contact-sub">Share a few details and a move coordinator will send a written quote within one business day.</p>
+
+      <form aria-label="Request a moving quote">
+        <div class="form-row two">
+          <div>
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+          </div>
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="serviceType">Service Type</label>
+          <select id="serviceType" name="serviceType">
+            <option>Residential Relocation</option>
+            <option>Commercial Removal</option>
+            <option>Courier &amp; Delivery</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-row two">
+          <div>
+            <label for="fromLoc">Moving From</label>
+            <input type="text" id="fromLoc" name="fromLoc" placeholder="Suburb, City">
+          </div>
+          <div>
+            <label for="toLoc">Moving To</label>
+            <input type="text" id="toLoc" name="toLoc" placeholder="Suburb, City">
+          </div>
+        </div>
+        <div>
+          <label for="moveDate">Preferred Date</label>
+          <input type="date" id="moveDate" name="moveDate">
+        </div>
+        <div>
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" placeholder="Anything we should know — access restrictions, fragile items, floor levels..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Request Quote</button>
+      </form>
+    </div>
+
+    <div class="contact-right">
+      <div>
+        <h3>Speak To Us</h3>
+        <p>+27 11 234 5678</p>
+        <p>hello@mkylogistics.co.za</p>
+      </div>
+      <div>
+        <h3>Business Hours</h3>
+        <p>Monday – Friday: 07:00 – 18:00</p>
+        <p>Saturday: 08:00 – 13:00</p>
+        <p>Sunday: Closed (Emergency Callouts Only)</p>
+      </div>
+      <a class="whatsapp-cta" href="https://wa.me/27112345678" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= -->
+<!-- FOOTER                          -->
+<!-- ============================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-logo">
+      <svg viewBox="0 0 260 70" role="img" aria-label="MKY Logistics Logo">
+        <line x1="4" y1="24" x2="256" y2="24" stroke="#B8952A" stroke-width="1.5"/>
+        <text x="40" y="34" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="30" fill="#FFFFFF">[ MKY ]</text>
+        <text x="27" y="58" font-family="'DM Sans', sans-serif" font-size="10" letter-spacing="4" fill="#B8952A">LOGISTICS</text>
+      </svg>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#standard">The Standard</a></li>
+      <li><a href="#coverage">Coverage</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#top">Back to Top</a></li>
+    </ul>
+    <hr class="footer-rule">
+    <div class="footer-legal">
+      <p>&copy; 2026 MKY Logistics (Pty) Ltd. All rights reserved. Registered in South Africa.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="MKY Logistics on Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="MKY Logistics on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="MKY Logistics on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- Mobile menu ---- */
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobile-menu');
+
+  function closeMenu(){
+    hamburger.setAttribute('aria-expanded','false');
+    mobileMenu.classList.remove('open');
+  }
+  function openMenu(){
+    hamburger.setAttribute('aria-expanded','true');
+    mobileMenu.classList.add('open');
+    var firstLink = mobileMenu.querySelector('a');
+    if(firstLink) firstLink.focus();
+  }
+  hamburger.addEventListener('click', function(){
+    var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    expanded ? closeMenu() : openMenu();
+  });
+  mobileMenu.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ closeMenu(); }
+  });
+  // Simple keyboard trap while menu open
+  document.addEventListener('keydown', function(e){
+    if(mobileMenu.classList.contains('open')){
+      if(e.key === 'Escape'){ closeMenu(); hamburger.focus(); }
+      if(e.key === 'Tab'){
+        var focusables = mobileMenu.querySelectorAll('a, button');
+        var first = focusables[0], last = focusables[focusables.length-1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    }
+  });
+
+  /* ---- Hero rule animation (in case IO unsupported, still triggers) ---- */
+  var heroRule = document.getElementById('heroRule');
+  if('IntersectionObserver' in window){
+    var heroObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          heroRule.classList.add('in-view');
+          heroObs.disconnect();
+        }
+      });
+    }, {threshold:0.2});
+    heroObs.observe(heroRule);
+  } else {
+    heroRule.classList.add('in-view');
+  }
+
+  /* ---- Service rows reveal ---- */
+  var rows = document.querySelectorAll('.service-row');
+  if('IntersectionObserver' in window){
+    var rowObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          rowObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.2});
+    rows.forEach(function(r){ rowObs.observe(r); });
+  } else {
+    rows.forEach(function(r){ r.classList.add('in-view'); });
+  }
+
+  /* ---- CountUp numbers ---- */
+  var numberEls = document.querySelectorAll('.number-value');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1600;
+    var startTime = null;
+
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(eased * target);
+      el.textContent = current.toLocaleString() + suffix;
+      if(progress < 1){ requestAnimationFrame(step); }
+      else { el.textContent = target.toLocaleString() + suffix; }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var numObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          numObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    numberEls.forEach(function(n){ numObs.observe(n); });
+  } else {
+    numberEls.forEach(animateCount);
+  }
+
+  /* ---- Testimonial carousel ---- */
+  var slides = document.querySelectorAll('.testimonial-slide');
+  var dots = document.querySelectorAll('.testimonial-dots button');
+  var current = 0;
+  var timer;
+
+  function showSlide(i){
+    slides.forEach(function(s, idx){ s.classList.toggle('active', idx === i); });
+    dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+    current = i;
+  }
+  function nextSlide(){
+    showSlide((current + 1) % slides.length);
+  }
+  function startTimer(){
+    timer = setInterval(nextSlide, 5000);
+  }
+  function resetTimer(){
+    clearInterval(timer);
+    startTimer();
+  }
+  dots.forEach(function(dot){
+    dot.addEventListener('click', function(){
+      showSlide(parseInt(dot.getAttribute('data-i'), 10));
+      resetTimer();
+    });
+  });
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced){ startTimer(); }
+
+})();
+</script>
+
+</body>
+</html>
